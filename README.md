@@ -32,8 +32,9 @@ FEATURES
 * Ability to set separate pricing for specific clients and groups
 * Various VATs, like Managed DNS (you can do domain marking with ease).
 
+DOCUMENTATION
 
-
+http://epp-drs.com/docs/
 
 ***
 
