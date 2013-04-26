@@ -38,6 +38,4 @@ http://epp-drs.com/docs/
 
 ***
 
-In memory of Alexey Kovalyov
-Brilliant engineer, caring brother, and most excellent friend
-This project is dedicated to you.
+In memory of Alexey Kovalyov - Brilliant engineer, caring brother, and most excellent friend. This project is dedicated to you.
