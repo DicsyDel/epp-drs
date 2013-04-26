@@ -1,0 +1,2 @@
+-- System/Independent - add Shell/Shell - will be actually a factory which returs an instance of a class depending on PHP_OS.
+

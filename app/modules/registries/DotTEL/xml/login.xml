@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+	<login>
+		<clID>{clid}</clID>
+		<pw>{pw}</pw>
+		<options>
+			<version>1.0</version>
+			<lang>{lang}</lang>
+		</options>
+		<svcs>
+		   <objURI>urn:ietf:params:xml:ns:svcsub</objURI>
+		   <objURI>urn:ietf:params:xml:ns:xriAU</objURI>
+		   <objURI>urn:ietf:params:xml:ns:xriINU</objURI>
+		   <objURI>urn:ietf:params:xml:ns:xriINA</objURI>
+		   <objURI>urn:ietf:params:xml:ns:xriISV</objURI>
+		   <svcExtension>
+		    <extURI>urn:ietf:params:xml:ns:neulevel</extURI>
+		   </svcExtension>		
+		</svcs>
+	</login>
+	<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

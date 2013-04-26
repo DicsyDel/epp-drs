@@ -1,0 +1,5 @@
+--	Add CoreException tests
+--	CoreException->Backtrace suck. We need better abstraction here!
+--	Test singleton. self::GetShellInstance() for example
+--	CoreException: determine environment (web/cli) and print something. 
+	If web, print a Report form which will post us back via XML-RPC.

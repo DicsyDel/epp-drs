@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="epplu" 
+	description="LU EPP" 
+	version="3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>0</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>	
+			<change_domain_contact>1</change_domain_contact>	
+			<change_domain_authcode>0</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>0</domain_lock>
+			<poll_messages>1</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>1</auto_renewal>
+			<scheduled_delete>1</scheduled_delete>
+			<trade>1</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+									
+		<allowed_domain_flags>
+			<flag sysname="clientHold" iseditable="1" name="Client Hold">Allows to remove a domain name from the DNS. This status has no effect on the your ability to update, transfer, delete or renew the domain - the only effect is on the domain's presence in the DNS.</flag>
+			<flag sysname="inactive" iseditable="1" name="Reserved">Delegation information has not been associated with the domain.</flag>
+		</allowed_domain_flags>
+	</registry_options>
+
+	<section name="all" tlds="lu">
+		<config>
+			<idn punycode_encode="1">
+				<allowed-utf8-chars><![CDATA[\x{00E4}\x{00F6}\x{00FC}\x{00E0}\x{00E2}\x{00E6}\x{00E7}\x{00E8}\x{00E9}\x{00EA}\x{00EB}\x{00EE}\x{00EF}\x{00F4}\x{00F9}\x{00FB}\x{0153}]]></allowed-utf8-chars>
+			</idn>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Nameserver 1" name="ns1" minlength="2" maxlength="255" required="1" type="text"></field>
+						<field description="Nameserver 2" name="ns2" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="admin"></contact>
+						<contact type="tech"></contact>						
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="contact" title="Admin or Technical" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Organization" type="text" name="org" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Zip code" type="text" name="pc" required="1" minlength="2" maxlength="16" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />												
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />						
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="0" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+					</fields>
+						
+					<disclose>
+						<option name="name" description="Name" />
+						<option name="org" description="Organization" />
+						<option name="addr" description="Address" />
+						<option name="voice" description="Phone" />
+						<option name="fax" description="Fax" />
+						<option name="email" description="Email" />
+					</disclose>
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+				
+				<group name="holder" title="Registrant" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Type" type="select" name="isorg" required="1" minlength="1" maxlength="1">
+							<values>
+								<value name="Person" value="0" />
+								<value name="Organization" value="1" />
+							</values>						
+						</field>
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Zip code" type="text" name="pc" required="1" minlength="2" maxlength="16" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />												
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+					</fields>
+					
+					<disclose>
+						<option name="name" description="Name" />
+						<option name="addr" description="Address" />
+					</disclose>
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email />
+					</display_fields>
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact required="1" group="holder" type="registrant" name="Registrant" new_id="H%d8" />
+				<contact required="1" group="contact" type="admin" name="Administrative" new_id="C%d8" />
+				<contact required="1" group="contact" type="tech" name="Technical" new_id="C%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

@@ -1,0 +1,5 @@
+[subject]Domain registration complete[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Your domain {$domain_name}.{$extension} succesfully registered!
+
+Regards, {$servicename} Staff

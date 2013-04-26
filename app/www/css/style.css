@@ -1,0 +1,126 @@
+body, td
+{
+	font-family: Verdana;
+	font-size:14px;
+}
+
+.title 
+{
+	font-size: 22px; 
+	color: #6D9632;
+}
+
+.title_shine 
+{
+	font-size: 22px; 
+	color: red;
+}
+
+.tab
+{
+	float:left;
+	background-repeat: no-repeat;
+	cursor:pointer;
+	width: 150px;
+	height:27px;
+	line-height:27px;
+	margin-left:5px;
+	padding:0px;
+	text-align:center;
+	background-image: url("/images/wiz_tab_inactive.jpg");
+	color: white;
+}
+.tab_active
+{
+	background-image: url("/images/wiz_tab_active.jpg");
+	color: white;
+}
+
+.tab_disabled
+{
+	color: #CCCCCC;
+}
+
+.tab span
+{
+	margin:0px;
+}
+
+input.text, textarea.text { 
+	border-color: #719933 #C9E0A5 #C9E0A5 #719933; 
+	border-width: 1px; 
+	border-style: solid; 
+	padding: 1px; 
+	font-size: 16px; 
+	vertical-align: middle;
+}
+
+.extselect
+{
+	font-size: 15px;
+}
+
+.button
+{
+	font-size: 12px; 
+	padding: 0 5px;
+	font-family: Arial, Helvetica, sans-serif; 
+	background-color: #D4D0C8;
+	border: 1px outset;  
+	border-color: #FFF;
+	height: 22px;
+}
+
+
+a, a:link, a:visited, a:hover { color: #112ABB; text-decoration: none; }
+
+.domain_row_container
+{
+	font-size:1px;
+	width:390px;
+	font-size:14px;
+	font-family:Verdana;
+	border-bottom: 1px dotted #cccccc;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.clearer
+{
+	clear:both;
+	font-size:1px;
+	height:1px;
+}
+
+.error_hint
+{
+	margin:2px; 
+	padding:5px; 
+	background-color: red; 
+	border:1px solid red; 
+	color:white;
+}
+
+.ok_hint
+{
+	margin:2px; 
+	padding:5px; 
+	background-color: green; 
+	border:1px solid green; 
+	color:white;
+}
+
+#next_btn 
+{
+	margin-top: 10px;
+}
+
+.box_highlighted
+{
+	border: 1px solid #cccccc; 
+	background-color: #f0f0f0;
+}
+.box_normal
+{
+	border: 1px solid #f0f0f0; 
+}

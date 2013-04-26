@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<create>
+<host:create xmlns:host="urn:iana:xml:ns:host-1.0" xsi:schemaLocation="urn:iana:xml:ns:host-1.0 host-1.0.xsd">
+<host:domaintype>{type}</host:domaintype>
+<host:name>{host}</host:name>
+<host:addr ip="v4">{ip1}</host:addr>
+</host:create>
+</create>
+<unspec/>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

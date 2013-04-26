@@ -1,0 +1,2 @@
+- Core refactoring of all classes
+- Write tests for each class

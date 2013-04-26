@@ -1,0 +1,17 @@
+[subject]Report for bulk contacts update[/subject]
+Dear {if $Client->Name}{$Client->Name}{else}Valued Customer{/if},
+
+You have requested update of contacts for multiple domains.
+Below you can find results of update operation for each domain.
+
+New contacts:
+{if $Registrant}Registrant: {$Registrant->GetTitle()}{/if}
+{if $Admin}Admin: {$Admin->GetTitle()}{/if}
+{if $Tech}Technical: {$Tech->GetTitle()}{/if}
+{if $Billing}Billing: {$Billing->GetTitle()}{/if}
+
+Update result:
+{foreach from=$report item=line}
+{$line.domain}: {$line.status}{if $line.fail_reason} ({$line.fail_reason}){/if}{/foreach}
+
+Regards, {$servicename} Staff

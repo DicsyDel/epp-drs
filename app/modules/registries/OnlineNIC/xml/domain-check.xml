@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<check>
+<domain:check xmlns:domain="urn:iana:xml:ns:domain-1.0" xsi:schemaLocation="urn:iana:xml:ns:domain-1.0 domain-1.0.xsd">
+<domain:type>{type}</domain:type>
+<domain:name>{name}</domain:name>
+</domain:check>
+</check>
+<unspec />
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

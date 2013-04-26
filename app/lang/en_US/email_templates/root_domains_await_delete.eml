@@ -1,0 +1,13 @@
+[subject]Several domains expiring tomorrow need to be deleted.[/subject]
+Dear {$servicename} owner,
+
+Several domains will expire tomorrow {$date} and were unpaid by customer.
+EPP-DRS wants to delete them
+
+{foreach from=$report item=it}{$it.domain}	{$it.user}
+{/foreach}
+
+You must approve or decline these changes.
+Log in to a Registrar control panel {$confirm_url}.
+
+Regards, {$servicename} Staff

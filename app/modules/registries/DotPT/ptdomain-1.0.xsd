@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://eppdev.dns.pt/schemas/ptdomain-1.0" xmlns:ptdomain="http://eppdev.dns.pt/schemas/ptdomain-1.0" xmlns:domain="urn:ietf:params:xml:ns:domain-1.0" xmlns:epp="urn:ietf:params:xml:ns:epp-1.0" xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+		
+<!--
+Import common element types.
+-->
+	
+	<annotation>
+		<documentation>
+			Extensible Provisioning Protocol v1.0
+			.PT Domain Extensions
+		</documentation>
+	</annotation>
+
+	<!-- contact type extension -->
+	
+	<element name="create" type="ptdomain:createType"/>
+	<element name="creData" type="ptdomain:roidType"/>
+	<element name="delete" type="ptdomain:roidType"/>
+	<element name="info" type="ptdomain:roidType"/>
+	<element name="infData" type="ptdomain:infDataType"/>
+	<element name="renew" type="ptdomain:renewType"/>
+	<!--<element name="renounce" type="ptdomain:roidType"/>-->
+	<element name="update" type="ptdomain:roidType"/>
+	<element name="transfer" type="ptdomain:transferType"/>
+	
+	<complexType name="createType">
+		<sequence>
+			<element name="legitimacy" type="ptdomain:legitimacy" maxOccurs="1" minOccurs="0"/>
+			<element name="registration_basis" type="ptdomain:registrationBasis" maxOccurs="1" minOccurs="0"/>
+			
+			<!-- TO BE USED LATTER
+			<element name="addPeriod" type="boolean" minOccurs="1"/>
+			<element name="nextPossibleRegistration" type="boolean" minOccurs="1"/>
+			-->
+			
+			<element name="autoRenew" type="boolean" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="legitimacy">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="type" type="ptdomain:legitimacyType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	
+	<simpleType name="legitimacyType">
+		<restriction base="token">
+			<enumeration value="1"/>
+			<enumeration value="2"/>
+			<enumeration value="3"/>
+			<enumeration value="4"/>
+			<enumeration value="5"/>
+			<enumeration value="6"/>
+			<enumeration value="7"/>
+			<enumeration value="8"/>
+			<enumeration value="9"/>
+			<enumeration value="10"/>
+			<enumeration value="11"/>
+			<enumeration value="12"/>
+		</restriction>
+	</simpleType>	
+	
+	<complexType name="registrationBasis">
+		<sequence>
+			<element name="brand" type="ptdomain:brand" minOccurs="0"/>	
+		</sequence>
+		<attribute name="type" type="ptdomain:registrationBasisType" use="required"/>
+	</complexType>
+	
+	<simpleType name="registrationBasisType">
+		<restriction base="token">
+			<enumeration value="6A"/>
+			<enumeration value="6B"/>
+			<enumeration value="6C"/>
+			<enumeration value="6D"/>
+			<enumeration value="6E"/>
+			<enumeration value="6F"/>
+			<enumeration value="6G"/>
+			<enumeration value="6H"/>
+			<enumeration value="6I"/>
+		</restriction>
+	</simpleType>
+	
+	<complexType name="brand">
+		<attribute name="type" type="ptdomain:brandType" use="optional"/>
+		<attribute name="date" type="token" use="required"/>
+		<attribute name="number" type="token" use="required"/>
+		<attribute name="owner" type="token" use="optional"/>
+		<attribute name="registered_brand" type="token" use="optional"/>
+		<attribute name="way_registry" type="ptdomain:supportDocumentationType" use="required"/>
+		<attribute name="class" type="token" use="optional"/>
+		<attribute name="brand_owner" type="boolean" use="optional"/>
+		<attribute name="brand_rights" type="boolean" use="optional"/>
+	</complexType>
+
+	<simpleType name="brandType">
+		<restriction base="token">
+			<enumeration value="Temporary"/>
+			<enumeration value="Final"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="supportDocumentationType">
+		<restriction base="token">
+			<enumeration value="INPI"/>
+			<enumeration value="OAMI"/>
+			<enumeration value="OMPI"/>
+		</restriction>
+	</simpleType>	
+	
+	<complexType name="roidType">
+		<sequence>
+			<element name="roid" type="token" minOccurs="1"/>
+		</sequence>
+	</complexType>	
+	
+	<complexType name="infDataType">
+		<sequence>
+			<element name="legitimacy" type="ptdomain:legitimacy"/>
+			<element name="registration_basis" type="ptdomain:registrationBasis"/>
+			<element name="addPeriod" type="boolean" minOccurs="0"/>
+			<element name="nextPossibleRegistration" type="boolean" minOccurs="0"/>
+			<element name="autoRenew" type="boolean" minOccurs="0"/>
+			<element name="notRenew" type="boolean" minOccurs="0"/>
+			<element name="renew" type="ptdomain:infRenewType" minOccurs="0"/>
+			<element name="waitingRemoval" type="boolean" minOccurs="0"/>
+		</sequence>
+	</complexType>	
+	
+	<complexType name="infRenewType">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="period" type="ptdomain:periodType" use="required"/>
+			</extension>
+		</simpleContent>
+	</complexType>	
+	
+	<simpleType name="periodType">
+		<restriction base="token">
+			<enumeration value="1"/>
+			<enumeration value="3"/>
+			<enumeration value="5"/>
+		</restriction>
+	</simpleType>	
+	
+	<complexType name="renewType">
+		<sequence>
+			<element name="roid" type="token" minOccurs="1" maxOccurs="1"/>
+			<element name="autoRenew" type="boolean" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>		
+	
+	<complexType name="transferType">
+		<sequence>
+			<element name="roid" type="token" minOccurs="1" maxOccurs="2"/>
+			<choice minOccurs="1" maxOccurs="1">	
+				<element name="transferKey" type="string"/>
+				<element name="renounce" type="boolean"/>
+			</choice>	
+		</sequence>
+	</complexType>	
+	
+		
+	
+</schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+	 xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+ <command>
+  <trade op="request">
+   <domain:trade>
+    <domain:name>{name}</domain:name>
+  </domain:trade>
+  </trade>
+  <extension>
+    <eurid:ext xmlns:eurid="http://www.eurid.eu/xml/epp/eurid-1.0"
+     xsi:schemaLocation="http://www.eurid.eu/xml/epp/eurid-1.0 eurid-1.0.xsd">
+      <eurid:trade>
+        <eurid:domain>
+           <eurid:registrant>{c_registrant}</eurid:registrant>
+           <eurid:billing>{c_billing}</eurid:billing>
+           <eurid:onsite>{c_onsite}</eurid:onsite>
+           {ns}
+        </eurid:domain>
+      </eurid:trade>
+    </eurid:ext>
+  </extension>
+  <clTRID>{clTRID}</clTRID>
+ </command>
+</epp>
+      

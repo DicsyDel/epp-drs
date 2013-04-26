@@ -1,0 +1,1 @@
+{t}Powered by{/t} <a target="" href="http://webta.net/products/epp-drs">EPP-DRS</a> {t}Version{/t} {$app_version}

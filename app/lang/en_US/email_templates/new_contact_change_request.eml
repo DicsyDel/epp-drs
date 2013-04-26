@@ -1,0 +1,8 @@
+[subject]Contact change requested[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+You've made changes in the registrant contact {$Contact->GetFullName()}
+
+New email will be sent to you once this change is approved or declined by {$servicename}.
+
+Regards, {$servicename} Staff

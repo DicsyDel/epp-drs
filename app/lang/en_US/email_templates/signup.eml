@@ -1,0 +1,12 @@
+[subject]Welcome to {$servicename}, {$client.name}![/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Thank you for your registration on {$servicename}!
+
+Use the information below to log in to your Registrant Control Panel:
+{$client_area_url}
+Login: {$login}
+Password {$password}
+
+Please keep this information confidential!
+
+Regards, {$servicename} Staff

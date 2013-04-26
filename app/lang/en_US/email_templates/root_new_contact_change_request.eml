@@ -1,0 +1,10 @@
+[subject]Contact change pending.[/subject]
+Dear {$servicename} owner,
+
+{if $client.name}{$client.name}{else}A client{/if} submitted
+changes to a registrant contact.
+
+You must approve or decline these changes.
+Log in to a Registrar control panel {$registrar_cp_url}.
+
+Regards, {$servicename} Staff

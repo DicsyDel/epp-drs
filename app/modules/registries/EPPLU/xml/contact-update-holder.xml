@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+	<update>
+		<contact:update xmlns:contact ="urn:ietf:params:xml:ns:contact-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0 contact-1.0.xsd">
+			<contact:id>{id}</contact:id>
+			<contact:chg>
+				<contact:postalInfo type="loc">
+					<contact:name>{name}</contact:name>
+					<contact:addr>
+						<contact:street>{street1}</contact:street>
+						<contact:street>{street2}</contact:street>
+						<contact:city>{city}</contact:city>
+						<contact:pc>{pc}</contact:pc>
+						<contact:cc>{cc}</contact:cc> 
+					</contact:addr>
+				</contact:postalInfo>
+			</contact:chg>
+		</contact:update>
+</update>
+<extension>
+<dnslu:ext xmlns:dnslu="http://www.dns.lu/xml/epp/dnslu-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dns.lu/xml/epp/dnslu-1.0 dnslu-1.0.xsd">
+	<dnslu:update>
+		<dnslu:contact>
+			<dnslu:add>
+				<dnslu:disclose>
+					{disclose_add}
+				</dnslu:disclose>
+			</dnslu:add>
+			<dnslu:rem>
+				<dnslu:disclose>
+					{disclose_rem}
+				</dnslu:disclose>
+			</dnslu:rem>
+		</dnslu:contact>
+	</dnslu:update>
+</dnslu:ext>
+</extension>
+<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

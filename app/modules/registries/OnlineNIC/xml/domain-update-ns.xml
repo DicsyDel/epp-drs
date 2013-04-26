@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp>
+<command>
+<update>
+<domain:update xmlns:domain="urn:iana:xml:ns:domain-1.0" xsi:schemaLocation="urn:iana:xml:ns:domain-1.0 domain-1.0.xsd">
+<domain:type>{type}</domain:type>
+<domain:name>{name}</domain:name>
+<domain:rep>
+<domain:ns1>{ns1}</domain:ns1>
+<domain:ns2>{ns2}</domain:ns2>
+<domain:authInfo type="pw">{pw}</domain:authInfo>
+</domain:rep>
+</domain:update>
+</update>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

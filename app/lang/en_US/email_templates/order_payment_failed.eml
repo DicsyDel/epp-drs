@@ -1,0 +1,16 @@
+[subject]Payment for order {$orderid} failed[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+Your payment for {$servicename} order failed.
+The reason of failure is: {$reason}
+
+Invoices in this order:
+{foreach from=$invoices item=Invoice}
+{include file="inc/invoice_info.tpl"}
+{if $invoices|@count > 1}---------------{/if}
+{/foreach}
+
+You can pay these invoices in your Registrant Control Panel:
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

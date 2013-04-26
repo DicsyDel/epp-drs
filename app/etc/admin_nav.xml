@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu>
+	<item href="index.php">Dashboard</item>
+	
+	<node title="Clients">
+		<item href="users_view.php" search="SELECT COUNT(*) FROM users WHERE login LIKE '%s'">View all</item>
+		<item href="users_add.php">Create new</item>
+	</node>
+
+	<node title="Domains">
+		<item href="domains_view.php" search="SELECT COUNT(*) FROM domains WHERE name LIKE '%s'">View all</item>
+		<item href="domains_view.php?act=expsoon">View expiring soon</item>
+		<item href="domains_await_delete_confirmation.php">View awaiting delete confirmation</item>
+	</node>
+
+	<node title="Contacts">
+		<item href="contacts_view.php" search="SELECT COUNT(*) FROM contacts WHERE clid LIKE '%s'">View all</item>
+		<item href="contacts_view.php?unused=1">View unused</item>
+		<item href="contacts_change_requests.php">Change requests</item>
+	</node>
+
+	<node title="Invoices">
+		<item href="inv_view.php">View all</item>
+		<separator/>
+		<item href="inv_view.php?status=0">View pending</item>
+		<item href="inv_view.php?status=1">View paid</item>
+		<item href="inv_view.php?status=2">View rejected</item>
+		<separator/>
+		<item href="inv_create.php">Create new</item>		
+	</node>
+	<node title="Balance">
+		<item href="balance_operation.php">Add/deduct funds</item>
+	</node>
+	<node title="Tools">		
+		<item href="domains_import.php">Import existing domains</item>
+		<item href="domains_export.php">Export domains</item>
+	</node>
+	<node title="Logs">	
+		<item href="logs_view.php">System log</item>
+		<item href="api_logs_view.php">API log</item>
+		<item href="history.php">Objects history</item>
+	</node>
+	<node type="settings" title="Settings">
+		<item href="settings_core.php">Core settings</item>
+		<item href="settings_api.php">API settings</item>
+		<node title="Registry modules">
+			<item href="modules_view.php">View all</item>			
+			<item href="tld_view.php">Configure domain extensions</item>		
+			<separator />				
+			<item href="manage_tld_conflicts.php">Resolve domain extension conflicts</item>
+		</node>
+		<node title="Payment modules">
+			<item href="pmodules_view.php">View</item>
+		</node>
+		<separator />
+		<node title="Billing">
+			<node title="Discount packages">
+				<item href="packages_view.php">View all</item>
+				<item href="packages_add.php">Create new</item>			
+			</node>
+			<node title="Invoice purposes">
+				<item href="ipurposes_view.php">View all</item>
+				<!-- <item href="ipurposes_add.php">Create new</item>-->
+			</node>
+			<separator />
+			<item href="currency_settings.php">Currency settings</item>
+			<separator />
+			<item href="countries.php">Countries</item>
+		</node>
+		<separator/>
+		<node title="EPP-DRS Extensions">
+			<node title="Managed DNS" type="manageddns">
+				<node title="Nameservers">
+					<item href="ns_view.php">View all</item>
+					<item href="ns_add.php">Create new</item>				
+				</node>
+				<item href="dnsdef_manage.php">Set default zone records</item>				
+			</node>
+			<separator/>
+			<item href="extensions.php">View EPP-DRS extensions</item>
+		</node>
+		<node title="Integration and customization">
+			<item href="templates_manager.php">Templates</item>
+			<item href="langs.php">Languages</item>
+			<separator/>
+			<node title="Client profile additional fields">
+				<item href="fields_view.php">View all</item>
+				<item href="fields_add.php">Create new</item>			
+			</node>
+			<separator/>
+			<item href="custom_event_handlers.php">Custom event handlers</item>
+		</node>
+	</node>
+	
+</menu>

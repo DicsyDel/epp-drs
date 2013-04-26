@@ -1,0 +1,3 @@
+-- Check product ID as well! Can be specified in prepend.inc.php
+--	Check CRC of main files (Licencemanager, licence file, prepend)
+-- Inside Core::RaiseError just show text stating that there is no valid license

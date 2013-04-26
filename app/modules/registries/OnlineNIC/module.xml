@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="onlinenic" 
+	description="OnlineNIC" 
+	version="v2">
+
+	<define name="basic_contact_fields">
+		<field iseditable="0" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Organization" type="text" name="org" required="1" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+			<database table="countries" value_field="code" name_field="name" />
+		</field>
+		<field iseditable="1" description="State" type="text" name="sp" required="1" minlength="2" maxlength="60"></field>
+		<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="60" />
+		<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+		<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="voice" required="1" />
+		<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="fax" required="1" />
+		<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+	</define>
+	
+	<registry_options>
+	
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>1</update_all_ns>
+			<max_ns>2</max_ns>								
+		</host_objects>
+
+		<ability>
+			<contact_removal>0</contact_removal>
+			<change_domain_contact>0</change_domain_contact>
+			<change_domain_authcode>0</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+		
+		<registrar_contacts />		
+	
+		<allowed_domain_flags />
+	</registry_options>
+
+
+	<section name="all" tlds="com,net,org,biz,info,ws,mobi,tel,tv,me,name,tw,com.tw,org.tw,idv.tw,game.tw,ebiz.tw,club.tw,cn">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields extends="basic_contact_fields"/>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+	
+	
+	<section name="cc" tlds="cc">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields extends="basic_contact_fields"/>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>	
+	
+	<section name="eu" tlds="eu">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="0" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Organization" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<values>
+								<value name="Bulgaria" value="BG"/>
+								<value name="Cyprus" value="CY"/>
+								<value name="Czech republic" value="CZ"/>
+								<value name="Denmark" value="DK"/>
+								<value name="Estonia" value="EE"/>
+								<value name="Finland" value="FI"/>
+								<value name="France" value="FR"/>
+								<value name="French guiana" value="GF"/>
+								<value name="Germany" value="DE"/>
+								<value name="Gibraltar" value="GI"/>
+								<value name="Greece" value="GR"/>
+								<value name="Guadeloupe" value="GP"/>
+								<value name="Hungary" value="HU"/>
+								<value name="Ireland" value="IE"/>
+								<value name="Italy" value="IT"/>
+								<value name="Latvia" value="LV"/>
+								<value name="Lithuania" value="LT"/>
+								<value name="Luxembourg" value="LU"/>
+								<value name="Malta" value="MT"/>
+								<value name="Martinique" value="MQ"/>
+								<value name="Netherlands" value="NL"/>
+								<value name="Poland" value="PL"/>
+								<value name="Portugal" value="PT"/>
+								<value name="Romania" value="RO"/>
+								<value name="Réunion" value="RE"/>
+								<value name="Slovakia" value="SK"/>
+								<value name="Slovenia" value="SI"/>
+								<value name="Spain" value="ES"/>
+								<value name="Sweden" value="SE"/>
+								<value name="United kingdom" value="GB"/>
+							</values>
+						</field>
+						<field iseditable="1" description="State" type="text" name="sp" required="1" minlength="2" maxlength="60"></field>
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="fax" required="1" />
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>	
+	
+
+	<section name="us" tlds="us">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields extends="basic_contact_fields">
+						<field iseditable="1" description="Purpose" name="us-ext-app-purpose" required="1" type="select">
+							<values>
+								<value name="Business use for profit" value="P1" />
+								<value name="Non-profit business, club, association, religious organization, etc." value="P2" />
+								<value name="Personal Use" value="P3" />
+								<value name="Education purposes" value="P4" />
+								<value name="Government purposes" value="P5" />
+							</values>
+						</field>
+						
+						<field iseditable="1" description="Information of Nexus" name="us-ext-nexus-category" required="1" type="select">
+							<values>
+								<value name="US citizen" value="C11" />
+								<value name="Permanent US resident" value="C12" />
+								<value name="US Organization" value="C21" />
+								<value name="Organization with direct presence in US" value="C31" />
+								<value name="Organization with non-direct presence in US" value="C32" />
+							</values>
+						</field>						
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+
+
+	<section name="uk.*" tlds="co.uk,org.uk,ltd.uk,plc.uk,me.uk">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields extends="basic_contact_fields"/>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+
+	<section name="vn.*, in.*" tlds="vn,com.vn,net.vn,org.vn,biz.vn,info.vn,name.vn,in,co.in,net.in,org.in,firm.in,gen.in,ind.in">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Registrant" apply-to-section="1">
+					<fields extends="basic_contact_fields"/>
+					<disclose />
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+	
+	
+	<section name="asia" tlds="asia">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>3650</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" apply-to-section="1">
+					<fields extends="basic_contact_fields">
+						<field iseditable="1" type="select" name="asia-ext-locality-cc" description="Locality of Establishment of the Entity" required="1">
+							<values>
+								<value name="Afghanistan" value="af"/>
+								<value name="Antarctica" value="aq"/>
+								<value name="Armenia" value="am"/>
+								<value name="Australia" value="au"/>
+								<value name="Azerbaijan" value="az"/>
+								<value name="Bahrain" value="bh"/>
+								<value name="Bangladesh" value="bd"/>
+								<value name="Bhutan" value="bt"/>
+								<value name="Brunei Darussalam" value="bn"/>
+								<value name="Cambodia" value="kh"/>
+								<value name="China" value="cn"/>
+								<value name="Cocos (Keeling) Islands" value="cc"/>
+								<value name="Cook Islands" value="ck"/>
+								<value name="Cyprus" value="cy"/>
+								<value name="Fiji" value="fj"/>
+								<value name="Georgia" value="ge"/>
+								<value name="Heard Island And Mcdonald Islands" value="hm"/>
+								<value name="Hong Kong" value="hk"/>
+								<value name="India" value="in"/>
+								<value name="Indonesia" value="id"/>
+								<value name="Iran, Islamic Republic Of" value="ir"/>
+								<value name="Iraq" value="iq"/>
+								<value name="Israel" value="il"/>
+								<value name="Jordan" value="jo"/>
+								<value name="Japan" value="jp"/>
+								<value name="Kazakhstan" value="kz"/>
+								<value name="Kiribati" value="ki"/>
+								<value name="Korea, Democratic People'S Republic Of" value="kp"/>
+								<value name="Korea, Republic Of" value="kr"/>
+								<value name="Kuwait" value="kw"/>
+								<value name="Kyrgyzstan" value="kg"/>
+								<value name="Lao People'S Democratic Republic" value="la"/>
+								<value name="Lebanon" value="lb"/>
+								<value name="Macao" value="mo"/>
+								<value name="Malaysia" value="my"/>
+								<value name="Maldives" value="mv"/>
+								<value name="Marshall Islands" value="mh"/>
+								<value name="Micronesia, Federated States Of" value="fm"/>
+								<value name="Mongolia" value="mn"/>
+								<value name="Myanmar" value="mm"/>
+								<value name="Nauru" value="nr"/>
+								<value name="Nepal" value="np"/>
+								<value name="New Zealand" value="nz"/>
+								<value name="Niue" value="nu"/>
+								<value name="Norfolk Island" value="nf"/>
+								<value name="Oman" value="om"/>
+								<value name="Pakistan" value="pk"/>
+								<value name="Palau" value="pw"/>
+								<value name="Palestinian Territories" value="ps"/>
+								<value name="Papua New Guinea" value="pg"/>
+								<value name="Philippines" value="ph"/>
+								<value name="Qatar" value="qa"/>
+								<value name="Samoa" value="ws"/>
+								<value name="Saudi Arabia" value="sa"/>
+								<value name="Singapore" value="sg"/>
+								<value name="Solomon Islands" value="sb"/>
+								<value name="Sri Lanka" value="lk"/>
+								<value name="Syrian Arab Republic" value="sy"/>
+								<value name="Taiwan" value="tw"/>
+								<value name="Tajikistan" value="tj"/>
+								<value name="Thailand" value="th"/>
+								<value name="Timor-Leste" value="tl"/>
+								<value name="Tokelau" value="tk"/>
+								<value name="Tonga" value="to"/>
+								<value name="Turkey" value="tr"/>
+								<value name="Turkmenistan" value="tm"/>
+								<value name="Tuvalu" value="tv"/>
+								<value name="United Arab Emirates" value="ae"/>
+								<value name="Uzbekistan" value="uz"/>
+								<value name="Vanuatu" value="vu"/>
+								<value name="Viet Nam" value="vn"/>
+								<value name="Yemen" value="ye"/>
+							</values>
+						</field>
+						<field iseditable="1" type="text" name="asia-ext-locality-city" description="City of Establishment of the Entity" required="0"/>
+						<field iseditable="1" type="text" name="asia-ext-locality-sp" description="State/Province of Establishment of the Entity" required="0"/>
+						<field iseditable="1" type="select" name="asia-ext-le-type" description="Type of Entity" required="1">
+							<values>
+								<value name="Corporations or Companies" value="corporation"/>
+								<value name="Cooperatives" value="cooperative"/>
+								<value name="Partnerships or Collectives" value="partnership"/>
+								<value name="Government Bodies" value="government"/>
+								<value name="Political parties or Trade Unions" value="politicalParty"/>
+								<value name="Trusts, Estates, Associations or Societies" value="society"/>
+								<value name="Institutions" value="institution"/>
+								<value name="Natural Persons" value="naturalPerson"/>
+								<value name="Other" value="other"/>
+							</values>
+						</field>
+						<!-- required if asia_legalentitytype=other -->
+						<field iseditable="1" type="text" name="asia-ext-other-le-type" description="Other Entity Type" required="0" note="Required when type of entity is 'Other'"/>						
+						<field iseditable="1" type="select" name="asia-ext-identform" description="Form of Identity" required="1">
+							<values>
+								<value name="Certificate of Incorp" value="certificate"/>
+								<value name="Charter" value="legislation"/>
+								<value name="Societies Registry" value="societyRegistry"/>
+								<value name="Political Party Registry" value="politicalPartyRegistry"/>
+								<value name="Passport/Citizenship ID" value="passport"/>
+								<value name="Other" value="other"/>
+							</values>
+						</field>
+						<!--  required if asia_identform=other -->
+						<field iseditable="1" type="text" name="asia-ext-other-identform" description="Other Identification Form" required="0" note="Required when form of identity is 'Other'"/>						
+						<field iseditable="1" type="text" name="asia-ext-ident-number" description="Form of Identity ID Number/Code of Reference" required="1"/>
+						
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>	
+	
+</module>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+ <extension>
+    <frnic:ext xmlns:frnic="http://www.afnic.fr/xml/epp/frnic-1.0">
+      <frnic:command>
+        <frnic:trade op="request">
+          <frnic:domain>
+            <frnic:name>{name}</frnic:name>
+            <frnic:registrant>{registrant_id}</frnic:registrant>
+            {contacts}
+          </frnic:domain>
+        </frnic:trade>
+        <frnic:clTRID>{clTRID}</frnic:clTRID>
+      </frnic:command>
+    </frnic:ext>
+ </extension>
+</epp>

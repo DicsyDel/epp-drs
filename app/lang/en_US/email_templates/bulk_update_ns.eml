@@ -1,0 +1,15 @@
+[subject]Report for bulk nameservers update[/subject]
+Dear {if $Client->Name}{$Client->Name}{else}Valued Customer{/if},
+
+You have requested update of nameservers for multiple domains.
+Below you can find results of update operation for each domain.
+
+New nameservers:
+{foreach from=$nslist item=ns}
+	{$ns->HostName}{/foreach}
+
+Update result:
+{foreach from=$report item=line}
+{$line.domain}: {$line.status}{if $line.fail_reason} ({$line.fail_reason}){/if}{/foreach}
+
+Regards, {$servicename} Staff

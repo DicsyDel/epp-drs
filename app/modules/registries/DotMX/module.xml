@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<module 
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd" 
+	name="dotmx" 
+	description=".MX registry (NIC.MX)" 
+	version="v3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>0</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>		
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+
+		<allowed_domain_flags>
+                <flag iseditable="1" sysname="clientDeleteProhibited" name="Delete Prohibited">Requests to delete the domain MUST be rejected.</flag>
+                <flag iseditable="1" sysname="clientRenewProhibited" name="Renew Prohibited">Requests to renew the domain MUST be rejected.</flag>
+                <!-- <flag sysname="clientTransferProhibited" name="Transfer Prohibited">Requests to transfer the domain MUST be rejected.</flag> -->
+                <flag iseditable="1" sysname="clientUpdateProhibited" name="Update Prohibited">Requests to update the domain (other than to remove this status) MUST be rejected</flag>
+                <flag iseditable="1" sysname="clientHold" name="Client Hold">Allows to remove a domain name from the DNS. This status has no effect on the your ability to update, transfer, delete or renew the domain - the only effect is on the domain's presence in the DNS.</flag>
+                <flag iseditable="1" sysname="inactive" name="Reserved">Delegation information has not been associated with the domain.</flag>
+        </allowed_domain_flags>
+	</registry_options>
+
+	<section name="all" tlds="com.mx,net.mx,edu.mx,org.mx,gob.mx">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>60</min_days>
+				</renewal>
+			
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="95" />
+						<field iseditable="1" description="Organization" type="text" name="org" required="0" minlength="3" maxlength="100" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="50" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="40" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="35" />
+						<field iseditable="1" description="State" type="text" name="sp" required="0" minlength="2" maxlength="30"></field>																		
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="100" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />						
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%w1%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%w1%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%w1%d8" />
+				<contact group="generic" required="1" type="billing" name="Billing" new_id="%w1%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

@@ -1,0 +1,8 @@
+[subject]Status of pending operation changed[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+{$domain_name}.{$extension} {$operation_type} {if $result}completed successfully{else}failed{/if}!
+
+{if !$result}The reason of the failure: {$reason}
+{/if}
+Regards, {$servicename} Staff

@@ -1,0 +1,36 @@
+; Modified by Web Host Manager
+; Zone File for webta.net
+$TTL 14400
+local.webta.net.	14440	IN	SOA	ns.hostdad.com.	ak.webta.net.	(
+					2005112008
+					14400
+					7200
+					3600000
+					86400
+					)
+
+webta.net.	14400	IN	NS	ns.hostdad.com.
+webta.net.	14400	IN	NS	ns2.hostdad.com.
+
+webta.net.	14400	IN	A	67.19.107.225
+
+localhost.webta.net.	14400	IN	A	127.0.0.1
+
+webta.net.	14400	IN	MX	0	webta.net.
+
+mail	14400	IN	CNAME	webta.net.
+www	14400	IN	CNAME	webta.net.
+ftp	14400	IN	A	67.19.107.225
+adm	14400	IN	A	67.19.107.225
+www.adm	14400	IN	A	67.19.107.225
+support	14400	IN	A	67.19.107.225
+www.support	14400	IN	A	67.19.107.225
+pong	14400	IN	A	67.19.107.225
+#local	14400	IN	A	193.138.84.178
+local	400	IN	CNAME	adsl.local.webta.net.
+customer	14400	IN	A	67.19.107.225
+www.customer	14400	IN	A	67.19.107.225
+bugtrack	14400	IN	A	67.19.107.225
+www.bugtrack	14400	IN	A	67.19.107.225
+v2	14400	IN	A	72.232.62.140
+www.v2	14400	IN	A	72.232.62.140

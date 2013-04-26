@@ -1,0 +1,28 @@
+
+.w-checklist {
+	width:80%;
+}
+.w-checklist-sidebar {
+	float:left;
+	width:49%;
+}
+.w-checklist-sidebar-inner {
+	padding:10px;
+}
+.w-checklist-label {
+	font-weight:bold;
+}
+.w-checklist-list {
+	border:1px solid #cccccc;
+	height:300px;
+	overflow:auto;
+	margin:10px 0;
+}
+.w-checklist-list {
+	margin:10px 0;
+	padding:0;
+	list-style:none;
+}
+.w-checklist-list label {
+	cursor:pointer;
+}

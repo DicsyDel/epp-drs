@@ -1,0 +1,8 @@
+[subject]Domain expiration notice[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+Your domain {$domain_name}.{$extension} has expired!
+To renew this domain name, go to your Registrant Control Panel: {$client_area_url} and pay the invoice.
+Failure to renew this domain soon may result in your domain being dropped and available for registration to anyone!
+
+Regards, {$servicename} Staff

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu>
+	<node type="tasks" title="">
+		<node title="Manage contacts">
+			<item type="registrant" href="manage_contact.php?c=registrant">Registrant</item>
+			<item type="admin" href="manage_contact.php?c=admin">Administrator</item>
+			<item type="tech" href="manage_contact.php?c=tech">Technical</item>
+			<item type="billing" href="manage_contact.php?c=billing">Billing</item>			
+		</node>
+		<item href="ns.php">Manage nameservers</item>
+		<item href="domain_whois.php">WHOIS</item>
+		<item href="sync.php">Synchronize domain with registry</item>
+		<item href="renew.php">Renew</item>
+		<separator />
+		<item href="domains_view.php?task=delete">Delete</item>
+	</node>
+</menu>

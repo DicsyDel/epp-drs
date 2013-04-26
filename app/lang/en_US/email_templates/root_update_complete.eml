@@ -1,0 +1,9 @@
+[subject]EPP-DRS update complete[/subject]
+
+
+Update status: {$status}
+
+Update report: {$report}
+
+
+Regards, {$servicename} Staff

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp>
+<command>
+<logout/>
+<unspec/>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

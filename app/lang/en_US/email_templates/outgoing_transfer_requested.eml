@@ -1,0 +1,8 @@
+[subject]Domain transfer requested[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+someone have requested transfer of your domain {$domain_name}.{$extension}.
+
+Please follow this url to approve or reject transfer. 
+{$confirm_url}
+
+Regards, {$servicename} Staff

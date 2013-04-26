@@ -1,0 +1,22 @@
+[subject]Whois data reminder[/subject]
+Dear {if $Client->Name}{$Client->Name}{else}Valued Customer{/if},
+
+ICANN, the organization responsible for the stability of the Internet,
+requires that each domain name registrant be given the opportunity to
+correct any inaccurate contact data (WHOIS data) associated with a domain
+name registration. Our records for your domain are as follows:
+
+{$whois}
+
+To review and update your WHOIS contact information, please log into
+your client conrol panel at: {$registrant_cp_url}
+If any of the information above is inaccurate, you should correct it.
+If all of the information above is accurate, you do not need to take any action.
+Please remember that under the terms of your registration agreement,
+the provision of false WHOIS information can be grounds for cancellation
+of your domain name registration.
+
+If you have any questions or comments regarding ICANN's policy, please contact
+them directly at questions@icann.org.
+
+Regards, {$servicename} Staff

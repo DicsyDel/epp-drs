@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/eppdrs-api"
+	xmlns:tns="http://www.example.org/eppdrs-api"
+	elementFormDefault="qualified">
+
+	<element name="checkDomainResponse"
+		type="tns:checkDomainResponseType">
+	</element>
+
+	<complexType name="checkDomainResponseType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="avail" type="boolean"></element>
+		</sequence>
+	</complexType>
+
+	<element name="getDomainInfoResponse"
+		type="tns:domainInfoType">
+	</element>
+
+	<complexType name="domainInfoType">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="contacts">
+				<complexType>
+					<sequence>
+						<element name="registrant" type="string"
+							maxOccurs="1" minOccurs="0">
+						</element>
+						<element name="admin" type="string"
+							maxOccurs="1" minOccurs="0">
+						</element>
+						<element name="billing" type="string"
+							maxOccurs="1" minOccurs="0">
+						</element>
+						<element name="tech" type="string" maxOccurs="1"
+							minOccurs="0">
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ns" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="createDate" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+			<element name="expireDate" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+			<element name="locked" type="boolean"></element>
+			<choice>
+				<element name="localStatus" type="string"></element>
+				<element name="registryStatus" type="string"></element>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<element name="listDomainsResponse" type="tns:listDomainsResponseType">
+	</element>
+
+	<complexType name="listDomainsResponseType">
+		<sequence>
+			<element name="domains">
+				<complexType>
+					<sequence>
+						<element name="domain" type="tns:domainInfoType"
+							maxOccurs="unbounded" minOccurs="0">
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+            <element name="total" type="int"></element>
+        </sequence>
+	</complexType>
+
+</schema>

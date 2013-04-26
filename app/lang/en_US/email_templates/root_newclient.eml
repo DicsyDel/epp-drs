@@ -1,0 +1,11 @@
+[subject]New client registration[/subject]
+New account has been created on {$servicename}.
+
+Detailed client account info:
+{$client_area_url}
+Login: {$login}
+Password {$password}
+
+Please keep this information confidential!
+
+Regards, {$servicename} Staff

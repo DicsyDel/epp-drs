@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp>
+<command>
+<update>
+<domain:update>
+<domain:type>{type}</domain:type>
+<domain:name>{name}</domain:name>
+{operation}
+</domain:update>
+</update>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

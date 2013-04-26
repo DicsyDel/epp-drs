@@ -1,0 +1,23 @@
+; cPanel 
+; Zone file for 80snow.com
+$TTL 14400
+@      IN      SOA     ns.hostdad.com. ak.webta.net. (
+		2004121202	; serial, todays date+todays
+		14400		; refresh, seconds
+		7200		; retry, seconds
+		3600000		; expire, seconds
+		86400 )		; minimum, seconds
+
+80snow.com. IN NS ns.hostdad.com.
+80snow.com. IN NS ns2.hostdad.com.
+
+80snow.com. IN A 70.84.240.138
+
+localhost.80snow.com. IN A 127.0.0.1
+
+80snow.com. IN MX 0 80snow.com.
+
+mail IN CNAME 80snow.com.
+www IN CNAME 80snow.com.
+ftp IN A 70.84.240.138
+

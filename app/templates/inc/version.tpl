@@ -1,0 +1,1 @@
+Powered by <a target="" href="http://webta.net/products/epp-drs">EPP-DRS {$app_version}</a>

@@ -1,0 +1,6 @@
+[subject]Domain transfer failed[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Domain name {$domain_name}.{$extension} cannot be transferred to {$servicename}.
+The reason of failure is: {$reason}
+
+Regards, {$servicename} Staff

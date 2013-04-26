@@ -1,0 +1,145 @@
+/* Copyright Dynarch.com, 2003-2006.  All Rights Reserved. */
+
+/* Copyright Dynarch.com, 2003-2006.  All Rights Reserved. */
+/* DynarchMenu layout file */
+
+/* Copyright Dynarch.com, 2003-2006.  All Rights Reserved. */
+/* DynarchMenu layout file */
+
+/* basic layout style for DynarchMenu; no colors are defined in this */
+
+/* horizontal parts */
+
+div.dynarch-horiz-menu {
+/*  white-space: nowrap; */
+  padding: 0px 3px;
+  border: 1px solid;
+  cursor: default;
+}
+div.dynarch-horiz-menu table, div.dynarch-popup-menu table { font: 12px tahoma,verdana,sans-serif; }
+div.dynarch-popup-menu table { border-collapse: collapse; }
+div.dynarch-horiz-menu table tr td.item table td.icon { padding-right: 3px; }
+div.dynarch-horiz-menu table tr td.item { padding: 3px 10px; }
+div.dynarch-horiz-menu table tr td.item img { vertical-align: middle; }
+div.dynarch-horiz-menu table tr td.separator { width: 6px; }
+div.dynarch-horiz-menu table tr td.separator div {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  margin: 3px 2px 2px 2px;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+div.dynarch-horiz-menu td.disabled, div.dynarch-horiz-menu td.disabled table td { color: #aca899; }
+div.dynarch-horiz-menu td.disabled img { -moz-opacity: 0.4; filter: alpha(opacity=40); }
+
+/* vertical parts */
+
+div.dynarch-popup-menu {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border: 1px solid;
+  padding: 1px;
+  cursor: default;
+  z-index: 1000;
+}
+div.dynarch-popup-menu div.dynarch-menu-scroll { overflow: hidden; }
+div.dynarch-popup-base-menu { position: static; }
+div.dynarch-popup-menu tr.item td.icon img,
+div.dynarch-popup-menu tr.item td.icon div { width: 18px; height: 18px; }
+div.dynarch-popup-menu tr.item td.icon { padding: 0px 1px; height: 18px; width: 18px; }
+div.dynarch-popup-menu tr.item td.label { padding: 1px 15px 1px 3px; /* white-space: nowrap; */}
+div.dynarch-popup-menu tr.item td.arrow { width: 11px; }
+div.dynarch-popup-menu tr.item td.arrow div { width: 11px; background: transparent url("/images/rarrow.gif") no-repeat 0% 50%; }
+div.dynarch-popup-menu tr.hover td.arrow div,
+div.dynarch-popup-menu tr.active td.arrow div { background: transparent url("/images/rarrow-hover.gif") no-repeat 0% 50%; }
+
+div.dynarch-popup-menu tr.separator td div {
+  margin: 2px;
+  height: 1px;
+  line-height: 1px;
+  font-size: 1px;
+  border: none;
+}
+div.dynarch-popup-menu tr.disabled td.label { color: #aca899; }
+div.dynarch-popup-menu tr.disabled td.icon img { -moz-opacity: 0.4; filter: alpha(opacity=40); }
+
+/* shadows */
+
+div.dynarch-menu-shadow, img.dynarch-menu-shadow, div.div.dynarch-IE6-shadow { z-index: 990; position: absolute; }
+div.dynarch-menu-shadow { background-color: #555; -moz-opacity: 0.6; filter: alpha(opacity=60);}
+
+/* hider */
+iframe#dynarch-menu-hider { z-index: 980; }
+
+/* scroll */
+
+div.dynarch-menu-scroll-up { height: 12px; font-size: 12px; line-height: 12px; overflow: hidden;
+  background: url("/images/scroll-up.gif") no-repeat 50% 50%;
+}
+div.dynarch-menu-scroll-down { height: 12px; font-size: 12px; line-height: 12px; overflow: hidden;
+  background: url("/images/scroll-down.gif") no-repeat 50% 50%;
+}
+div.dynarch-menu-scroll-up-hover { background-image: url("/images/scroll-up-hover.gif"); }
+div.dynarch-menu-scroll-down-hover { background-image: url("/images/scroll-down-hover.gif"); }
+div.dynarch-menu-scroll-up-disabled { background-image: url("/images/scroll-up-disabled.gif"); }
+div.dynarch-menu-scroll-down-disabled { background-image: url("/images/scroll-down-disabled.gif"); }
+
+/* toolbars */
+
+div.dynarch-menu-toolbar table tr td.item {
+  padding: 2px 3px;
+}
+.impossible-class-name-to-preload-shadow-image-in-internet-exploder { background-image: url("/images/shadow.png"); }
+
+
+/* Additional styles for a "3D" look&feel similar to the menus in
+Windows 98/2000 or Mozilla Modern theme. */
+
+/* horizontal parts */
+
+div.dynarch-horiz-menu { border-width: 2px; border-style: groove; }
+div.dynarch-horiz-menu { padding: 1px; }
+div.dynarch-horiz-menu table tr td.hover { padding: 2px 9px; border: 1px solid; }
+div.dynarch-horiz-menu table tr td.active,
+div.dynarch-horiz-menu table tr td.pressed { padding: 3px 8px 1px 10px; border: 1px solid; }
+
+/* vertical parts */
+
+div.dynarch-popup-menu { padding: 0px; border: none; margin-top: 1px;}
+div.dynarch-popup-menu div.d { border: 1px solid;}
+div.dynarch-popup-menu div.a { padding: 1px;  }
+div.dynarch-popup-menu tr.separator td div { border-top: 1px solid; margin: 4px 2px 3px 2px; }
+
+/* toolbars */
+
+div.dynarch-menu-toolbar table tr td.item {
+  padding: 2px 3px;
+}
+div.dynarch-menu-toolbar table tr td.hover {
+  padding: 1px 2px;
+}
+div.dynarch-menu-toolbar table tr td.active,
+div.dynarch-menu-toolbar table tr td.pressed {
+  padding: 2px 1px 0px 3px;
+}
+
+
+/* horizontal parts */
+
+div.dynarch-horiz-menu { background-color: #C3D9FF; color: #000; border: none; }
+div.dynarch-horiz-menu table { color: #000; }
+div.dynarch-horiz-menu table tr td.hover { border-color: #FFFFFF #8F9FB1 #8F9FB1 #FFFFFF; }
+div.dynarch-horiz-menu table tr td.active,
+div.dynarch-horiz-menu table tr td.pressed { border-color: #8f9fb1 #fff #fff #8f9fb1; background-color: #C3D9FF; }
+div.dynarch-horiz-menu table tr td.pressed { background-color: #C3D9FF; }
+div.dynarch-horiz-menu table tr td.separator div { border-left-color: #C3D9FF; border-right: none; }
+
+/* vertical parts */
+
+div.dynarch-popup-menu { border-color: #a2bbdd; color: #000; background-color: #C3D9FF; }
+div.dynarch-popup-menu div.d { border-color: #eef4fc #b9bfc7 #b9bfc7 #eef4fc;} 
+div.dynarch-popup-menu div.a { padding: 0; }
+div.dynarch-popup-menu tr.separator td div { border-color: #FAFAFF; background: none; border-style: solid none none none; }
+div.dynarch-popup-menu tr.item.hover, div.dynarch-popup-menu tr.item.active { background-color: #FAFAFF; color: #000; }

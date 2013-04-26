@@ -1,0 +1,6 @@
+[subject]Low balance notice[/subject]
+
+Dear {if $client.name}{$client.name}{else}client{/if},
+Your balance at {$servicename} is lower than {$amount} {$currency}
+
+Regards, {$servicename} Staff

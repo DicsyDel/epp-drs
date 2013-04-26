@@ -1,0 +1,13 @@
+[subject]New Invoice Generated[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+This email is sent to inform you that a new invoice has been generated on your account.
+
+More Invoice Information:  
+Invoice ID: {$Invoice->ID} 
+Issued for: {$Invoice->Description} 
+Amount: {$currency}{$Invoice->GetTotal()|number_format:2} 
+
+Please log into your control panel and make payment at your earliest convenience. 
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

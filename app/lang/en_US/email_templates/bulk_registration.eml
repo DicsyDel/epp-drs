@@ -1,0 +1,7 @@
+[subject]Report for bulk domains registration[/subject]
+Dear {if $Client->Name}{$Client->Name}{else}Valued Customer{/if},
+
+You have requested registration of multiple domains.
+Below you can find results of this operation for each domain.
+
+Regards, {$servicename} Staff
