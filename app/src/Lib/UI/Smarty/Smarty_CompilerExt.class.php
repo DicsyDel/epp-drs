@@ -179,12 +179,12 @@
 		
 		function _compile_file($resource_name, $source_content, &$compiled_content)
 		{
-			if (parent::_compile_file($resource_name, $source_content, &$compiled_content))
+			if (parent::_compile_file($resource_name, $source_content, $compiled_content))
 			{
 				$open_tag_replace_to = "\nEOT;\n";
 				$close_tag_replace_to = "echo <<<EOT\n";
 						
-				$content = preg_replace("/\?>/si", $close_tag_replace_to, preg_replace("/<\?(php)?/si", $open_tag_replace_to, trim($compiled_content), -1, &$c_open), -1, &$c_close)."\n";
+				$content = preg_replace("/\?>/si", $close_tag_replace_to, preg_replace("/<\?(php)?/si", $open_tag_replace_to, trim($compiled_content), -1, $c_open), -1, $c_close)."\n";
 											
 				if ($c_open == $c_close)
 					$content .= "\nEOT;\n";
