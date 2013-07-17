@@ -243,7 +243,7 @@ class Getopt extends Core
      * @param string $key
      * @return string
      */
-    protected function __get($key)
+    public function __get($key)
     {
         return $this->getOption($key);
     }
@@ -254,7 +254,7 @@ class Getopt extends Core
      * @param string $key
      * @return bool
      */
-    protected function __isset($key)
+    public function __isset($key)
     {
         if (!$this->_parsed)
             $this->parse();
@@ -268,7 +268,7 @@ class Getopt extends Core
      * @param string $key
      * @param string $value
      */
-    protected function __set($key, $value)
+    public function __set($key, $value)
     {
         $this->_options[$key] = $value;
     }
