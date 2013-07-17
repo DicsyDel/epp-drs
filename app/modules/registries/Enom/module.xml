@@ -1,0 +1,1552 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="enom" 
+	description="ENOM" 
+	version="v3">
+	
+	<define name="domain_registration_extra_fields">
+		<field description="IDN language tag" type="select" name="IDNLanguage" required="0">
+			<values>
+				<value value="ENG" name="English" />
+				<value value="AFR" name="Afrikaans"/>
+				<value value="ALB" name="Albanian"/>
+				<value value="ARA" name="Arabic"/>
+				<value value="ARG" name="Aragonese"/>
+				<value value="ARM" name="Armenian"/>
+				<value value="ASM" name="Assamese"/>
+				<value value="AST" name="Asturian"/>
+				<value value="AVE" name="Avestan"/>
+				<value value="AWA" name="Awadhi"/>
+				<value value="AZE" name="Azerbaijani"/>
+				<value value="BAN" name="Balinese"/>
+				<value value="BAL" name="Baluchi"/>
+				<value value="BAS" name="Basa"/>
+				<value value="BAK" name="Bashkir"/>
+				<value value="BAQ" name="Basque"/>
+				<value value="BEL" name="Belarusian"/>
+				<value value="BEN" name="Bengali"/>
+				<value value="BHO" name="Bhojpuri"/>
+				<value value="BOS" name="Bosnian"/>
+				<value value="BUL" name="Bulgarian"/>
+				<value value="BUR" name="Burmese"/>
+				<value value="CAR" name="Carib"/>
+				<value value="CAT" name="Catalan"/>
+				<value value="CHE" name="Chechen"/>
+				<value value="CHI" name="Chinese"/>
+				<value value="CHV" name="Chuvash"/>
+				<value value="COP" name="Coptic"/>
+				<value value="COS" name="Corsican"/>
+				<value value="SCR" name="Croatian"/>
+				<value value="CZE" name="Czech"/>
+				<value value="DAN" name="Danish"/>
+				<value value="DIV" name="Divehi"/>
+				<value value="DOI" name="Dogri"/>
+				<value value="DUT" name="Dutch"/>
+				<value value="EST" name="Estonian"/>
+				<value value="FAO" name="Faroese"/>
+				<value value="FIJ" name="Fijian"/>
+				<value value="FIN" name="Finnish"/>
+				<value value="FRE" name="French"/>
+				<value value="FRY" name="Frisian"/>
+				<value value="GLA" name="Gaelic"/>
+				<value value="GEO" name="Georgian"/>
+				<value value="GER" name="German"/>
+				<value value="GON" name="Gondi"/>
+				<value value="GRE" name="Greek"/>
+				<value value="GUJ" name="Gujarati"/>
+				<value value="HEB" name="Hebrew"/>
+				<value value="HIN" name="Hindi"/>
+				<value value="HUN" name="Hungarian"/>
+				<value value="ICE" name="Icelandic"/>
+				<value value="INC" name="Indic"/>
+				<value value="IND" name="Indonesian"/>
+				<value value="INH" name="Ingush"/>
+				<value value="GLE" name="Irish"/>
+				<value value="ITA" name="Italian"/>
+				<value value="JPN" name="Japanese"/>
+				<value value="JAV" name="Javanese"/>
+				<value value="KAS" name="Kashmiri"/>
+				<value value="KAZ" name="Kazakh"/>
+				<value value="KHM" name="Khmer"/>
+				<value value="KIR" name="Kirghiz"/>
+				<value value="KOR" name="Korean"/>
+				<value value="KUR" name="Kurdish"/>
+				<value value="LAO" name="Lao"/>
+				<value value="LAV" name="Latvian"/>
+				<value value="LIT" name="Lithuanian"/>
+				<value value="LTZ" name="Luxembourgish"/>
+				<value value="MAC" name="Macedonian"/>
+				<value value="MAL" name="Malayalam"/>
+				<value value="MAY" name="Malay"/>
+				<value value="MLT" name="Maltese"/>
+				<value value="MAO" name="Maori"/>
+				<value value="MOL" name="Moldavian"/>
+				<value value="MON" name="Mongolian"/>
+				<value value="NEP" name="Nepali"/>
+				<value value="NOR" name="Norwegian"/>
+				<value value="ORI" name="Oriya"/>
+				<value value="OSS" name="Ossetian"/>
+				<value value="PAN" name="Panjabi"/>
+				<value value="PER" name="Persian"/>
+				<value value="POL" name="Polish"/>
+				<value value="POR" name="Portuguese"/>
+				<value value="PUS" name="Pushto"/>
+				<value value="RAJ" name="Rajasthani"/>
+				<value value="RUM" name="Romanian"/>
+				<value value="RUS" name="Russian"/>
+				<value value="SMO" name="Samoan"/>
+				<value value="SAN" name="Sanskrit"/>
+				<value value="SRD" name="Sardinian"/>
+				<value value="SCC" name="Serbian"/>
+				<value value="SND" name="Sindhi"/>
+				<value value="SIN" name="Sinhalese"/>
+				<value value="SLO" name="Slovak"/>
+				<value value="SLV" name="Slovenian"/>
+				<value value="SOM" name="Somali"/>
+				<value value="SPA" name="Spanish"/>
+				<value value="SWA" name="Swahili"/>
+				<value value="SWE" name="Swedish"/>
+				<value value="SYR" name="Syriac"/>
+				<value value="TGK" name="Tajik"/>
+				<value value="TAM" name="Tamil"/>
+				<value value="TEL" name="Telugu"/>
+				<value value="THA" name="Thai"/>
+				<value value="TIB" name="Tibetan"/>
+				<value value="TUR" name="Turkish"/>
+				<value value="UKR" name="Ukrainian"/>
+				<value value="URD" name="Urdu"/>
+				<value value="UZB" name="Uzbek"/>
+				<value value="VIE" name="Vietnamese"/>
+				<value value="WEL" name="Welsh"/>
+				<value value="YID" name="Yiddish"/>
+			</values>
+		</field>
+	</define>
+	
+	<define name="domain_transfer">
+		<pending_status></pending_status>
+		<allow>1</allow>
+		<allow_bulk_transfer>1</allow_bulk_transfer>
+		<timeout>0</timeout>
+		<fields>
+			<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+		</fields>
+		<contacts />
+		<update_contacts>1</update_contacts>
+	</define>
+	
+	<define name="domain_transfer_not_allowed">
+		<pending_status></pending_status>
+		<allow>0</allow>
+		<allow_bulk_transfer>0</allow_bulk_transfer>
+		<timeout>0</timeout>
+		<fields />
+		<contacts />
+		<update_contacts>0</update_contacts>
+	</define>
+	
+	<define name="domain_renewal">
+		<min_period>1</min_period>
+		<max_period>10</max_period>
+		<notifications>
+			<period>60</period>
+			<period>30</period>
+			<period>20</period>
+			<period>10</period>
+			<period>5</period>
+		</notifications>
+		<min_days>365</min_days>
+	</define>
+	
+	<define name="contact_fields">
+		<field iseditable="1" description="First name" type="text" name="FirstName" required="1" minlength="1" maxlength="60" />
+		<field iseditable="1" description="Last name" type="text" name="LastName" required="1" minlength="1" maxlength="60" />
+		<field iseditable="1" description="Organization" type="text" name="OrganizationName" required="0" minlength="1" maxlength="60" />
+		<field iseditable="1" description="Job title" type="text" name="JobTitle" required="0" minlength="1" maxlength="60" />
+		<field iseditable="1" description="Address 1" type="text" name="Address1" required="1" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Address 2" type="text" name="Address2" required="0" minlength="3" maxlength="60" />
+		<field iseditable="1" description="Postal code" type="text" name="PostalCode" required="1" minlength="2" maxlength="60" />		
+		<field iseditable="1" description="City" type="text" name="City" required="1" minlength="2" maxlength="60" />
+		<field iseditable="1" description="State/Province choice" type="select" name="StateProvinceChoice" required="0">
+			<values>
+				<value name="State" value="S" />
+				<value name="Province" value="P" />
+			</values>
+		</field>
+		<field iseditable="1" description="State/Province" type="text" name="StateProvince" required="0" minlength="2" maxlength="60"></field>
+		<field iseditable="1" description="Country" type="select" name="Country" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+			<database table="countries" value_field="code" name_field="name" />
+		</field>
+		<field iseditable="1" description="Email" type="text" name="EmailAddress" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+		<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="Phone" required="1" />
+		<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="Fax" required="0" />						
+	</define>
+	
+	<define name="contact_display_fields">
+		<name>
+			<field name="FirstName" />
+			<field name="LastName" />
+			<field name="OrganizationName" />
+		</name>
+		<email>
+			<field name="EmailAddress" />
+		</email>
+	</define>
+	
+	<define name="contacts">
+		<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+		<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+		<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+		<contact group="generic" required="1" type="billing" name="Billing" new_id="%d8" />
+	</define>
+	
+	<define name="contact_targets">
+		<target_group name="all">
+			<target tlds="asia,biz,com,info,mobi,name,net,org,cc,cn,nu,tv,tw,bz,tm,ws,vg,la,ms,tc,uk,in,nu,ac,at,be,ca,de,eu,gs,io,it,jp,nl,nz,sh,us,kids.us,br.com,cn.com,de.com,eu.com,hu.com,no.com,qc.com,ru.com,sa.com,se.com,uk.com,us.com,uy.com,za.com,uk.net,se.net,com.mx,pro,aaa.pro,aca.pro,cpa.pro,acct.pro,eng.pro,avocat.pro,bar.pro,law.pro,jur.pro,recht.pro,med.pro,tel,cm,co,me" />
+		</target_group>
+	</define>
+	
+	<define name="us_extra_fields">
+		<field type="select" name="global_cc_us" description="US Global Country" required="1" iseditable="1">
+			<values>
+				<value name="Andorra" value="AD"/>
+				<value name="United Arab Emirates" value="AE"/>
+				<value name="Afghanistan" value="AF"/>
+				<value name="Antigua and Barbuda" value="AG"/>
+				<value name="Anguilla" value="AI"/>
+				<value name="Albania" value="AL"/>
+				<value name="Armenia" value="AM"/>
+				<value name="Netherlands Antilles" value="AN"/>
+				<value name="Angola" value="AO"/>
+				<value name="Antarctica" value="AQ"/>
+				<value name="Argentina" value="AR"/>
+				<value name="American Samoa" value="AS"/>
+				<value name="Austria" value="AT"/>
+				<value name="Australia" value="AU"/>
+				<value name="Aruba" value="AW"/>
+				<value name="Azerbaijan" value="AZ"/>
+				<value name="Bosnia and Herzegovina" value="BA"/>
+				<value name="Barbados" value="BB"/>
+				<value name="Bangladesh" value="BD"/>
+				<value name="Belgium" value="BE"/>
+				<value name="Burkina Faso" value="BF"/>
+				<value name="Bulgaria" value="BG"/>
+				<value name="Bahrain" value="BH"/>
+				<value name="Burundi" value="BI"/>
+				<value name="Benin" value="BJ"/>
+				<value name="Bermuda" value="BM"/>
+				<value name="Brunei Darussalam" value="BN"/>
+				<value name="Bolivia" value="BO"/>
+				<value name="Brazil" value="BR"/>
+				<value name="The Bahamas" value="BS"/>
+				<value name="Bhutan" value="BT"/>
+				<value name="Bouvet Island" value="BV"/>
+				<value name="Botswana" value="BW"/>
+				<value name="Belarus" value="BY"/>
+				<value name="Belize" value="BZ"/>
+				<value name="Canada" value="CA"/>
+				<value name="Cocos (Keeling) Islands" value="CC"/>
+				<value name="Congo, The Democratic Republic of" value="CD"/>
+				<value name="Central African Republic" value="CF"/>
+				<value name="Congo, Republic of" value="CG"/>
+				<value name="Switzerland" value="CH"/>
+				<value name="Cote d'Ivoire" value="CI"/>
+				<value name="Cook Islands" value="CK"/>
+				<value name="Chile" value="CL"/>
+				<value name="Cameroon" value="CM"/>
+				<value name="China" value="CN"/>
+				<value name="Colombia" value="CO"/>
+				<value name="Costa Rica" value="CR"/>
+				<value name="Cuba" value="CU"/>
+				<value name="Cape Verde" value="CV"/>
+				<value name="Christmas Island" value="CX"/>
+				<value name="Cyprus" value="CY"/>
+				<value name="Czech Republic" value="CZ"/>
+				<value name="Germany" value="DE"/>
+				<value name="Djibouti" value="DJ"/>
+				<value name="Denmark" value="DK"/>
+				<value name="Dominica" value="DM"/>
+				<value name="Dominican Republic" value="DO"/>
+				<value name="Algeria" value="DZ"/>
+				<value name="Ecuador" value="EC"/>
+				<value name="Estonia" value="EE"/>
+				<value name="Egypt" value="EG"/>
+				<value name="Western Sahara" value="EH"/>
+				<value name="Eritrea" value="ER"/>
+				<value name="Spain" value="ES"/>
+				<value name="Ethiopia" value="ET"/>
+				<value name="Finland" value="FI"/>
+				<value name="Fiji" value="FJ"/>
+				<value name="Falkland Islands (Malvinas)" value="FK"/>
+				<value name="Micronesia" value="FM"/>
+				<value name="Faroe Islands" value="FO"/>
+				<value name="France" value="FR"/>
+				<value name="France Metropolitaine" value="FX"/>
+				<value name="Gabon" value="GA"/>
+				<value name="United Kingdom" value="GB"/>
+				<value name="Grenada" value="GD"/>
+				<value name="Georgia" value="GE"/>
+				<value name="French Guiana" value="GF"/>
+				<value name="Ghana" value="GH"/>
+				<value name="Gibraltar" value="GI"/>
+				<value name="Greenland" value="GL"/>
+				<value name="Gambia" value="GM"/>
+				<value name="Guinea" value="GN"/>
+				<value name="Guadeloupe" value="GP"/>
+				<value name="Equatorial Guinea" value="GQ"/>
+				<value name="Greece" value="GR"/>
+				<value name="South Georgia and the South Sandwich Islands" value="GS"/>
+				<value name="Guatemala" value="GT"/>
+				<value name="Guam" value="GU"/>
+				<value name="Guinea-Bissau" value="GW"/>
+				<value name="Guyana" value="GY"/>
+				<value name="Hong Kong" value="HK"/>
+				<value name="Heard Island and McDonald Islands" value="HM"/>
+				<value name="Honduras" value="HN"/>
+				<value name="Croatia" value="HR"/>
+				<value name="Haiti" value="HT"/>
+				<value name="Hungary" value="HU"/>
+				<value name="Indonesia" value="ID"/>
+				<value name="Ireland" value="IE"/>
+				<value name="Israel" value="IL"/>
+				<value name="India" value="IN"/>
+				<value name="British Indian Ocean Territory" value="IO"/>
+				<value name="Iraq" value="IQ"/>
+				<value name="Iran, Islamic Republic of" value="IR"/>
+				<value name="Iceland" value="IS"/>
+				<value name="Italy" value="IT"/>
+				<value name="Jamaica" value="JM"/>
+				<value name="Jordan" value="JO"/>
+				<value name="Japan" value="JP"/>
+				<value name="Kenya" value="KE"/>
+				<value name="Kyrgyzstan" value="KG"/>
+				<value name="Cambodia" value="KH"/>
+				<value name="Kiribati" value="KI"/>
+				<value name="Comoros" value="KM"/>
+				<value name="Saint Kitts and Nevis" value="KN"/>
+				<value name="Korea (N), Democratic People's Republic of" value="KP"/>
+				<value name="Korea (S), Republic of" value="KR"/>
+				<value name="Kuwait" value="KW"/>
+				<value name="Cayman Islands" value="KY"/>
+				<value name="Kazakhstan" value="KZ"/>
+				<value name="Lao People's Democratic Republic" value="LA"/>
+				<value name="Lebanon" value="LB"/>
+				<value name="Saint Lucia" value="LC"/>
+				<value name="Liechtenstein" value="LI"/>
+				<value name="Sri Lanka" value="LK"/>
+				<value name="Liberia" value="LR"/>
+				<value name="Lesotho" value="LS"/>
+				<value name="Lithuania" value="LT"/>
+				<value name="Luxembourg" value="LU"/>
+				<value name="Latvia" value="LV"/>
+				<value name="Libyan Arab Jamahirya" value="LY"/>
+				<value name="Morocco" value="MA"/>
+				<value name="Monaco" value="MC"/>
+				<value name="Moldova, Republic of" value="MD"/>
+				<value name="Madagascar" value="MG"/>
+				<value name="Marshall Islands" value="MH"/>
+				<value name="Macedonia, The Former Yugoslav Republic of" value="MK"/>
+				<value name="Mali" value="ML"/>
+				<value name="Myanmar" value="MM"/>
+				<value name="Mongolia" value="MN"/>
+				<value name="Macao" value="MO"/>
+				<value name="Northern Mariana Islands" value="MP"/>
+				<value name="Martinique" value="MQ"/>
+				<value name="Mauritania" value="MR"/>
+				<value name="Montserrat" value="MS"/>
+				<value name="Malta" value="MT"/>
+				<value name="Mauritius" value="MU"/>
+				<value name="Maldives" value="MV"/>
+				<value name="Malawi" value="MW"/>
+				<value name="Mexico" value="MX"/>
+				<value name="Malaysia" value="MY"/>
+				<value name="Mozambique" value="MZ"/>
+				<value name="Namibia" value="NA"/>
+				<value name="New Caledonia" value="NC"/>
+				<value name="Niger" value="NE"/>
+				<value name="Norfolk Island" value="NF"/>
+				<value name="Nigeria" value="NG"/>
+				<value name="Nicaragua" value="NI"/>
+				<value name="Netherlands" value="NL"/>
+				<value name="Norway" value="NO"/>
+				<value name="Nepal" value="NP"/>
+				<value name="Nauru" value="NR"/>
+				<value name="Niue" value="NU"/>
+				<value name="New Zealand" value="NZ"/>
+				<value name="Oman" value="OM"/>
+				<value name="Panama" value="PA"/>
+				<value name="Peru" value="PE"/>
+				<value name="French Polynesia" value="PF"/>
+				<value name="Papua New Guinea" value="PG"/>
+				<value name="Philippines" value="PH"/>
+				<value name="Pakistan" value="PK"/>
+				<value name="Poland" value="PL"/>
+				<value name="Saint Pierre and Miquelon" value="PM"/>
+				<value name="Pitcairn Islands" value="PN"/>
+				<value name="Puerto Rico" value="PR"/>
+				<value name="Palestinian Territory, Occupied" value="PS"/>
+				<value name="Portugal" value="PT"/>
+				<value name="Palau" value="PW"/>
+				<value name="Paraguay" value="PY"/>
+				<value name="Qatar" value="QA"/>
+				<value name="Reunion" value="RE"/>
+				<value name="Romania" value="RO"/>
+				<value name="Russian Federation" value="RU"/>
+				<value name="Rwanda" value="RW"/>
+				<value name="Saudi Arabia" value="SA"/>
+				<value name="Solomon Islands" value="SB"/>
+				<value name="Seychelles" value="SC"/>
+				<value name="Sudan" value="SD"/>
+				<value name="Sweden" value="SE"/>
+				<value name="Singapore" value="SG"/>
+				<value name="Saint Helena" value="SH"/>
+				<value name="Slovenia" value="SI"/>
+				<value name="Svalbard and Jan Mayen" value="SJ"/>
+				<value name="Slovakia" value="SK"/>
+				<value name="Sierra Leone" value="SL"/>
+				<value name="San Marino" value="SM"/>
+				<value name="Senegal" value="SN"/>
+				<value name="Somalia" value="SO"/>
+				<value name="Suriname" value="SR"/>
+				<value name="Sao Tome and Principe" value="ST"/>
+				<value name="El Salvador" value="SV"/>
+				<value name="Syrian Arab Republic" value="SY"/>
+				<value name="Swaziland" value="SZ"/>
+				<value name="Turks and Caicos Islands" value="TC"/>
+				<value name="Chad" value="TD"/>
+				<value name="French Southern Territories" value="TF"/>
+				<value name="Togo" value="TG"/>
+				<value name="Thailand" value="TH"/>
+				<value name="Tajikistan" value="TJ"/>
+				<value name="Tokelau" value="TK"/>
+				<value name="Turkmenistan" value="TM"/>
+				<value name="Tunisia" value="TN"/>
+				<value name="Tonga" value="TO"/>
+				<value name="East Timor" value="TP"/>
+				<value name="Turkey" value="TR"/>
+				<value name="Trinidad and Tobago" value="TT"/>
+				<value name="Tuvalu" value="TV"/>
+				<value name="Taiwan, Province of China" value="TW"/>
+				<value name="Tanzania, United Republic of" value="TZ"/>
+				<value name="Ukraine" value="UA"/>
+				<value name="Uganda" value="UG"/>
+				<value name="U.S. Minor Outlying Islands" value="UM"/>
+				<value name="United States" value="US"/>
+				<value name="Uruguay" value="UY"/>
+				<value name="Uzbekistan" value="UZ"/>
+				<value name="Holy See (Vatacan City State)" value="VA"/>
+				<value name="Saint Vincent and the Grenadines" value="VC"/>
+				<value name="Venezuela" value="VE"/>
+				<value name="Virgin Islands, British" value="VG"/>
+				<value name="Virgin Islands, U.S." value="VI"/>
+				<value name="Viet Nam" value="VN"/>
+				<value name="Vanuatu" value="VU"/>
+				<value name="Wallis and Futuna" value="WF"/>
+				<value name="Samoa" value="WS"/>
+				<value name="Yemen" value="YE"/>
+				<value name="Mayotte" value="YT"/>
+				<value name="Yugoslavia" value="YU"/>
+				<value name="South Africa" value="ZA"/>
+				<value name="Zambia" value="ZM"/>
+				<value name="Zaire" value="ZR"/>
+				<value name="Zimbabwe" value="ZW"/>
+			</values>
+		</field>
+				
+		<field type="select" name="us_nexus" description="Nexus Category" required="1"  iseditable="1">
+			<values>
+				<value name="US Citizen" value="C11"/>
+				<value name="Permanent Resident" value="C12"/>
+				<value name="Business Entity" value="C21"/>
+				<value name="Foreign Entity" value="C31"/>
+				<value name="US Based Office" value="C32"/>
+			</values>
+		</field>
+		<field type="select" name="us_purpose" description="Application Purpose" required="1"  iseditable="1">
+			<values>
+				<value name="For Profit" value="P1"/>
+				<value name="Non-profit" value="P2"/>
+				<value name="Personal" value="P3"/>
+				<value name="Educational" value="P4"/>
+				<value name="Government" value="P5"/>
+			</values>
+		</field>					
+	</define>
+	
+	<registry_options>
+	
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>1</update_all_ns>
+			<max_ns>2</max_ns>								
+		</host_objects>
+
+		<ability>
+			<contact_removal>1</contact_removal>
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+		
+		<registrar_contacts />		
+	
+		<allowed_domain_flags />
+	
+	</registry_options>
+	
+	<section tlds="asia" name=".ASIA">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields">
+						<field iseditable="1" description="First name" type="text" name="FirstName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Last name" type="text" name="LastName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Organization" type="text" name="OrganizationName" required="0" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Job title" type="text" name="JobTitle" required="0" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Address 1" type="text" name="Address1" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Address 2" type="text" name="Address2" required="0" minlength="3" maxlength="60" />
+						<field iseditable="1" description="City" type="text" name="City" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="State/Province choice" type="select" name="StateProvinceChoice" required="0">
+							<values>
+								<value name="State" value="S" />
+								<value name="Province" value="P" />
+							</values>
+						</field>
+						<field iseditable="1" description="State/Province" type="text" name="StateProvince" required="0" minlength="2" maxlength="60"></field>
+						<field iseditable="1" description="Postal code" type="text" name="PostalCode" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="Country" type="select" name="Country" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="EmailAddress" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="Phone" required="1" />
+						<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="Fax" required="0" />						
+						<field iseditable="1" type="select" name="asia_cclocality" description="Locality of Establishment of the Entity" required="1">
+							<values>
+								<value name="Afghanistan" value="af"/>
+								<value name="Antarctica" value="aq"/>
+								<value name="Armenia" value="am"/>
+								<value name="Australia" value="au"/>
+								<value name="Azerbaijan" value="az"/>
+								<value name="Bahrain" value="bh"/>
+								<value name="Bangladesh" value="bd"/>
+								<value name="Bhutan" value="bt"/>
+								<value name="Brunei Darussalam" value="bn"/>
+								<value name="Cambodia" value="kh"/>
+								<value name="China" value="cn"/>
+								<value name="Cocos (Keeling) Islands" value="cc"/>
+								<value name="Cook Islands" value="ck"/>
+								<value name="Cyprus" value="cy"/>
+								<value name="Fiji" value="fj"/>
+								<value name="Georgia" value="ge"/>
+								<value name="Heard Island And Mcdonald Islands" value="hm"/>
+								<value name="Hong Kong" value="hk"/>
+								<value name="India" value="in"/>
+								<value name="Indonesia" value="id"/>
+								<value name="Iran, Islamic Republic Of" value="ir"/>
+								<value name="Iraq" value="iq"/>
+								<value name="Israel" value="il"/>
+								<value name="Jordan" value="jo"/>
+								<value name="Japan" value="jp"/>
+								<value name="Kazakhstan" value="kz"/>
+								<value name="Kiribati" value="ki"/>
+								<value name="Korea, Democratic People'S Republic Of" value="kp"/>
+								<value name="Korea, Republic Of" value="kr"/>
+								<value name="Kuwait" value="kw"/>
+								<value name="Kyrgyzstan" value="kg"/>
+								<value name="Lao People'S Democratic Republic" value="la"/>
+								<value name="Lebanon" value="lb"/>
+								<value name="Macao" value="mo"/>
+								<value name="Malaysia" value="my"/>
+								<value name="Maldives" value="mv"/>
+								<value name="Marshall Islands" value="mh"/>
+								<value name="Micronesia, Federated States Of" value="fm"/>
+								<value name="Mongolia" value="mn"/>
+								<value name="Myanmar" value="mm"/>
+								<value name="Nauru" value="nr"/>
+								<value name="Nepal" value="np"/>
+								<value name="New Zealand" value="nz"/>
+								<value name="Niue" value="nu"/>
+								<value name="Norfolk Island" value="nf"/>
+								<value name="Oman" value="om"/>
+								<value name="Pakistan" value="pk"/>
+								<value name="Palau" value="pw"/>
+								<value name="Palestinian Territories" value="ps"/>
+								<value name="Papua New Guinea" value="pg"/>
+								<value name="Philippines" value="ph"/>
+								<value name="Qatar" value="qa"/>
+								<value name="Samoa" value="ws"/>
+								<value name="Saudi Arabia" value="sa"/>
+								<value name="Singapore" value="sg"/>
+								<value name="Solomon Islands" value="sb"/>
+								<value name="Sri Lanka" value="lk"/>
+								<value name="Syrian Arab Republic" value="sy"/>
+								<value name="Taiwan" value="tw"/>
+								<value name="Tajikistan" value="tj"/>
+								<value name="Thailand" value="th"/>
+								<value name="Timor-Leste" value="tl"/>
+								<value name="Tokelau" value="tk"/>
+								<value name="Tonga" value="to"/>
+								<value name="Turkey" value="tr"/>
+								<value name="Turkmenistan" value="tm"/>
+								<value name="Tuvalu" value="tv"/>
+								<value name="United Arab Emirates" value="ae"/>
+								<value name="Uzbekistan" value="uz"/>
+								<value name="Vanuatu" value="vu"/>
+								<value name="Viet Nam" value="vn"/>
+								<value name="Yemen" value="ye"/>
+							</values>
+						</field>
+						<field iseditable="1" type="text" name="asia_localitycity" description="City of Establishment of the Entity" required="0"/>
+						<field iseditable="1" type="text" name="asia_localitysp" description="State/Province of Establishment of the Entity" required="0"/>
+						<field iseditable="1" type="select" name="asia_legalentitytype" description="Type of Entity" required="1">
+							<values>
+								<value name="Corporations or Companies" value="corporation"/>
+								<value name="Cooperatives" value="cooperative"/>
+								<value name="Partnerships or Collectives" value="partnership"/>
+								<value name="Government Bodies" value="government"/>
+								<value name="Political parties or Trade Unions" value="politicalParty"/>
+								<value name="Trusts, Estates, Associations or Societies" value="society"/>
+								<value name="Institutions" value="institution"/>
+								<value name="Natural Persons" value="naturalPerson"/>
+								<value name="Other" value="other"/>
+							</values>
+						</field>
+						<!-- required if asia_legalentitytype=other -->
+						<field iseditable="1" type="text" name="asia_otherletype" description="Other Entity Type" required="0" note="Required when type of entity is 'Other'"/>						
+						<field iseditable="1" type="select" name="asia_identform" description="Form of Identity" required="1">
+							<values>
+								<value name="Certificate of Incorp" value="certificate"/>
+								<value name="Charter" value="legislation"/>
+								<value name="Societies Registry" value="societyRegistry"/>
+								<value name="Political Party Registry" value="politicalPartyRegistry"/>
+								<value name="Passport/Citizenship ID" value="passport"/>
+								<value name="Other" value="other"/>
+							</values>
+						</field>
+						<!--  required if asia_identform=other -->
+						<field iseditable="1" type="text" name="asia_otheridentform" description="Other Identification Form" required="0" note="Required when form of identity is 'Other'"/>						
+						<field iseditable="1" type="text" name="asia_ident:number" description="Form of Identity ID Number/Code of Reference" required="1"/>
+					</fields>
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+	
+	<section tlds="biz,com,info,mobi,name,net,org,cc,cn,nu,tv,tw,pro,aaa.pro,aca.pro,cpa.pro,acct.pro,eng.pro,avocat.pro,bar.pro,law.pro,jur.pro,recht.pro,med.pro,tel,me" name=".BIZ, .COM, .NET">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="bz,tm,ws" name=".BZ, .TM, .WS">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+
+
+	<section tlds="vg,la,ms,tc" name=".VG, .LA, .MS">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+
+	<section tlds="uk" name=".UK">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+
+	<section tlds="in,cm,co" name=".IN, .CM, .CO">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="nu" name=".NU">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+
+	
+	<section tlds="ac" name=".AC">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="ac_agreedelete" description="I agree to the renewal terms for this domain name" required="0" value="YES"/>						
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="at" name=".AT">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="at_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="be" name=".BE">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="be_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+	<section tlds="ca" name=".CA">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields">
+						<field iseditable="1" type="select" name="cira_legal_type" description="Legal type of registrant contact" required="1">
+							<values>
+								<value name="Corporation" value="CCO"/>
+								<value name="Canadian Citizen" value="CCT"/>
+								<value name="Canadian Resident" value="RES"/>
+								<value name="Government Entity" value="GOV"/>
+								<value name="Educational" value="EDU"/>
+								<value name="Unincorporated Association" value="ASS"/>
+								<value name="Hospital" value="HOP"/>
+								<value name="Partnership" value="PRT"/>
+								<value name="Trade-mark" value="TDM"/>
+								<value name="Trade Union" value="TRD"/>
+								<value name="Political Party" value="PLT"/>
+								<value name="Library, Archive or Museum" value="LAM"/>
+								<value name="Trust" value="TRS"/>
+								<value name="Aboriginal Peoples" value="ABO"/>
+								<value name="Indian Band" value="INB"/>
+								<value name="Legal Representative" value="LGR"/>
+								<value name="Official Mark" value="OMK"/>
+								<value name="The Queen" value="MAJ"/>
+							</values>
+						</field>
+						<field iseditable="1" type="text" name="cira-registrant" description="Registrant of domain (first and last name or company's name)" required="1"/>
+						<field iseditable="1" type="text" name="cira-registrant-desc" description="Optional description of Registrant" required="0"/>
+						<field iseditable="1" type="text" name="cira-trademark-no" description="Trademark Number" required="0" note="Required when legal type is Trade-mark"/>
+						<!--  required if ?? -->
+						<field iseditable="1" type="text" name="cira-org-registered-in" description="Organization registered location" required="0"/>
+					</fields>
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="de" name=".DE">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="confirmaddress" description="Confirmation of address" required="1" value="DE"/>
+						<field type="checkbox" name="de_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>					
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="eu" name=".EU">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="eu_whoispolicy" description="Registry Data Transfer Policy" required="1" value="I Agree"/>
+						<field type="checkbox" name="eu_agreedelete" description="Do you agree to deletion rules for this domain?" required="1" value="YES"/>
+						<field type="select" name="eu_adr_lang" description="ADR: Alternate Dispute Resolution. The language you will be handling your .EU legal disputes in." required="0">
+							<values>
+								<value name="Czech" value="cs"/>
+								<value name="Danish" value="da"/>
+								<value name="German" value="de"/>
+								<value name="Greek" value="el"/>
+								<value name="English" value="en"/>
+								<value name="Spanish" value="es"/>
+								<value name="Estonian" value="et"/>
+								<value name="Finnish" value="fi"/>
+								<value name="French" value="fr"/>
+								<value name="Hungarian" value="hu"/>
+								<value name="Italian" value="it"/>
+								<value name="Lithuanian" value="LT"/>
+								<value name="Latvian" value="lv"/>
+								<value name="Maltese" value="mt"/>
+								<value name="Dutch" value="nl"/>
+								<value name="Polish" value="pl"/>
+								<value name="Portugese" value="pt"/>
+								<value name="Slovak" value="sk"/>
+								<value name="Slovenian" value="sl"/>
+								<value name="Swedish" value="sv"/>
+							</values>
+						</field>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+	<section tlds="gs" name=".GS">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="gs_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>					
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="io" name=".IO">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="io_agreedelete" description="I agree to the renewal terms for this domain name" required="0" value="YES"/>					
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="it" name=".IT">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="it_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>					
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="jp" name=".JP">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="select" name="jp_prefecture" description="Prefecture" required="0">
+							<values>
+								<value name="Hokkaido" value="1"/>
+								<value name="Aomori" value="2"/>
+								<value name="Iwate" value="3"/>
+								<value name="Miyagi" value="4"/>
+								<value name="Akita" value="5"/>
+								<value name="Yamagata" value="6"/>
+								<value name="Fukushima" value="7"/>
+								<value name="Ibaragi" value="8"/>
+								<value name="Tochigi" value="9"/>
+								<value name="Gumma" value="10"/>
+								<value name="Saitama" value="11"/>
+								<value name="Chiba" value="12"/>
+								<value name="Tokyo" value="13"/>
+								<value name="Kanagawa" value="14"/>
+								<value name="Niigata" value="15"/>
+								<value name="Toyama" value="16"/>
+								<value name="Ishikawa" value="17"/>
+								<value name="Fukui" value="18"/>
+								<value name="Yamanashi" value="19"/>
+								<value name="Nagano" value="20"/>
+								<value name="Gifu" value="21"/>
+								<value name="Shizuoka" value="22"/>
+								<value name="Aichi" value="23"/>
+								<value name="Mie" value="24"/>
+								<value name="Shiga" value="25"/>
+								<value name="Kyoto" value="26"/>
+								<value name="Osaka" value="27"/>
+								<value name="Hyogo" value="28"/>
+								<value name="Nara" value="29"/>
+								<value name="Wakayama" value="30"/>
+								<value name="Tottori" value="31"/>
+								<value name="Shimane" value="32"/>
+								<value name="Okayama" value="33"/>
+								<value name="Hiroshima" value="34"/>
+								<value name="Yamaguchi" value="35"/>
+								<value name="Tokushima" value="36"/>
+								<value name="Kagawa" value="37"/>
+								<value name="Ehime" value="38"/>
+								<value name="Kochi" value="39"/>
+								<value name="Fukuoka" value="40"/>
+								<value name="Saga" value="41"/>
+								<value name="Nagasaki" value="42"/>
+								<value name="Kumamoto" value="43"/>
+								<value name="Oita" value="44"/>
+								<value name="Miyazaki" value="45"/>
+								<value name="Kagoshima" value="46"/>
+								<value name="Okinawa" value="47"/>
+							</values>
+						</field>
+						<field type="checkbox" name="jp_agreedelete" description="I agree to the renewal terms for this domain name" required="0" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="nl" name=".NL">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="nl_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="nz" name=".NZ">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="nz_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>					
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+	<section tlds="sh" name=".SH">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="sh_agreedelete" description="I agree to the renewal terms for this domain name" required="0" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer_not_allowed" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section tlds="us" name=".US">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="us_extra_fields">
+						<field iseditable="1" description="First name" type="text" name="FirstName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Last name" type="text" name="LastName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Organization" type="text" name="OrganizationName" required="0" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Job title" type="text" name="JobTitle" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Address 1" type="text" name="Address1" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Address 2" type="text" name="Address2" required="0" minlength="3" maxlength="60" />
+						<field iseditable="1" description="City" type="text" name="City" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="State/Province choice" type="select" name="StateProvinceChoice" required="0">
+							<values>
+								<value name="State" value="S" />
+								<value name="Province" value="P" />
+							</values>
+						</field>
+						<field iseditable="1" description="State/Province" type="text" name="StateProvince" required="0" minlength="2" maxlength="60"></field>
+						<field iseditable="1" description="Postal code" type="text" name="PostalCode" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="Country" type="select" name="Country" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="EmailAddress" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="Phone" required="1" />
+						<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="Fax" required="1" />						
+					</fields>
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+
+	<section tlds="kids.us" name=".KIDS.US">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="us_extra_fields">
+						<field iseditable="1" description="First name" type="text" name="FirstName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Last name" type="text" name="LastName" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Organization" type="text" name="OrganizationName" required="0" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Job title" type="text" name="JobTitle" required="1" minlength="1" maxlength="60" />
+						<field iseditable="1" description="Address 1" type="text" name="Address1" required="1" minlength="3" maxlength="60" />
+						<field iseditable="1" description="Address 2" type="text" name="Address2" required="0" minlength="3" maxlength="60" />
+						<field iseditable="1" description="City" type="text" name="City" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="State/Province choice" type="select" name="StateProvinceChoice" required="0">
+							<values>
+								<value name="State" value="S" />
+								<value name="Province" value="P" />
+							</values>
+						</field>
+						<field iseditable="1" description="State/Province" type="text" name="StateProvince" required="0" minlength="2" maxlength="60"></field>
+						<field iseditable="1" description="Postal code" type="text" name="PostalCode" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="Country" type="select" name="Country" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="EmailAddress" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" registry_format="+[2].[4-16]" name="Phone" required="1" />
+						<field iseditable="1" description="Fax" type="phone" registry_format="+[2].[4-16]" name="Fax" required="1" />						
+					</fields>
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+	<section name="*.COM, *.NET" tlds="br.com,cn.com,de.com,eu.com,hu.com,no.com,qc.com,ru.com,sa.com,se.com,uk.com,us.com,uy.com,za.com,uk.net,se.net">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields" />
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+
+
+
+	<section tlds="com.mx">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields extends="domain_registration_extra_fields">
+						<field type="checkbox" name="com_mx_agreedelete" description="I agree to the renewal terms for this domain name" required="1" value="YES"/>
+					</extra_fields>
+				</registration>
+		
+				<renewal extends="domain_renewal" />
+				<transfer extends="domain_transfer" />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" assoc_with_domain="1" title="Generic (Any)" target-group="all">
+					<fields extends="contact_fields" />
+					<disclose />
+					<display_fields extends="contact_display_fields" />
+					<extra_fields />
+				</group>
+			</contact_groups>
+			
+			<contact_target_groups extends="contact_targets" />
+			
+			<contacts extends="contacts"/>
+		</config>
+	</section>
+	
+
+	
+	
+</module>

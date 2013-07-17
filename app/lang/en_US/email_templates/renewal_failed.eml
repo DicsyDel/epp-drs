@@ -1,0 +1,6 @@
+[subject]Domain renewal failed[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Your domain name {$domain_name}.{$extension} cannot be renewed for {$years} years.
+The reason of failure: {$reason}.
+
+Regards, {$servicename} Staff

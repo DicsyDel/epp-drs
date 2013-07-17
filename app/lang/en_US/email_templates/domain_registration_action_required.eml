@@ -1,0 +1,18 @@
+[subject]Invoice #{$Invoice->ID} paid. Immediate action required.[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+You have just paid the invoice for {$domain_name}.{$extension} registration.
+
+{if $domain_reg_failure_reason}
+Domain registration failed.
+The reason of failure: {$domain_reg_failure_reason}
+You can retry to register this domain in your Registrant Control Panel {$registrant_cp_url}
+{else}
+You may now complete domain registration in your Registrant Control Panel.
+{/if}
+This domain is still available for registration to anyone, until you complete domain registration in your Registrant Control Panel!
+Failure to complete domain registration soon may result in your domain being registered by someone else.
+
+Please log into your control panel and complete domain registration:
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+	<login>
+		<clID>{clid}</clID>
+		<pw>{pw}</pw>
+		<options>
+			<version>1.0</version>
+			<lang>{lang}</lang>
+		</options>
+		<svcs>
+			<objURI>urn:ietf:params:xml:ns:domain-1.0</objURI>
+			<objURI>urn:ietf:params:xml:ns:host-1.0</objURI>
+			<svcExtension>
+				<extURI>http://www.verisign.com/epp/idnLang-1.0</extURI>
+				<extURI>http://www.verisign-grs.com/epp/namestoreExt-1.1</extURI>
+				<extURI>urn:ietf:params:xml:ns:rgp-1.0</extURI>
+				<extURI>http://www.verisign.com/epp/whoisInf-1.0</extURI>
+				<extURI>http://www.verisign.com/epp/sync-1.0</extURI>
+			</svcExtension>
+		</svcs>
+	</login>
+	<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

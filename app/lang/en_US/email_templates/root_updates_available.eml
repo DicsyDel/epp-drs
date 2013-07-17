@@ -1,0 +1,12 @@
+[subject]EPP-DRS update available[/subject]
+Dear {$servicename} owner,
+
+A new update is available for your EPP-DRS system.
+
+Your current local version is {$current_revision}
+The latest version available is {$latest_revision}
+
+Update will not be installed automatically until you approve it.
+
+Please log into your Registrar CP {$registrar_cp_url} to see details of update and approve it.
+Regards, {$servicename} Staff

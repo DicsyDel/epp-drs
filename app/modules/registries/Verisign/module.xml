@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="verisign" 
+	description="Verisign COM/NET EPP" 
+	version="v2">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>0</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>
+			<change_domain_contact>1</change_domain_contact>		
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+			<preregistration>1</preregistration>			
+		</ability>
+
+		<registrar_contacts />
+
+		<allowed_domain_flags>
+			<flag iseditable="1" sysname="clientHold" name="Client Hold">DNS delegation information MUST NOT be published for the object.</flag>
+			<flag iseditable="1" sysname="clientUpdateProhibited" name="Client Update Prohibited">Requests to update the object (other than to remove this status) MUST be rejected.</flag>
+			<flag iseditable="1" sysname="clientDeleteProhibited" name="Client Delete Prohibited">Requests to delete the object MUST be rejected</flag>					
+		</allowed_domain_flags>
+	</registry_options>
+
+	<section name="COM/NET" tlds="com,net">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="IDNLanguage" required="0">
+							<values>
+								<value value="ENG" name="English" />
+								<value value="AFR" name="Afrikaans"/>
+								<value value="ALB" name="Albanian"/>
+								<value value="ARA" name="Arabic"/>
+								<value value="ARG" name="Aragonese"/>
+								<value value="ARM" name="Armenian"/>
+								<value value="ASM" name="Assamese"/>
+								<value value="AST" name="Asturian"/>
+								<value value="AVE" name="Avestan"/>
+								<value value="AWA" name="Awadhi"/>
+								<value value="AZE" name="Azerbaijani"/>
+								<value value="BAN" name="Balinese"/>
+								<value value="BAL" name="Baluchi"/>
+								<value value="BAS" name="Basa"/>
+								<value value="BAK" name="Bashkir"/>
+								<value value="BAQ" name="Basque"/>
+								<value value="BEL" name="Belarusian"/>
+								<value value="BEN" name="Bengali"/>
+								<value value="BHO" name="Bhojpuri"/>
+								<value value="BOS" name="Bosnian"/>
+								<value value="BUL" name="Bulgarian"/>
+								<value value="BUR" name="Burmese"/>
+								<value value="CAR" name="Carib"/>
+								<value value="CAT" name="Catalan"/>
+								<value value="CHE" name="Chechen"/>
+								<value value="CHI" name="Chinese"/>
+								<value value="CHV" name="Chuvash"/>
+								<value value="COP" name="Coptic"/>
+								<value value="COS" name="Corsican"/>
+								<value value="SCR" name="Croatian"/>
+								<value value="CZE" name="Czech"/>
+								<value value="DAN" name="Danish"/>
+								<value value="DIV" name="Divehi"/>
+								<value value="DOI" name="Dogri"/>
+								<value value="DUT" name="Dutch"/>
+								<value value="EST" name="Estonian"/>
+								<value value="FAO" name="Faroese"/>
+								<value value="FIJ" name="Fijian"/>
+								<value value="FIN" name="Finnish"/>
+								<value value="FRE" name="French"/>
+								<value value="FRY" name="Frisian"/>
+								<value value="GLA" name="Gaelic"/>
+								<value value="GEO" name="Georgian"/>
+								<value value="GER" name="German"/>
+								<value value="GON" name="Gondi"/>
+								<value value="GRE" name="Greek"/>
+								<value value="GUJ" name="Gujarati"/>
+								<value value="HEB" name="Hebrew"/>
+								<value value="HIN" name="Hindi"/>
+								<value value="HUN" name="Hungarian"/>
+								<value value="ICE" name="Icelandic"/>
+								<value value="INC" name="Indic"/>
+								<value value="IND" name="Indonesian"/>
+								<value value="INH" name="Ingush"/>
+								<value value="GLE" name="Irish"/>
+								<value value="ITA" name="Italian"/>
+								<value value="JPN" name="Japanese"/>
+								<value value="JAV" name="Javanese"/>
+								<value value="KAS" name="Kashmiri"/>
+								<value value="KAZ" name="Kazakh"/>
+								<value value="KHM" name="Khmer"/>
+								<value value="KIR" name="Kirghiz"/>
+								<value value="KOR" name="Korean"/>
+								<value value="KUR" name="Kurdish"/>
+								<value value="LAO" name="Lao"/>
+								<value value="LAV" name="Latvian"/>
+								<value value="LIT" name="Lithuanian"/>
+								<value value="LTZ" name="Luxembourgish"/>
+								<value value="MAC" name="Macedonian"/>
+								<value value="MAL" name="Malayalam"/>
+								<value value="MAY" name="Malay"/>
+								<value value="MLT" name="Maltese"/>
+								<value value="MAO" name="Maori"/>
+								<value value="MOL" name="Moldavian"/>
+								<value value="MON" name="Mongolian"/>
+								<value value="NEP" name="Nepali"/>
+								<value value="NOR" name="Norwegian"/>
+								<value value="ORI" name="Oriya"/>
+								<value value="OSS" name="Ossetian"/>
+								<value value="PAN" name="Panjabi"/>
+								<value value="PER" name="Persian"/>
+								<value value="POL" name="Polish"/>
+								<value value="POR" name="Portuguese"/>
+								<value value="PUS" name="Pushto"/>
+								<value value="RAJ" name="Rajasthani"/>
+								<value value="RUM" name="Romanian"/>
+								<value value="RUS" name="Russian"/>
+								<value value="SMO" name="Samoan"/>
+								<value value="SAN" name="Sanskrit"/>
+								<value value="SRD" name="Sardinian"/>
+								<value value="SCC" name="Serbian"/>
+								<value value="SND" name="Sindhi"/>
+								<value value="SIN" name="Sinhalese"/>
+								<value value="SLO" name="Slovak"/>
+								<value value="SLV" name="Slovenian"/>
+								<value value="SOM" name="Somali"/>
+								<value value="SPA" name="Spanish"/>
+								<value value="SWA" name="Swahili"/>
+								<value value="SWE" name="Swedish"/>
+								<value value="SYR" name="Syriac"/>
+								<value value="TGK" name="Tajik"/>
+								<value value="TAM" name="Tamil"/>
+								<value value="TEL" name="Telugu"/>
+								<value value="THA" name="Thai"/>
+								<value value="TIB" name="Tibetan"/>
+								<value value="TUR" name="Turkish"/>
+								<value value="UKR" name="Ukrainian"/>
+								<value value="URD" name="Urdu"/>
+								<value value="UZB" name="Uzbek"/>
+								<value value="VIE" name="Vietnamese"/>
+								<value value="WEL" name="Welsh"/>
+								<value value="YID" name="Yiddish"/>
+							</values>
+						</field>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>0</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>					
+					</notifications>
+					<min_days>3287</min_days>
+				</renewal>
+			
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address" type="text" name="street" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />																							
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />						
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+					</fields>
+			
+				
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact required="1" group="generic" type="registrant" name="Registrant" new_id="%d8" />
+				<contact required="1" group="generic" type="admin" name="Admin" new_id="%d8" />
+				<contact required="1" group="generic" type="billing" name="Billing" new_id="%d8" />				
+				<contact required="1" group="generic" type="tech" name="Technical" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

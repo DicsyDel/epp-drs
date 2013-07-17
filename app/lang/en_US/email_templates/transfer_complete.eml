@@ -1,0 +1,5 @@
+[subject]Domain transfer complete[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Transfer of domain name {$domain_name}.{$extension} to {$servicename} succesfully complete!
+
+Regards, {$servicename} Staff

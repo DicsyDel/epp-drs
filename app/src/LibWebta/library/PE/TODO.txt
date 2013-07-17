@@ -1,0 +1,2 @@
+-- Right now, PipedChain just builds command lines separated with pipes. ManagedPipedChain (?) will pipe STDOUT to STDIN through php fgets/fwrite. So we can use intermediate STDOUTs in da code aaight!.
+

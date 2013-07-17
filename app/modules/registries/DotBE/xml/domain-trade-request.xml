@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+	 xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+ <command>
+  <trade op="request">
+   <domain:trade>
+    <domain:name>{name}</domain:name>
+  </domain:trade>
+  </trade>
+  <extension>
+    <dnsbe:ext xmlns:dnsbe="http://www.dns.be/xml/epp/dnsbe-1.0"
+     xsi:schemaLocation="http://www.dns.be/xml/epp/dnsbe-1.0 dnsbe-1.0.xsd">
+      <dnsbe:trade>
+        <dnsbe:domain>
+           <dnsbe:registrant>{c_registrant}</dnsbe:registrant>
+           <dnsbe:billing>{c_billing}</dnsbe:billing>
+           <dnsbe:onsite>{c_onsite}</dnsbe:onsite>
+           {ns}
+        </dnsbe:domain>
+      </dnsbe:trade>
+    </dnsbe:ext>
+  </extension>
+  <clTRID>{clTRID}</clTRID>
+ </command>
+</epp>
+      

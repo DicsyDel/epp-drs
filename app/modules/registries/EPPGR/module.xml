@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<module 
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="eppgr" 
+	description="GR EPP" 
+	version="3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>16</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>	
+			<change_domain_contact>1</change_domain_contact>	
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>0</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>1</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>1</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+									
+		<allowed_domain_flags />
+
+	</registry_options>
+
+	<section name="all" tlds="gr,com.gr,net.gr,org.gr,gov.gr,edu.gr">
+		<config>
+			<idn>
+				<allowed-utf8-chars><![CDATA[\x{0386}-\x{1FFC}]]></allowed-utf8-chars>
+				<disallowed-utf8-chars><![CDATA[\x{0387}\x{038B}\x{038D}\x{03A2}\x{03CF}\x{1F16}\x{1F17}\x{1F1E}\x{1F1F}\x{1F46}\x{1F47}\x{1F4E}\x{1F4F}\x{1F58}\x{1F5A}\x{1F5C}\x{1F5E}\x{1F7E}\x{1F7F}\x{1FBD}-\x{1FC1}\x{1FC5}\x{1FCD}-\x{1FCF}\x{1FD4}\x{1FD5}\x{1FDC}-\x{1FDF}\x{1FED}-\x{1FF1}\x{1FF5}]]></disallowed-utf8-chars>
+			</idn>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields/>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+			
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact required="0" type="registrant"></contact>
+						<contact required="0" type="tech"></contact>
+						<contact required="0" type="admin"></contact>
+						<contact required="0" type="billing"></contact>					
+					</contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="0" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="0" description="Organization" type="text" name="org" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="1" minlength="2" maxlength="255"></field>																		
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />						
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+					</fields>
+					
+					<disclose>
+						<option name="addr" description="Address" />
+						<option name="voice" description="Phone" />
+						<option name="fax" description="Fax" />
+						<option name="email" description="Email" />
+					</disclose>
+
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="{#ClientPrefix}_%d8" />
+				<contact group="generic" required="0" type="tech" name="Technical" new_id="{#ClientPrefix}_%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="{#ClientPrefix}_%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="{#ClientPrefix}_%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

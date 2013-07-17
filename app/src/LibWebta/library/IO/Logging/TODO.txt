@@ -1,0 +1,3 @@
+--	Error 2048 Redefining already defined constructor for class Log, IO/Logging/class.Log.php, 355
+--	Log->ToScreen suck! We need better logic-view separation here!
+--	SysLogAdapter

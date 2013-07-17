@@ -1,0 +1,3517 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="rrpproxy" 
+	description="RRPProxy/KeySystems" 
+	version="v2">	
+	
+	<define name="generic_group">
+		<fields>
+			<field iseditable="1" description="First name" type="text" name="firstname" required="1" minlength="2" maxlength="255" />
+			<field iseditable="1" description="Last name" type="text" name="lastname" required="1" minlength="2" maxlength="255" />
+			<field iseditable="1" description="Organization" type="text" name="organization" required="0" minlength="3" maxlength="255" />
+			<field iseditable="1" description="Address 1" type="text" name="street" required="1" minlength="3" maxlength="255" />
+			<field iseditable="1" description="Postal code" type="text" name="zip" required="0" minlength="2" maxlength="16" />
+			<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+			<field iseditable="1" description="State" type="text" name="state" required="0" minlength="1" maxlength="16" />
+			<field iseditable="1" description="Country" type="select" name="country" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+				<database table="countries" value_field="code" name_field="name" />
+			</field>
+			<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />		
+			<field iseditable="1" description="Phone" type="phone" name="phone" required="1" />
+			<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />					
+		</fields>
+		
+		<disclose />
+		
+		<display_fields>
+			<name>
+				<field name="firstname" />
+				<field name="lastname" />
+				<field name="organization" />
+			</name>
+			<email>
+				<field name="email" />
+			</email>
+		</display_fields>
+	</define>
+	
+	<define name="basic_contacts">
+		<contact required="1" group="generic" type="registrant" name="Registrant" new_id="%d8" />
+		<contact required="1" group="generic" type="admin" name="Administrative" new_id="%d8" />
+		<contact required="1" group="generic" type="tech" name="Technical" new_id="%d8" />
+		<contact required="1" group="generic" type="billing" name="Billing" new_id="%d8" />
+	</define>
+
+	<define name="idn_lang_tag_org_values">
+		<values>
+			<value value="" name="" />
+			<value value="ZH-TW" name="Chinese (Traditional)" />
+			<value value="ZH-CN" name="Chinese (Simplified)" />
+			<value value="DA" name="Danish" />
+			<value value="DE" name="German" />
+			<value value="HU" name="Hungarian" />
+			<value value="IS" name="Icelandic" />
+			<value value="KO" name="Korean (Hangul)" />
+			<value value="LV" name="Latvian" />
+			<value value="LT" name="Lithuanian" />
+			<value value="PL" name="Polish" />
+			<value value="ES" name="Spanish" />
+			<value value="SV" name="Swedish" />
+			<value value="BS" name="Bosnian" />
+			<value value="BG" name="Bulgarian" />
+			<value value="BE" name="Belarusian" />
+			<value value="MK" name="Macedonian" />
+			<value value="RU" name="Russian" />
+			<value value="SR" name="Serbian" />
+			<value value="UK" name="Ukrainian" />
+		</values>
+	</define>
+	
+	<define name="idn_lang_tag_values">
+		<values>
+			<value value="" name="" />
+			<value value="ENG" name="English" />
+			<value value="AFR" name="Afrikaans"/>
+			<value value="ALB" name="Albanian"/>
+			<value value="ARA" name="Arabic"/>
+			<value value="ARG" name="Aragonese"/>
+			<value value="ARM" name="Armenian"/>
+			<value value="ASM" name="Assamese"/>
+			<value value="AST" name="Asturian"/>
+			<value value="AVE" name="Avestan"/>
+			<value value="AWA" name="Awadhi"/>
+			<value value="AZE" name="Azerbaijani"/>
+			<value value="BAN" name="Balinese"/>
+			<value value="BAL" name="Baluchi"/>
+			<value value="BAS" name="Basa"/>
+			<value value="BAK" name="Bashkir"/>
+			<value value="BAQ" name="Basque"/>
+			<value value="BEL" name="Belarusian"/>
+			<value value="BEN" name="Bengali"/>
+			<value value="BHO" name="Bhojpuri"/>
+			<value value="BOS" name="Bosnian"/>
+			<value value="BUL" name="Bulgarian"/>
+			<value value="BUR" name="Burmese"/>
+			<value value="CAR" name="Carib"/>
+			<value value="CAT" name="Catalan"/>
+			<value value="CHE" name="Chechen"/>
+			<value value="CHI" name="Chinese"/>
+			<value value="CHV" name="Chuvash"/>
+			<value value="COP" name="Coptic"/>
+			<value value="COS" name="Corsican"/>
+			<value value="SCR" name="Croatian"/>
+			<value value="CZE" name="Czech"/>
+			<value value="DAN" name="Danish"/>
+			<value value="DIV" name="Divehi"/>
+			<value value="DOI" name="Dogri"/>
+			<value value="DUT" name="Dutch"/>
+			<value value="EST" name="Estonian"/>
+			<value value="FAO" name="Faroese"/>
+			<value value="FIJ" name="Fijian"/>
+			<value value="FIN" name="Finnish"/>
+			<value value="FRE" name="French"/>
+			<value value="FRY" name="Frisian"/>
+			<value value="GLA" name="Gaelic"/>
+			<value value="GEO" name="Georgian"/>
+			<value value="GER" name="German"/>
+			<value value="GON" name="Gondi"/>
+			<value value="GRE" name="Greek"/>
+			<value value="GUJ" name="Gujarati"/>
+			<value value="HEB" name="Hebrew"/>
+			<value value="HIN" name="Hindi"/>
+			<value value="HUN" name="Hungarian"/>
+			<value value="ICE" name="Icelandic"/>
+			<value value="INC" name="Indic"/>
+			<value value="IND" name="Indonesian"/>
+			<value value="INH" name="Ingush"/>
+			<value value="GLE" name="Irish"/>
+			<value value="ITA" name="Italian"/>
+			<value value="JPN" name="Japanese"/>
+			<value value="JAV" name="Javanese"/>
+			<value value="KAS" name="Kashmiri"/>
+			<value value="KAZ" name="Kazakh"/>
+			<value value="KHM" name="Khmer"/>
+			<value value="KIR" name="Kirghiz"/>
+			<value value="KOR" name="Korean"/>
+			<value value="KUR" name="Kurdish"/>
+			<value value="LAO" name="Lao"/>
+			<value value="LAV" name="Latvian"/>
+			<value value="LIT" name="Lithuanian"/>
+			<value value="LTZ" name="Luxembourgish"/>
+			<value value="MAC" name="Macedonian"/>
+			<value value="MAL" name="Malayalam"/>
+			<value value="MAY" name="Malay"/>
+			<value value="MLT" name="Maltese"/>
+			<value value="MAO" name="Maori"/>
+			<value value="MOL" name="Moldavian"/>
+			<value value="MON" name="Mongolian"/>
+			<value value="NEP" name="Nepali"/>
+			<value value="NOR" name="Norwegian"/>
+			<value value="ORI" name="Oriya"/>
+			<value value="OSS" name="Ossetian"/>
+			<value value="PAN" name="Panjabi"/>
+			<value value="PER" name="Persian"/>
+			<value value="POL" name="Polish"/>
+			<value value="POR" name="Portuguese"/>
+			<value value="PUS" name="Pushto"/>
+			<value value="RAJ" name="Rajasthani"/>
+			<value value="RUM" name="Romanian"/>
+			<value value="RUS" name="Russian"/>
+			<value value="SMO" name="Samoan"/>
+			<value value="SAN" name="Sanskrit"/>
+			<value value="SRD" name="Sardinian"/>
+			<value value="SCC" name="Serbian"/>
+			<value value="SND" name="Sindhi"/>
+			<value value="SIN" name="Sinhalese"/>
+			<value value="SLO" name="Slovak"/>
+			<value value="SLV" name="Slovenian"/>
+			<value value="SOM" name="Somali"/>
+			<value value="SPA" name="Spanish"/>
+			<value value="SWA" name="Swahili"/>
+			<value value="SWE" name="Swedish"/>
+			<value value="SYR" name="Syriac"/>
+			<value value="TGK" name="Tajik"/>
+			<value value="TAM" name="Tamil"/>
+			<value value="TEL" name="Telugu"/>
+			<value value="THA" name="Thai"/>
+			<value value="TIB" name="Tibetan"/>
+			<value value="TUR" name="Turkish"/>
+			<value value="UKR" name="Ukrainian"/>
+			<value value="URD" name="Urdu"/>
+			<value value="UZB" name="Uzbek"/>
+			<value value="VIE" name="Vietnamese"/>
+			<value value="WEL" name="Welsh"/>
+			<value value="YID" name="Yiddish"/>
+		</values>
+	</define>
+	
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>0</max_ns>
+		</host_objects>
+
+		<ability>
+			<contact_removal>1</contact_removal>
+			<change_domain_contact>1</change_domain_contact>		
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>			
+			<section_shared_contacts>1</section_shared_contacts>
+		</ability>		
+
+		<registrar_contacts />
+									
+		<allowed_domain_flags></allowed_domain_flags>
+	</registry_options>
+
+	<registry_errors_override>
+		<error match="like" str="Syntax error in Parameter X-DE-ACCEPT-TRUSTEE-TAC">
+			Incorrect value for 'Local presence for .DE domain registrations' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-IT-PIN">
+			Incorrect value for 'Taxpayer number for .IT domain registrations' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-JOBS-COMPANY-URL">
+			Incorrect value for 'Company URL for .JOBS' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-JOBS-HRANAME">
+			Incorrect value for 'Human Resources Association name for .JOBS' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-JOBS-INDUSTRYCLASSIFICATION">
+			Incorrect value for 'Industry Classification for .JOBS' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-NICSE-IDNUMBER">
+			Incorrect value for 'ID number' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-NICSE-VATID">
+			Incorrect value for 'VAT ID' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-NL-ACCEPT-TRUSTEE-TAC">
+			Incorrect value for 'Domicile address for .NL registrations' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-SG-RCBID">
+			Incorrect value for 'Registration number' field
+		</error>
+		<error match="like" str="Syntax error in Parameter X-TRAVEL-UIN">
+			Incorrect value for 'Identification Number' field
+		</error>
+		<error match="like" str="Nameserver error [ERROR: No SOA record found on server">
+			Specified nameservers does not have SOA record for this domain. It is required that nameservers correctly resolve domain name into IPv4 address.
+		</error>
+		<error match="like" str="Illegal DNSentry type [A]">
+			Specified nameservers does not have A record for this domain. It is required that nameservers correctly resolve domain name into IPv4 address.
+		</error>
+		<error match="like" str="Nameserver error [ERROR: The nameserver list doesn't match the given one">
+			You can only use nameserver hosts (subdomains) as nameservers for this domain.
+		</error>
+	</registry_errors_override>
+	
+	<section name="COM/NET" tlds="com,net">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+						<field description="Use RRPProxy WHOIS privacy" type="checkbox" name="X-WHOISPRIVACY" value="1" required="0"  />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name="*.PH" tlds="ph,com.ph,net.ph,org.ph,co.nl">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name="*.DK" tlds="dk">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>	
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>7</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	<section name="*.SB" tlds="com.sb,net.sb,org.sb,co">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".SI" tlds="si">
+		<ability>
+			<trade>1</trade>
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+<section name="*.PRO" tlds="pro,law.pro,avocat.pro,bar.pro,jur.pro,cpa.pro,aaa.pro,aca.pro,acct.pro,med.pro,eng.pro">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Profession (identifier" name="X-PRO-AV-PROFESSIONTYPE" type="text" required="0"/>
+						<field description="Company registration number" name="X-PRO-AV-LICENSE-AUTHORITY" type="text" required="0"/>
+						<field description="License Authority Country" name="X-PRO-AV-LICENSE-ISO-COUNTRYCODE" type="text" required="0"/>
+						<field description="License number" name="X-PRO-AV-LICENSE-NUMBER" type="text" required="0"/>
+						<field description="Birthdate (YYYY-MM-DD)" name="X-PRO-AV-LICENSE-HOLDER-BIRTHDATE" type="text" required="0"/>
+						<field description="License Issue Date (YYYY-MM-DD)" name="X-PRO-AV-LICENSE-ISSUE-DATE" type="text" required="0"/>
+						<field description="License Authority Website" name="X-PRO-AV-LICENSE-AUTHORITY-WEBSITE" type="text" required="0"/>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+	<section name="*.RO" tlds="ro,arts.ro,com.ro,firm.ro,info.ro,nom.ro,nt.ro,org.ro,rec.ro,store.ro,tm.ro,www.ro">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Vat number" name="X-RO-VAT-NUMBER" type="text" required="0"/>
+						<field description="Company registration number" name="X-RO-COMPANY-NUMBER" type="text" required="0"/>
+						<field description="Registrant passport number (for natural persons)" name="X-RO-IDCARD-OR-PASSPORT-NUMBER" type="text" required="0"/>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name="*.CM" tlds="cm,com.cm,co.cm,net.cm">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name="*.PK" tlds="pk,com.pk,net.pk,org.pk">
+		<config>
+			<idn />		
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	<section name="*.BR" tlds="com.br,net.br">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+		</ability>	
+		<config>
+			<idn />		
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Accept .BR trustee" type="checkbox" name="X-BR-ACCEPT-TRUSTEE-TAC" value="1" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>		
+	
+	<section name="*.AE" tlds="ae">
+		<config>
+			<idn />		
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Accept registrant warranty statement" type="checkbox" name="X-AE-REGISTRANT-WARRANTY-STATEMENT" value="1" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>		
+
+	
+	<section name=".BE" tlds="be">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>366</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name=".ME" tlds="me">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields/>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".TEL" tlds="tel">
+		<config>
+			<domain>
+				<extra_fields>
+					<field name="X-TEL-USERNAME" description=".TEL username" minlength="2" maxlength="255" type="text" />
+					<field name="X-TEL-PASSWORD" description=".TEL password" minlength="2" maxlength="255" type="text" />
+				</extra_fields>
+			
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>0</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".FR" tlds="fr">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field required="0" name="X-FR-ACCEPT-TRUSTEE-TAC" type="checkbox" value="1" description="Enable the use of RRPProxy trustee solution"></field>
+						<field required="0" name="X-FR-BIRTHDATE" type="text" description="Registrant's birthdate" note="YYYY-MM-DD"></field>
+						<field required="0" name="X-FR-BIRTHPLACE" type="text" description="Registrant's birthplace" note="The registrant's birthplace (for french registrants) in the form &lt;department nr.&gt; , &lt;arrondissement&gt; or country of birth (for non-french registrants) in the form of a two-letter country-code"></field>
+						<field required="0" name="X-FR-BIRTHPC" type="text" description="The registrants postcode of the place of birth (or at least the department code)"></field>						
+						<field required="0" name="X-FR-BIRTHCITY" type="text" description="The registrant's place of birth (city name)"></field>
+						
+						<field required="0" name="X-FR-WALDEC" type="text" description="Waldec ID"></field>
+						
+						<field required="0" name="X-FR-DATE-PUBLICATION-JO" type="text" description="Date Publication JO" note="Required if the organization is an 'Association'"></field>
+						<field required="0" name="X-FR-ANNOUNCE" type="text" description="The number of the announcement" note="Only digits allowed" pattern="/^\d+$/"></field>
+						<field required="0" name="X-FR-NUMERO-DE-PAGE-ANNOUNCE-JO" type="text" description="N de page announce JO" note="Required if the organization is an 'Association'"></field>
+						<field required="0" name="X-FR-DATE-ASSOCIATION" type="text" description="Shows date of association" note="shows the date of association. (DATE FORMAT YYYY-MM-DD)"></field>
+						<field required="0" name="X-FR-TRADEMARK" type="text" description="Trademark number"></field>
+						
+						<field required="0" name="X-FR-SIREN-OR-SIRET" type="text" description="Siren/Siret number" note="Required if the organization isn't an 'Association'" />
+						
+						<field required="0" name="X-FR-VATID" type="text" description="Company VAT ID"></field>
+						<field required="0" name="X-FR-RESTRICT-PUB" type="checkbox" value="1" description="Do not show private data in WHOIS"/>
+						<field required="0" name="X-FR-DUNS" type="text" description="Company DUNS" />
+						<field required="0" name="X-FR-LOCAL" type="text" description="Company Local" />
+						
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields/>
+					<contacts></contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	<section name=".LU" tlds="lu">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Accept .LU trustee" type="checkbox" name="X-LU-ACCEPT-TRUSTEE-TAC" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>		
+	
+	
+	<section name=".GR" tlds="gr,com.gr,org.gr,net.gr">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn />
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+
+	<section name=".PL, .CZ" tlds="pl,cz">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name=".JP" tlds="jp">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name="*.AT" tlds="at,co.at,or.at">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+	
+	<section name=".INFO, *.TW, etc..." tlds="info,ac,cc,tw,club.tw,com.tw,ebiz.tw,game.tw,idv.tw,org.tw">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+						<field description="RRPproxy Whois Privacy Service" type="checkbox" name="X-WHOIS-PRIVACY" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+	<section name=".BIZ" tlds="biz">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Use RRPProxy WHOIS privacy" type="checkbox" name="X-WHOISPRIVACY" value="1" required="0"  />
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0">
+							<values>
+								<value value="" name="" />
+								<value value="DE" name="German"/>
+								<value value="KO" name="Korean"/>
+							</values>
+						</field>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+	
+	
+	<section name=".SH" tlds="sh">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name="*.PL" tlds="pl,waw.pl,biz.pl,com.pl,info.pl,net.pl,org.pl">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>3</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>3</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".IO" tlds="io">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".AC" tlds="ac">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+			
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	
+	<section name=".TK" tlds="tk">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>2</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	
+	<section name=".VG" tlds="vg">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name=".RU" tlds="ru">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Taxpayer identification number" name="X-RU-CODE" type="text" required="1"/>
+						<field description="Territory-linked taxpayer number" name="X-RU-KPP" type="text" required="1"/>
+						<field description="Passport number (for natural persons)" name="X-RU-PASSPORTDATA" type="text" required="0"/>
+						<field description="Birth date (for natural persons)" name="X-RU-BIRTHDATE" type="text" required="0"/>						
+						
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	
+	<section name=".TC, .GD" tlds="tc,gd,ms,co.za">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+
+	<section name="*.UK" tlds="co.uk,org.uk,me.uk">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>545</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+	<section name="*.WS" tlds="ws,tv">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+						<field description="Use RRPProxy WHOIS privacy" type="checkbox" name="X-WHOISPRIVACY" value="1" required="0"  />						
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name="*.AG, *.WS, *.IN etc.." tlds="ag,com.ag,net.ag,org.ag,ok.ag,am,bz,br.com,cn.com,de.com,eu.com,gb.com,hu.com,jpn.com,kr.com,no.com,qc.com,ru.com,sa.com,se.com,uk.com,us.com,uy.com,za.com,cx,hn,com.hn,net.hn,org.hn,im,in,co.in,firm.in,gen.in,ind.in,net.in,org.in,la,lc,com.lc,net.lc,org.lc,md,mn,mobi,gb.net,se.net,uk.net,co.nz,net.nz,org.nz,org,ae.org,tm,vc,com.vc,net.vc,org.vc">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_org_values" />
+						<field description="Use RRPProxy WHOIS privacy" type="checkbox" name="X-WHOISPRIVACY" value="1" required="0"  />						
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name="*.SC" tlds="sc,com.sc,net.sc,org.sc">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	
+	<section name="*.MX" tlds="mx,com.mx">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".KR" tlds="co.kr,or.kr,ne.kr,re.kr,seoul.kr,pe.kr">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="CTFY type" name="X-KR-CTFY-TYPE" type="select" required="1">
+							<values>
+								<value name="Business Registration Certificate" value="BUSINESS"/>
+								<value name="Social Security Card" value="SOCIAL"/>
+								<value name="Corporation Registration Certificate" value="CORP"/>
+								<value name="Unique Number Certificate" value="UNIQUE"/>
+								<value name="Tax Registration Certificate" value="TAX"/>
+								<value name="Organization Registration Certificate" value="ORG"/>
+								<value name="Brand Name Registration Certificate" value="BRAND"/>
+								<value name="Service Name Registration Certificate" value="SERVICE"/>
+								<value name="School Foundation Certificate" value="SCHOOL"/>
+								<value name="Auxiliary LAB Certificate" value="AUXLAB"/>
+								<value name="Organization Voucher" value="ORGVOU"/>
+								<value name="Establishment Authorization Certificate" value="ESTABLISHMENT"/>
+								<value name="Foreigner registration Certificate" value="FOREIGNER"/>
+								<value name="Drive License" value="DRIVELIC"/>
+								<value name="Passport" value="PASSPORT"/>
+								<value name="etc" value="ETC"/>
+							</values>
+						</field>
+						<field description="CTFY number" type="text" name="X-KR-CTFY-NO" required="1"/>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+		
+	
+	
+	<section name=".GS" tlds="gs">
+		<config>
+			<idn/>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+
+	<section name="*.CN, *.KI, *.MU" tlds="tl,pe,nf,com.nf,net.nf,mu,com.mu,net.mu,org.mu,ki,com.ki,org.ki,net.ki,cn,com.cn,net.cn,org.cn,ah.cn,bj.cn,cq.cn,fj.cn,gd.cn,gs.cn,gx.cn,gz.cn,ha.cn,hb.cn,he.cn,hi.cn,hk.cn,hl.cn,hn.cn,jl.cn,js.cn,jx.cn,ln.cn,mo.cn,nm.cn,nx.cn,qh.cn,sc.cn,sd.cn,sh.cn,sn.cn,sx.cn,tj.cn,tw.cn,xj.cn,xz.cn,yn.cn,zj.cn">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+
+	<section name=".AM, .FM" tlds="am,fm">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name=".TL" tlds="tl">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".CH" tlds="ch,li">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+
+
+	<section name=".NU" tlds="nu">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name=".AE" tlds="ae">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Registrant warranty statement" type="checkbox" name="X-AE-REGISTRANT-WARRANTY-STATEMENT" value="1" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name=".LT" tlds="lt">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>0</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name=".HU" tlds="hu">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>2</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Vat number" type="text" name="X-HU-VAT-NUMBER" required="0" />
+						<field description="Passport number" type="text" name="X-HU-IDCARD-OR-PASSPORT-NUMBER" required="0" />
+						<field description="Accept .HU trustee" type="checkbox" name="X-HU-ACCEPT-TRUSTEE-TAC" value="1" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>2</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+
+	<section name=".ASIA" tlds="asia">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="Local presence for .ASIA domain registrations" type="select" name="x-asia-ced-accept-trustee-tac" required="1">
+								<values>
+									<value name="Yes" value="1" />
+									<value name="No" value="0" />
+								</values>
+							</field>
+							<field description="Indicates which contact should be used as CED" type="select" name="x-asia-ced-contact" required="1">
+								<values>
+									<value name="Registrant" value="registrant" />
+									<value name="Administrative" value="admin" />
+									<value name="Billing" value="billing" />
+									<value name="Technical" value="tech" />
+								</values>
+							</field>
+							<field description="Location or domicile of the entity" type="text" name="x-asia-ced-cclocality" required="1" minlength="1" maxlength="255" />
+							<field description="Province of establishment of the CED" type="text" name="x-asia-ced-localitysp" required="1" minlength="1" maxlength="255" />
+							<field description="City of establishment of the CED" type="text" name="x-asia-ced-localitycity" required="1" minlength="1" maxlength="255" />
+							<field description="Type of entity" type="select" name="x-asia-ced-legalentitytype" required="1">
+								<values>
+									<value name="Natural Person" value="naturalperson" />
+									<value name="Corporation" value="corporation" />
+									<value name="Cooperative" value="cooperative" />
+									<value name="Partnership" value="partnership" />
+									<value name="Government" value="government" />
+									<value name="Politicalparty" value="politicalparty" />
+									<value name="Society" value="society" />
+									<value name="Institution" value="institution" />
+									<value name="Other" value="other" />
+								</values>
+							</field>
+							<field description="Form of identification" type="select" name="x-asia-ced-identform" required="1">
+								<values>
+									<value name="Passport" value="passport" />
+									<value name="Certificate" value="certificate" />
+									<value name="Legislation" value="legislation" />
+									<value name="Society Registry" value="societyregistry" />
+									<value name="Political Party Registry" value="politicalpartyregistry" />
+									<value name="Other" value="other" />
+								</values>
+							</field>
+							<field description="Identification number / code of reference" type="text" name="x-asia-ced-identnumber" required="1" minlength="1" maxlength="255" />
+							<field description="Description of the type of entity" type="text" name="x-asia-ced-otherletype" required="1" minlength="1" maxlength="255" />
+							<field description="Description of the form of identification" type="text" name="x-asia-ced-otheridentform" required="1" minlength="1" maxlength="255" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+	<section name=".AERO" tlds="aero">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description=".AERO ID" type="text" name="x-aero-ens-auth-id" required="1" minlength="1" maxlength="255" />
+							<field description="Respective password to the .AERO ID" type="text" name="x-aero-ens-auth-key" required="1" minlength="1" maxlength="255" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".ES" tlds="es,com.es,nom.es,org.es">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="Registrant Tipo Identificacion" type="select" name="X-ES-OWNER-TIPO-IDENTIFICACION" required="0">
+								<values>
+									<value name="other" value="0" />
+									<value name="DNI/NIF" value="1" />
+									<value name="NIE" value="2" />
+								</values>
+							</field>
+							<field description="Registrant Identificacion" type="text" name="X-ES-OWNER-IDENTIFICACION" required="0" minlength="0" maxlength="255" />
+							<field description="Admin Tipo Identificacion" type="select" name="X-ES-ADMIN-TIPO-IDENTIFICACION" required="0">
+								<values>
+									<value name="other" value="0" />
+									<value name="DNI/NIF" value="1" />
+									<value name="NIE" value="2" />
+								</values>
+							</field>
+							<field description="Admin Identificacion" type="text" name="X-ES-ADMIN-IDENTIFICACION" required="0" minlength="0" maxlength="255" />
+							<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>5</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	
+	<section name=".SK" tlds="sk">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Accept .SK trustee" type="checkbox" name="X-SK-ACCEPT-TRUSTEE-TAC" value="1" required="1"/>
+						<field description="Legal form" type="select" name="X-SK-LEGAL-FORM" required="1">
+							<values>
+								<value name="Company (a.s.)" value="AS"/>
+								<value name="Personal" value="FO"/>
+								<value name="Other" value="OTHER"/>
+								<value name="Company (s.r.o.)" value="SRO"/>
+								<value name="Self employed" value="Z"/>
+							</values>
+						</field>
+						<field description="Commercial register number" type="text" name="X-SK-COMPANY-NUMBER" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+			
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>	
+	
+	
+	<section name=".DE" tlds="de">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="Local presence for .DE domain registrations" type="select" name="x-de-accept-trustee-tac" required="1">
+								<values>
+									<value name="Yes" value="1" />
+									<value name="No" value="0" />
+								</values>
+							</field>
+							<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+			
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".EU" tlds="eu">
+		<ability>
+			<auto_renewal>1</auto_renewal>		
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="The language of the registrant of an .EU domain name" type="select" name="x-eu-registrant-lang" required="1">
+								<values>								
+									<value name="Czech" value="cs" />
+									<value name="Danish" value="da" />
+									<value name="German" value="de" />
+									<value name="Greek" value="el" />
+									<value name="English" value="en" />
+									<value name="Spanish" value="es" />
+									<value name="Estonian" value="et" />
+									<value name="Finnish" value="fi" />
+									<value name="French" value="fr" />
+									<value name="Hungarian" value="hu" />
+									<value name="Italian" value="it" />
+									<value name="Lithuanian" value="lt" />
+									<value name="Latvian" value="lv" />
+									<value name="Maltese" value="mt" />
+									<value name="Dutch" value="nl" />
+									<value name="Polish" value="pl" />
+									<value name="Portugal" value="pt" />
+									<value name="Slovak" value="sk" />
+									<value name="Slovenian" value="sl" />
+									<value name="Swedish" value="sv" />
+								</values>
+							</field>
+							<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+							<field description="Accept .EU trustee" type="checkbox" name="X-EU-ACCEPT-TRUSTEE-TAC" value="1" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+						<field description="Tech Contact" name="tech" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".IT" tlds="it">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Taxpayer number for .IT domain registrations" type="text" name="X-IT-PIN" required="1" />
+						<field description="Content for publishing" type="select" name="X-IT-CONSENTFORPUBLISHING" required="0">
+							<values>
+								<value name="" value="" />
+								<value name="Allow publication" value="1" />
+								<value name="Deny publication" value="0" />
+							</values>
+						</field>
+						<field description="Entity type" type="select" name="X-IT-ENTITY-TYPE" required="0">
+							<values>
+								<value name="" value="" />
+								<value name="Italian and foreign natural persons" value="1" />
+								<value name="Companies/one man companies" value="2" />
+								<value name="Freelance workers/professionals" value="3" />
+								<value name="Non-profit organizations" value="4" />
+								<value name="Public organizations" value="5" />
+								<value name="Other subjects" value="6" />
+								<value name="Foreigners who match 2-6" value="7" />
+							</values>
+						</field>
+						
+						
+						<field description="Accept section 3 liability" type="checkbox" name="X-IT-SECT3-LIABILITY" value="1" required="1" />
+						<field description="Accept section 5 personal data for registration" type="checkbox" name="X-IT-SECT5-PERSONAL-DATA-FOR-REGISTRATION" value="1" required="1" />
+						<field description="Accept section 6 personal data for diffusion" type="checkbox" name="X-IT-SECT6-PERSONAL-DATA-FOR-DIFFUSION" value="1" required="1" />						
+						<field description="Accept section 7 explicit acceptance" type="checkbox" name="X-IT-SECT7-EXPLICIT-ACCEPTANCE" value="1" required="1" />
+						<field description="Accept .IT trustee" type="checkbox" name="X-IT-ACCEPT-TRUSTEE-TAC" value="1" required="0" />						
+ 					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+								
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".JOBS" tlds="jobs">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Company URL for .JOBS" type="text" name="X-JOBS-COMPANYURL" required="1" />
+						<field description="Industry Classification for .JOBS" type="text" name="X-JOBS-INDUSTRYTYPE" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".NAME" tlds="name">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="Simply enter the respective Email to which the .NAME Email is to be forwarded to" type="text" name="x-name-emailforward" required="0" />
+							<field description="No Email" type="select" name="x-name-noemail" required="0">
+								<values>
+									<value name="Yes" value="1" />
+									<value name="No" value="0" />
+								</values>
+							</field>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".SE" tlds="se">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+							<field description="ID number (e.g. company registration or taxpayer number)" type="text" name="x-nicse-idnumber" required="1" />
+							<field description="VAT ID (if the registrant is based in the European Union)" type="text" name="x-nicse-vatid" required="0" />
+							<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".NL" tlds="nl">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+			<trade>1</trade>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Legal form" type="select" name="X-NL-LEGALFORM" required="1">
+							<values>
+								<value value="PERSOON" name="Natural person"></value>							
+								<value value="BEG" name="Non-Dutch EC company"></value>
+								<value value="BRO" name="Non-Dutch legal form/enterprise/subsidiary"></value>
+								<value value="BV" name="Limited company"></value>
+								<value value="BVI/O" name="Limited company in formation"></value>
+								<value value="COOP" name="Cooperative"></value>
+								<value value="CV" name="Limited Partnership"></value>
+								<value value="EENMANSZAAK" name="Sole trader"></value>
+								<value value="EESV" name="European Economic Interest Group"></value>
+								<value value="KERK" name="Religious society"></value>
+								<value value="MAATSCHAP" name="Partnership"></value>
+								<value value="NV" name="Public Company"></value>
+								<value value="OWM" name="Mutual benefit company"></value>
+								<value value="REDR" name="Shipping company"></value>
+								<value value="STICHTING" name="Foundation"></value>
+								<value value="VERENIGING" name="Association"></value>
+								<value value="VOF" name="Trading partnership"></value>
+         						<value value="ANDERS" name="Other"></value>
+							</values>
+						</field>
+						<field description="Registration number" type="text" name="X-NL-LEGALFORMREGNO" required="0" minlength="1" maxlength="25"/>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name="*.SG" tlds="sg,com.sg">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Companies located in Singapore must enter their registration number" type="text" name="x-sg-rcbid" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".TRAVEL" tlds="travel">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Unique Identification Number" type="text" name="x-travel-uin" required="0" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+	
+	<section name=".US" tlds="us">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>					
+					<extra_fields>
+						<field description="Purpose" name="x-us-nexus-apppurpose" required="1" type="select">
+							<values>
+								<value name="Business use for profit" value="P1" />
+								<value name="Non-profit business, club, association, religious organization, etc." value="P2" />
+								<value name="Personal Use" value="P3" />
+								<value name="Education purposes" value="P4" />
+								<value name="Government purposes" value="P5" />
+							</values>
+						</field>
+						
+						<field description="Information of Nexus" name="x-us-nexus-category" required="1" type="select">
+							<values>
+								<value name="US citizen" value="C11" />
+								<value name="Permanent US resident" value="C12" />
+								<value name="US Organization" value="C21" />
+								<value name="Regularly engages in lawful activities" value="C31" />
+								<value name="Entity has an office or other facility in the US" value="C32" />
+							</values>
+						</field>
+						
+						<field description="Please enter the two-letter country code" name="x-us-nexus-validator" required="0" type="text" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+					
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+</module>

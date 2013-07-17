@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp>
+<command>
+<creds>
+<clID>{clid}</clID>
+<options>
+<version>1.0</version>
+<lang>{lang}</lang>
+</options>
+</creds>
+<clTRID>{clTRID}</clTRID>
+<login><chksum>{chksum}</chksum></login>
+</command>
+</epp>

@@ -1,0 +1,7 @@
+[subject]Invoice #{$Invoice->ID} paid.[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+You have just paid the invoice:
+
+{include file="inc/invoice_info.tpl"}
+
+Regards, {$servicename} Staff

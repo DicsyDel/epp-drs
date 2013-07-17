@@ -1,0 +1,102 @@
+/**
+*	CSS Document for Admin Control Panel
+*		by Webta Inc.	http://webta.net
+*
+*/
+
+div, li, span, em, strong, form, body { margin: 0; padding: 0; }
+img		{ border: 0; vertical-align: middle; }
+body 	{ padding: 0px 1px; font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif; }
+
+td		{ empty-cells: show; }
+th		{ padding: 0; vertical-align: top; white-space: nowrap;  } 
+table 	{ font-size: 10pt;}
+
+a, a:link, a:visited, a:hover { color: #112ABB; text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: bold; }
+
+input.checkbox 	{ margin: 1px; margin-right: 5px; padding: 0px; width: 14px; height: 14px; vertical-align: middle; }
+input.radio 	{ vertical-align: middle; margin: 1px; margin-right: 5px; }
+
+.Clear		{ clear: both; }
+div.vrule	{ position: absolute; top:0; z-index: 1; }
+.gutter		{ border-left: 3px double #ddd !important; }
+
+.error 		{ color: red; font-size: 13px;}
+.Right		{ float: right; }
+.Left		{ float: left; }
+
+input.text, textarea.text { 
+	border-color: #9AB #CDE #CDE #9AB; 
+	border-width: 1px; 
+	border-style: solid; 
+	padding: 1px; 
+	font-size: 16px; 
+	vertical-align: middle;
+}
+
+input.text_smaller, textarea.text_smaller { 
+	border-color: #9AB #CDE #CDE #9AB; 
+	border-width: 1px; 
+	border-style: solid; 
+	padding: 1px; 
+	font-size: 15px; 
+	vertical-align: middle;
+}
+
+.btn, .btni	{ 
+	font-size: 12px; 
+	padding: 0 5px; 
+	font-family: Arial, Helvetica, sans-serif; 
+	background-color: #D4D0C8;
+}
+
+.btn	{ border: 1px outset;  border-color: #FFF;}
+.btni	{ border: 1px inset; }
+
+table.Webta_Table	{ 
+	font: normal 11px "Lucida Grande", verdana, arial, helvetica, sans-serif; 
+	border-collapse: collapse; 
+}
+
+table.Webta_Table table .th { background-color: #C3D9FF; }
+
+div.TableHeaderLeft, div.TableHeaderCenter, div.TableHeaderRight, 
+div.TableFooterLeft, div.TableFooterCenter, div.TableFooterRight,
+div.TableHeaderLeft_Blue, div.TableHeaderCenter_Blue, div.TableHeaderRight_Blue, 
+div.TableFooterLeft_Blue, div.TableFooterCenter_Blue, div.TableFooterRight_Blue,
+div.TableHeaderLeft_Gray, div.TableHeaderCenter_Gray, div.TableHeaderRight_Gray, 
+div.TableFooterLeft_Gray, div.TableFooterCenter_Gray, div.TableFooterRight_Gray,
+div.TableHeaderLeft_LightGray, div.TableHeaderRight_LightGray
+		{ float: none; height: 7px; font-size: 1px; }
+		
+div.TableHeaderCenter, div.TableFooterCenter,
+div.TableHeaderCenter_Blue, div.TableFooterCenter_Blue
+		{ background-color: #C3D9FF; float: none; width: 100%; }
+div.TableHeaderCenter_Gray, div.TableFooterCenter_Gray
+		{ background-color: #EEEEEE; float: none; width: 100%; }
+
+div.TableHeaderLeft_Gray	{ width: 7px; height: 25px; background-image: url(../images/tl_gray.gif); clear: left; }
+div.TableHeaderRight_Gray 	{ width: 7px; height: 25px; background-image: url(../images/tr_gray.gif);}
+div.TableFooterLeft_Gray	{ width: 7px; background-image: url(../images/bl_gray.gif); clear: left; }
+div.TableFooterRight_Gray 	{ width: 7px; background-image: url(../images/br_gray.gif);}
+
+
+td.TableHeaderCenter, td.TableFooterCenter, td.TableHeaderCenter_Blue, td.TableFooterCenter_Blue
+		{ background-color: #C3D9FF; }
+td.TableHeaderCenter_Gray, td.TableFooterCenter_Gray
+		{ background-color: #F4F4F4; }
+
+
+div.TableHeaderLeft, div.TableHeaderLeft_Blue	{ width: 7px; background-image: url(../images/tl.gif); clear: left; }
+div.TableHeaderRight, div.TableHeaderRight_Blue { width: 7px; background-image: url(../images/tr.gif);}
+div.TableFooterLeft, div.TableFooterLeft_Blue	{ width: 7px; background-image: url(../images/bl.gif); clear: left; }
+div.TableFooterRight, div.TableFooterRight_Blue { width: 7px; background-image: url(../images/br.gif);}
+
+div.TableHeaderLeft_LightGray { width: 7px; background-image: url(../images/tl_lightgray.gif); clear: left; }
+div.TableHeaderRight_LightGray { width: 7px; background-image: url(../images/tr_lightgray.gif);}
+
+div.TableFooterLeft_LightGray	{ width: 7px; background-image: url(../images/bl.gif); clear: left; }
+div.TableFooterRight_LightGray { width: 7px; background-image: url(../images/br.gif);}
+

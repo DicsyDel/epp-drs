@@ -1,0 +1,6 @@
+[subject]New poll message received[/subject]
+{$module_name} module received new poll message.
+
+{$message}
+
+Regards, {$servicename} Staff

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp>
+<command>
+<getdomaininfo>
+<clID>{clID}</clID>
+<domain>{name}</domain>
+<domain:type>{type}</domain:type>
+<options>
+<version>1.0</version>
+<lang>en</lang>
+</options>
+</getdomaininfo>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

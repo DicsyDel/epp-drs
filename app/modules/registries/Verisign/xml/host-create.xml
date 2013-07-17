@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns ="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<create>
+<host:create xmlns:host="urn:ietf:params:xml:ns:host-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:host-1.0 host-1.0.xsd">
+<host:name>{name}</host:name>
+{addr}
+</host:create>
+</create>
+<extension>
+  <namestoreExt:namestoreExt
+   xmlns:namestoreExt="http://www.verisign-grs.com/epp/namestoreExt-1.1"
+   xsi:schemaLocation="http://www.verisign-grs.com/epp/namestoreExt-1.1
+   namestoreExt-1.1.xsd">
+    <namestoreExt:subProduct>{subproduct}</namestoreExt:subProduct>
+  </namestoreExt:namestoreExt>
+</extension>     
+<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

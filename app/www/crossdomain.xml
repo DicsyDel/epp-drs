@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cross-domain-policy>
+    <allow-access-from domain="*" />
+    <site-control permitted-cross-domain-policies="all"/>
+</cross-domain-policy>

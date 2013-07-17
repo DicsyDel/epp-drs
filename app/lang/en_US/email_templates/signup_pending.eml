@@ -1,0 +1,7 @@
+[subject]Welcome to {$servicename}, {$client.name}![/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Thank you for your registration on {$servicename}!
+
+Your account will be approved by administrator
+
+Regards, {$servicename} Staff

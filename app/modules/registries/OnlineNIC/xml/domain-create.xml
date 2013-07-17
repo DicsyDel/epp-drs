@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp>
+<command>
+<create>
+<domain:create>
+<domain:type>{type}</domain:type>
+<domain:name>{name}</domain:name>
+<domain:period>{period}</domain:period>
+<domain:ns1>{ns1}</domain:ns1>
+<domain:ns2>{ns2}</domain:ns2>
+<domain:registrant>{registrant}</domain:registrant>
+<domain:contact type="admin">{admin}</domain:contact>
+<domain:contact type="tech">{tech}</domain:contact>
+<domain:contact type="billing">{billing}</domain:contact>
+<domain:authInfo type="pw">{pw}</domain:authInfo>
+</domain:create>
+</create>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

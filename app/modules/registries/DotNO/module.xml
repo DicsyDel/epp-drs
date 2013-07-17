@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<module 
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd" 
+	name="dotno" 
+	description=".NO registry (Norid)" 
+	version="3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>13</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>		
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>0</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+
+		<allowed_domain_flags />
+	</registry_options>
+
+	<section tlds="no" name="all">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>365</min_days>
+				</renewal>
+			
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+
+			<contact_groups>
+				<group name="registrant" title="Registrant" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="0" minlength="2" maxlength="255"></field>
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+						<field iseditable="0" description="Identity type" type="select" name="no-ext-identity-type" required="0" minlength="3" maxlength="255">
+							<values>
+								<value name="" value="" />
+								<value name="Organization number" value="organizationNumber" />
+								<value name="Local identity" value="localIdentity" />
+								<value name="National register" value="nationalIdentityNumber" />								
+							</values>
+						</field>
+						<field iseditable="0" description="Identity number" type="text" name="no-ext-identity" required="0" minlength="3" maxlength="255"/>
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			
+				<group name="generic" title="Admin, Tech" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="0" minlength="2" maxlength="255"></field>
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+						
+																								
+						
+						<!-- field iseditable="1" description="Organization" type="select" name="no-ext-organization" required="1" minlength="3" maxlength="255">
+							<database name_field="title" value_field="clid">
+								<sql>
+select sel_name.clid, CONCAT(sel_name.name, ', ', sel_email.email) as title from 
+(select cl.clid, `value` as `name` from contacts_data as cd 
+	inner join (select clid from contacts where userid = %current_user% and module_name = 'DotNO' and groupname = 'registrant') as cl 
+	on cl.clid = cd.contactid 
+	where `field` = 'name') as sel_name
+inner join 
+(select cl.clid, `value` as `email` from contacts_data as cd 
+	inner join (select clid from contacts where userid = %current_user% and module_name = 'DotNO' and groupname = 'registrant') as cl 
+	on cl.clid = cd.contactid 
+	where `field` = 'email') as sel_email
+on sel_name.clid = sel_email.clid								
+								</sql>
+							</database>
+						</field -->
+						
+						<!--  field iseditable="0" description="Contact type" type="select" name="no-ext-type" required="1" minlength="3" maxlength="255">
+							<values>
+								<value name="Organization" value="organization" />
+								<value name="Role" value="role" />
+								<value name="Person" value="person" />
+							</values>
+						</field -->
+					</fields>
+					
+					<disclose />
+					<!-- 
+                           <option name="voice" description="Phone" />
+                           <option name="fax" description="Fax" />
+                           <option name="email" description="Email" />					
+					</disclose>
+					 -->
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="registrant" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="1" type="admin" name="Administrative" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

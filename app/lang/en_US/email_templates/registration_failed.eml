@@ -1,0 +1,8 @@
+[subject]Domain registration failed[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Registration of domain name {$domain_name}.{$extension} failed.
+The reason of failure is: {$reason}.
+You can try to complete domain registration again in your Registrant Control panel.
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

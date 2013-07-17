@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<create>
+<contact:create xmlns:contact="urn:ietf:params:xml:ns:contact-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0 contact-1.0.xsd">
+<contact:id>{id}</contact:id>
+	<contact:postalInfo type="loc">
+		<contact:name>{name}</contact:name>
+		<contact:org>{org}</contact:org>
+		<contact:addr>
+			<contact:street>{street1}</contact:street>
+			<contact:street>{street2}</contact:street>
+			<contact:city>{city}</contact:city>
+			<contact:pc>{pc}</contact:pc>
+			<contact:cc>{cc}</contact:cc>
+		</contact:addr>
+	</contact:postalInfo>
+	<contact:voice>{voice}</contact:voice>
+	<contact:fax>{fax}</contact:fax>
+	<contact:email>{email}</contact:email>
+</contact:create>
+</create>
+<extension>
+	<iis:create xmlns:iis="urn:se:iis:xml:epp:iis-1.2" xsi:schemaLocation="urn:se:iis:xml:epp:iis-1.2 iis-1.2.xsd">
+		<iis:orgno>{orgno}</iis:orgno>
+		<iis:vatno>{vatno}</iis:vatno>
+	</iis:create>
+</extension>
+<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

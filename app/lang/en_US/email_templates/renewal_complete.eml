@@ -1,0 +1,6 @@
+[subject]Domain renewal complete[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+Your domain {$domain_name}.{$extension} succesfully renewed for {$years} years!
+The new expiration date for this domain is: {$expdate}.
+
+Regards, {$servicename} Staff

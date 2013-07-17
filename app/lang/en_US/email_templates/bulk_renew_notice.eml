@@ -1,0 +1,12 @@
+[subject]Expiring domains report[/subject]
+Dear {if $client_name}{$client_name}{else}client{/if},
+
+Some of your domains will expire soon
+
+Name                                              Expire date     Last renew date 
+---------------------------------------------------------------------------------{foreach from=$domains item=domain}
+{$domain.name|str_pad:50}{$domain.expire_date|str_pad:16}{$domain.last_renew_date|str_pad:16}{/foreach}
+
+You can renew these domain via your Registrant Control Panel {$registrant_cp_url}.
+
+Regards, {$servicename} Staff

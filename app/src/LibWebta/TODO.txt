@@ -1,0 +1,7 @@
+-- Переписать RPCClient чтобы он не наследовал HTTPClient а использовал его. 
+	Также нужно добавить хендлер ошибок RPC и HTTP коннекта.
+
+-- Add set_error_handler (array($object, 'handler_function')),
+	set_exception_handler (array($object, 'handler_function'));
+
+-- New Class: AppInfo. AppInfo->GetLoadedClasses(). Will be added in Core::Load.

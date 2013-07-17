@@ -1,0 +1,3246 @@
+# Copyright (C) Alex Kovalyov <alex@webta.net>, 2008
+# This file is distributed under the same license as the EPP-DRS.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 2901\n"
+"Report-Msgid-Bugs-To: alex@webta.net\n"
+"POT-Creation-Date: 2013-02-05\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+msgid "$contact_type OR $contact_group must be passed into GetContactFormSchema"
+msgstr ""
+
+#, php-format
+msgid "$invoice must be instance of Invoice class"
+msgstr ""
+
+#, php-format
+msgid "%d days before %s is not reached. You will be able to renew this domain in a %s days"
+msgstr ""
+
+#, php-format
+msgid "%d domains successfully renewed"
+msgstr ""
+
+#, php-format
+msgid "%d invoices deleted."
+msgstr ""
+
+#, php-format
+msgid "%d invoices rejected"
+msgstr ""
+
+#, php-format
+msgid "%d packages deleted"
+msgstr ""
+
+#, php-format
+msgid "%s Order #%s"
+msgstr ""
+
+#, php-format
+msgid "%s additional information"
+msgstr ""
+
+#, php-format
+msgid "%s cannot be used as nameserver because %s is not registered yet."
+msgstr ""
+
+#, php-format
+msgid "%s configuration saved"
+msgstr ""
+
+#, php-format
+msgid "%s contact"
+msgstr ""
+
+#, php-format
+msgid "%s contact is required"
+msgstr ""
+
+#, php-format
+msgid "%s contact not specified"
+msgstr ""
+
+#, php-format
+msgid "%s contact required"
+msgstr ""
+
+#, php-format
+msgid "%s contact type not defined in registry manifest"
+msgstr ""
+
+#, php-format
+msgid "%s contacts"
+msgstr ""
+
+#, php-format
+msgid "%s domain name registration for %s year(s)"
+msgstr ""
+
+#, php-format
+msgid "%s domain name renewal for %d year(s)"
+msgstr ""
+
+#, php-format
+msgid "%s domain name renewal for %s year(s)"
+msgstr ""
+
+#, php-format
+msgid "%s domain name renewal for %s years"
+msgstr ""
+
+#, php-format
+msgid "%s domain name trade"
+msgstr ""
+
+#, php-format
+msgid "%s domain name transfer"
+msgstr ""
+
+#, php-format
+msgid "%s domain(s) deleted"
+msgstr ""
+
+#, php-format
+msgid "%s domain(s) renewed"
+msgstr ""
+
+#, php-format
+msgid "%s invoices proccessed"
+msgstr ""
+
+#, php-format
+msgid "%s is not a method of %s"
+msgstr ""
+
+#, php-format
+msgid "%s is not a property of %s object"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid host"
+msgstr ""
+
+#, php-format
+msgid "%s is required"
+msgstr ""
+
+#, php-format
+msgid "%s must be in %s format"
+msgstr ""
+
+#, php-format
+msgid "%s must contain %s class."
+msgstr ""
+
+#, php-format
+msgid "%s must contain %sPaymentModule class that extends AbstractPaymentModule and either implements IDirectPaymentModule or/and IPostBackPaymentModule."
+msgstr ""
+
+#, php-format
+msgid "%s must contain %sRegistryModule class that extends AbstractRegistryModule, implements IRegistryModule."
+msgstr ""
+
+#, php-format
+msgid "%s must contain %sTransport class"
+msgstr ""
+
+#, php-format
+msgid "%s nameservers deleted"
+msgstr ""
+
+#, php-format
+msgid "%s not executable"
+msgstr ""
+
+#, php-format
+msgid "%s not found in %s"
+msgstr ""
+
+#, php-format
+msgid "%s payment method not available because total amount is less than allowed minimum (%s)"
+msgstr ""
+
+#, php-format
+msgid "%s registration period"
+msgstr ""
+
+#, php-format
+msgid "%s required"
+msgstr ""
+
+#, php-format
+msgid "%s years"
+msgstr ""
+
+#, php-format
+msgid "%s->%s is not a valid timestamp"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be boolean"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be float"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be integer"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be one of OUTGOING_TRANSFER_STATUS constants"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be one of TRANSFER_STATUS constants"
+msgstr ""
+
+#, php-format
+msgid "%s->%s must be string"
+msgstr ""
+
+#, php-format
+msgid "%s.%s domain name registration for %s year(s)"
+msgstr ""
+
+#, php-format
+msgid "%s.%s domain name transfer"
+msgstr ""
+
+msgid "&bull;&nbsp; You can learn about possible values of status field <a target='blank' href='http://webta.net/docs/wiki/domain.status.codes'>here</a>.<br/> &bull;&nbsp;When domain is locked, domain cannot be transferred.<br/> &bull;&nbsp;Domain password is commonly used in transfer procedure."
+msgstr ""
+
+#, php-format
+msgid "'%s' cannot be imported because it does not belong to the current registar."
+msgstr ""
+
+#, php-format
+msgid "'%s' cannot be longer than %d chars"
+msgstr ""
+
+#, php-format
+msgid "'%s' has no RemoteCLID, we cannot check that domain belongs to current registrar."
+msgstr ""
+
+#, php-format
+msgid "'%s' is not a valid email address"
+msgstr ""
+
+#, php-format
+msgid "'%s' is not a valid host"
+msgstr ""
+
+#, php-format
+msgid "'%s' is not valid"
+msgstr ""
+
+#, php-format
+msgid "'%s' is not valid IP address"
+msgstr ""
+
+#, php-format
+msgid "'%s' is not valid domain name"
+msgstr ""
+
+#, php-format
+msgid "'%s' is required"
+msgstr ""
+
+#, php-format
+msgid "'%s' is uneditable"
+msgstr ""
+
+#, php-format
+msgid "'%s' must be valid Sweden personal/organization number"
+msgstr ""
+
+#, php-format
+msgid "'%s' must contain at least %d chars"
+msgstr ""
+
+#, php-format
+msgid "'%s' should be 5 digits"
+msgstr ""
+
+#, php-format
+msgid "(Incl. VAT %.2f%%)"
+msgstr ""
+
+msgid "/etc/passwd not readable"
+msgstr ""
+
+msgid "1 year"
+msgstr ""
+
+#, php-format
+msgid "<a href=\"domains_view.php?id=%s\">%s.%s</a> &nbsp;&raquo;&nbsp; Manage nameservers"
+msgstr ""
+
+#, php-format
+msgid "<a href=\"domains_view.php?id=%s\">%s.%s</a> &nbsp;&raquo;&nbsp; Renew"
+msgstr ""
+
+#, php-format
+msgid "<br/>Managed DNS allows you to control your domain DNS zone in your registrant Control Panel. If you enable Managed DNS for this domain, it will use name servers of %s"
+msgstr ""
+
+msgid "<div style='color:red;'>Cannot determine zend host id. Please run zendid binary tool manually.</div>"
+msgstr ""
+
+msgid "ADODB not loaded."
+msgstr ""
+
+msgid "API log&nbsp;&raquo;&nbsp;View"
+msgstr ""
+
+#, php-format
+msgid "Access to the API is not allowed from your IP '%s'"
+msgstr ""
+
+#, php-format
+msgid "Account refilling for %s%s"
+msgstr ""
+
+msgid "Address 1 required"
+msgstr ""
+
+msgid "Address required"
+msgstr ""
+
+msgid "Admin contact is  undefined"
+msgstr ""
+
+msgid "Almost all EPP-DRS activity being logged. You should check logs in case of any issues. If you are asked to do so, you may submit a report to developers. For that, tick entries that should be included in report and select 'Send report to developers'"
+msgstr ""
+
+msgid "Another domain trade is already initiated"
+msgstr ""
+
+msgid "Application error. Administrator notified."
+msgstr ""
+
+#, php-format
+msgid "Application license does not permit module %s. Please contact %s"
+msgstr ""
+
+msgid "Argument must be array of Nameserver objects"
+msgstr ""
+
+msgid "Awaiting delete confirmation"
+msgstr ""
+
+msgid "Awaiting payment"
+msgstr ""
+
+msgid "Awaiting pre-registration"
+msgstr ""
+
+msgid "Awaiting transfer authorization"
+msgstr ""
+
+#, php-format
+msgid "BIND is not running on %s"
+msgstr ""
+
+msgid "Bad command"
+msgstr ""
+
+msgid "Bad request"
+msgstr ""
+
+msgid "Balance &nbsp;&raquo;&nbsp; History"
+msgstr ""
+
+#, php-format
+msgid "Balance refill by Invoice #%s"
+msgstr ""
+
+#, php-format
+msgid "BeanStream response: %s"
+msgstr ""
+
+msgid "Billing contact is  undefined"
+msgstr ""
+
+#, php-format
+msgid "Bulk contacts update - Step %d (Set Contacts)"
+msgstr ""
+
+msgid "Bulk domains preregistration"
+msgstr ""
+
+msgid "Bulk renew"
+msgstr ""
+
+msgid "CLID generation not succeeded in reasonable time"
+msgstr ""
+
+#, php-format
+msgid "CNAME RRs '%s' cannot have any other RRs with the same name."
+msgstr ""
+
+#, php-format
+msgid "Called %s::GetValue('%s') for non-existent property %s"
+msgstr ""
+
+#, php-format
+msgid "Can't resolve %s IP address"
+msgstr ""
+
+#, php-format
+msgid "Cannot %s domain name. Reason: %s"
+msgstr ""
+
+msgid "Cannot call ApplyFilter after ApplySQLPaging has been called"
+msgstr ""
+
+#, php-format
+msgid "Cannot change contact. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot change nameservers. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot check availability of %s. %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot check domain availability while processing line %s: %s"
+msgstr ""
+
+msgid "Cannot check domain name availability. Make sure that you spelled domain name correctly"
+msgstr ""
+
+#, php-format
+msgid "Cannot connect to %s on port %d!"
+msgstr ""
+
+#, php-format
+msgid "Cannot connect to %s on port %s!"
+msgstr ""
+
+#, php-format
+msgid "Cannot connect to NNTP server using host '%s' and port '%s': %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot connect to registry server. Code: %s. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot connect to registry server: %s"
+msgstr ""
+
+msgid "Cannot connect to remote server"
+msgstr ""
+
+msgid "Cannot create RRD: "
+msgstr ""
+
+#, php-format
+msgid "Cannot create invoice. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot create invoice: %s"
+msgstr ""
+
+msgid "Cannot delete contact. There are domains associated with this contact"
+msgstr ""
+
+#, php-format
+msgid "Cannot delete domain '%s'. %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot delete domain name. Reason: %s"
+msgstr ""
+
+msgid "Cannot determine filesystem block size"
+msgstr ""
+
+#, php-format
+msgid "Cannot directly edit '.%s' contact. Please edit contact using domain options."
+msgstr ""
+
+#, php-format
+msgid "Cannot fetch named.conf from %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot find %s declaration. Use Core::Load() to load it."
+msgstr ""
+
+msgid "Cannot find Smarty declaration. Use Core::Load() to load it."
+msgstr ""
+
+msgid "Cannot find corresponding invoice for this domain"
+msgstr ""
+
+msgid "Cannot find invoice with this ID!"
+msgstr ""
+
+#, php-format
+msgid "Cannot find registry object, that can handle contact ID=%d"
+msgstr ""
+
+msgid "Cannot find valid Payment module for request."
+msgstr ""
+
+msgid "Cannot find virtualhost"
+msgstr ""
+
+#, php-format
+msgid "Cannot get contact config. Contact with group name '%s' not found"
+msgstr ""
+
+#, php-format
+msgid "Cannot get full information about domain name. Domain object failed"
+msgstr ""
+
+#, php-format
+msgid "Cannot get full information about domain name. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot init registry module. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot initialize action. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot load %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot load %s contact. %s"
+msgstr ""
+
+msgid "Cannot plot graph: "
+msgstr ""
+
+#, php-format
+msgid "Cannot proceed request. Error code: %s. Please contact Administrator."
+msgstr ""
+
+msgid "Cannot read image from file:image_path"
+msgstr ""
+
+msgid "Cannot redeclare already calculated invoice 'Total'"
+msgstr ""
+
+msgid "Cannot register domain"
+msgstr ""
+
+#, php-format
+msgid "Cannot register, '%s' already exists."
+msgstr ""
+
+msgid "Cannot remove this contact. Registry does not allow contact removal for this domain extension."
+msgstr ""
+
+#, php-format
+msgid "Cannot renew %s. %s"
+msgstr ""
+
+msgid "Cannot retrieve whois information for this domain."
+msgstr ""
+
+#, php-format
+msgid "Cannot save DNS zone. Number of zones dont match. Should be: %d. There are: %d"
+msgstr ""
+
+msgid "Cannot save cache file. Make sure that web user has access to modify"
+msgstr ""
+
+msgid "Cannot save domain"
+msgstr ""
+
+#, php-format
+msgid "Cannot save domain. Reason: %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot set %s contact to %s. %s"
+msgstr ""
+
+#, php-format
+msgid "Cannot set default, no instance of log named '%s'."
+msgstr ""
+
+#, php-format
+msgid "Cannot unregister, no instance of log named '%s'."
+msgstr ""
+
+msgid "Cannot update RRD: "
+msgstr ""
+
+msgid "Cannot upload file"
+msgstr ""
+
+msgid "Cannot use path traversals while loading namespace from "
+msgstr ""
+
+msgid "Cannot use the same nameserver twice."
+msgstr ""
+
+msgid "Cannot write file."
+msgstr ""
+
+msgid "Changes were submitted to registry. It will take some time for these to apply."
+msgstr ""
+
+msgid "City required"
+msgstr ""
+
+#, php-format
+msgid "Class %s must implements one of the following interfases: %s"
+msgstr ""
+
+#, php-format
+msgid "Class '%s' not found or doesn't implements ITransport interface"
+msgstr ""
+
+#, php-format
+msgid "Class not exists: %s"
+msgstr ""
+
+#, php-format
+msgid "Client ID#%s not found in database"
+msgstr ""
+
+msgid "Client account is inactive"
+msgstr ""
+
+#, php-format
+msgid "Client with api_key_id=%s not found in database"
+msgstr ""
+
+#, php-format
+msgid "Client with email=%s not found in database"
+msgstr ""
+
+#, php-format
+msgid "Client with login=%s not found in database"
+msgstr ""
+
+msgid "Client with specified login not found in database"
+msgstr ""
+
+#, php-format
+msgid "Command template '%s.xml' not found"
+msgstr ""
+
+msgid "Configuration is disabled in demo mode. No data being displayed or submitted."
+msgstr ""
+
+msgid "Configuration successfully saved"
+msgstr ""
+
+msgid "Confirmation email was sent on the new email address that you entered. Please click on a link inside email to confirm email change."
+msgstr ""
+
+msgid "ConnectionConfig must be an instance of DataForm"
+msgstr ""
+
+msgid "Contact &nbsp;&raquo;&nbsp; change owner"
+msgstr ""
+
+msgid "Contact &nbsp;&raquo;&nbsp; full info"
+msgstr ""
+
+#, php-format
+msgid "Contact <%s> is not yet approved by administrator"
+msgstr ""
+
+#, php-format
+msgid "Contact CLID=%s TLD=%s already exists in DB and could't be added twice"
+msgstr ""
+
+#, php-format
+msgid "Contact CLID=%s not found in database"
+msgstr ""
+
+#, php-format
+msgid "Contact ID=%s not found in database"
+msgstr ""
+
+msgid "Contact change request has been sent to registry. "
+msgstr ""
+
+msgid "Contact couldn't be deleted due to linked domains"
+msgstr ""
+
+msgid "Contact create rejected"
+msgstr ""
+
+msgid "Contact creation approved"
+msgstr ""
+
+#, php-format
+msgid "Contact of group '%s' can't be used as '%s'"
+msgstr ""
+
+msgid "Contact owner successfully changed"
+msgstr ""
+
+msgid "Contact successfully changed"
+msgstr ""
+
+msgid "Contact successfully created."
+msgstr ""
+
+msgid "Contact successfully deleted"
+msgstr ""
+
+msgid "Contact successfully updated"
+msgstr ""
+
+msgid "Contact update approved"
+msgstr ""
+
+msgid "Contact update rejected"
+msgstr ""
+
+msgid "Contact was not loaded through DBContact, or was deleted"
+msgstr ""
+
+msgid "Contact will be changed after administrator approval"
+msgstr ""
+
+msgid "Contact will be created after administrator approval"
+msgstr ""
+
+#, php-format
+msgid "Contact with type %s not defined in manifest"
+msgstr ""
+
+msgid "Contacts &nbsp;&raquo;&nbsp; View"
+msgstr ""
+
+msgid "Could not authenticate on registry server"
+msgstr ""
+
+msgid "Could not connect to registry server"
+msgstr ""
+
+msgid "Countries successfully saved"
+msgstr ""
+
+msgid "Country required"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "DNS zone not found"
+msgstr ""
+
+msgid "Default nameserver #1 must be specified"
+msgstr ""
+
+msgid "Default nameserver #2 must be specified"
+msgstr ""
+
+msgid "Delegated"
+msgstr ""
+
+msgid "Delegated (caught)"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Discount package created succesfully"
+msgstr ""
+
+msgid "Discount package updated succesfully"
+msgstr ""
+
+msgid "Discount packages are the way to give discount to specific users. You can set discount percentage for each domain extension on <a href='tld_view.php' target='_blank'>Settings&nbsp;&raquo;&nbsp;Registry modules&nbsp;&raquo;&nbsp;Configure domain extensions</a>."
+msgstr ""
+
+#, php-format
+msgid "Domain %s already exists in DB and could't be added twice"
+msgstr ""
+
+#, php-format
+msgid "Domain %s not registered"
+msgstr ""
+
+#, php-format
+msgid "Domain %s renewed for %d year(s)"
+msgstr ""
+
+msgid "Domain &nbsp;&raquo;&nbsp; Full information"
+msgstr ""
+
+#, php-format
+msgid "Domain '%s' already exists in our database."
+msgstr ""
+
+#, php-format
+msgid "Domain ID=%s not found in database"
+msgstr ""
+
+msgid "Domain admin contact is undefined"
+msgstr ""
+
+msgid "Domain cannot be registered"
+msgstr ""
+
+msgid "Domain extensions settings successfully saved"
+msgstr ""
+
+#, php-format
+msgid "Domain field '%s' cannot be longer than %d chars"
+msgstr ""
+
+#, php-format
+msgid "Domain field '%s' couldn't be empty"
+msgstr ""
+
+#, php-format
+msgid "Domain field '%s' is not valid"
+msgstr ""
+
+#, php-format
+msgid "Domain field '%s' must contain at least %d chars"
+msgstr ""
+
+#, php-format
+msgid "Domain is already registered to the maximum period"
+msgstr ""
+
+msgid "Domain must have 2 namservers"
+msgstr ""
+
+#, php-format
+msgid "Domain name %s pre-registration"
+msgstr ""
+
+msgid "Domain name already exists in EPP-DRS"
+msgstr ""
+
+msgid "Domain name contains non-supported characters"
+msgstr ""
+
+msgid "Domain name successfully registered"
+msgstr ""
+
+msgid "Domain name successfully renewed"
+msgstr ""
+
+#, php-format
+msgid "Domain named '%s.%s' not found in database"
+msgstr ""
+
+msgid "Domain nameservers list coldn't be empty"
+msgstr ""
+
+msgid "Domain not found"
+msgstr ""
+
+msgid "Domain options and permissions"
+msgstr ""
+
+msgid "Domain password updated"
+msgstr ""
+
+msgid "Domain permissions updated"
+msgstr ""
+
+msgid "Domain registrant contact is undefined"
+msgstr ""
+
+msgid "Domain registration declined by registry"
+msgstr ""
+
+msgid "Domain registration process not completed. Need more information from client."
+msgstr ""
+
+#, php-format
+msgid "Domain status '%s'. Expected 'Awaiting payment'"
+msgstr ""
+
+msgid "Domain status not allow complete transfer"
+msgstr ""
+
+msgid "Domain status prohibits operation"
+msgstr ""
+
+msgid "Domain successfully added to pre-registration queue"
+msgstr ""
+
+msgid "Domain successfully deleted."
+msgstr ""
+
+msgid "Domain successfully locked."
+msgstr ""
+
+msgid "Domain successfully synchronized"
+msgstr ""
+
+msgid "Domain successfully transferred"
+msgstr ""
+
+msgid "Domain successfully unlocked."
+msgstr ""
+
+msgid "Domain tech contact is undefined"
+msgstr ""
+
+msgid "Domain transfer request successfully submitted to registry"
+msgstr ""
+
+msgid "Domain transfer successfully rejected"
+msgstr ""
+
+msgid "Domain was not loaded through DBDomain, or was deleted"
+msgstr ""
+
+msgid "Domains"
+msgstr ""
+
+msgid "Domains &nbsp;&raquo;&nbsp; Update status"
+msgstr ""
+
+msgid "Domains &nbsp;&raquo;&nbsp; View"
+msgstr ""
+
+msgid "Domains successfully added to pre-registration queue"
+msgstr ""
+
+msgid "E-mail already exists in database"
+msgstr ""
+
+msgid "E-mail required"
+msgstr ""
+
+msgid "EPP-DRS extension successfully disabled"
+msgstr ""
+
+msgid "EPP-DRS extension successfully enabled"
+msgstr ""
+
+#, php-format
+msgid "Edit %s contact for %s"
+msgstr ""
+
+msgid "Edit contact"
+msgstr ""
+
+msgid "Email address was succesfully confirmed and changed"
+msgstr ""
+
+msgid "Empty order"
+msgstr ""
+
+msgid "Enom can't assign empty list of nameservers to domain"
+msgstr ""
+
+#, php-format
+msgid "Error in module manifest. Cannot find corresponding contact group for %s:%s"
+msgstr ""
+
+#, php-format
+msgid "Error in module manifest. Contact target tlds attribute is empty. Module=%s, SectionName=%s, Index=%s"
+msgstr ""
+
+#, php-format
+msgid "Error occured for domain %s: %s"
+msgstr ""
+
+#, php-format
+msgid "Error while processing domain %s: %s"
+msgstr ""
+
+#, php-format
+msgid "Error while processing domain %s: Module %s doesn't support domain pre-registration."
+msgstr ""
+
+#, php-format
+msgid "Error while processing line %s: Domain name not registered"
+msgstr ""
+
+#, php-format
+msgid "Error: %s"
+msgstr ""
+
+msgid "Error: Invalid domain extension"
+msgstr ""
+
+msgid "Error: You don't have permissions for manage this domain"
+msgstr ""
+
+msgid "Event handler successfully disabled"
+msgstr ""
+
+msgid "Event handler successfully enabled"
+msgstr ""
+
+#, php-format
+msgid "Exception thrown for domain %s while adding domains to bulk preregistration: %s"
+msgstr ""
+
+msgid "Expired"
+msgstr ""
+
+msgid "FTP transport not support RNDC reload command"
+msgstr ""
+
+msgid "FTP transport not support RNDC status command"
+msgstr ""
+
+msgid "Failed Transaction Function is not defined!"
+msgstr ""
+
+msgid "Failed to connect to whois server."
+msgstr ""
+
+msgid "Failed to copy a file. Cannot connect to "
+msgstr ""
+
+msgid "Failed to copy a file. Please check filesystem access permissions."
+msgstr ""
+
+#, php-format
+msgid "Failed to generate DNS zone for '%s'"
+msgstr ""
+
+#, php-format
+msgid "Failed to load cache driver '%s'. %s"
+msgstr ""
+
+#, php-format
+msgid "Failed to load file '%s'. Make sure that file exists and readable"
+msgstr ""
+
+#, php-format
+msgid "Failed to parse domain name: %s"
+msgstr ""
+
+msgid "Failed to parse navigation menu XML. Make sure that XML is well-formed."
+msgstr ""
+
+#, php-format
+msgid "Failed to put task into queue. Reason %s"
+msgstr ""
+
+#, php-format
+msgid "Failed to read %s"
+msgstr ""
+
+#, php-format
+msgid "Failed to update DNS zone for '%s'"
+msgstr ""
+
+#, php-format
+msgid "Failed to update DNS zone for '%s'. Please contact service administrator"
+msgstr ""
+
+msgid "Fax invalid"
+msgstr ""
+
+msgid "Field must be an instance of DataFormField"
+msgstr ""
+
+msgid "Field successfully updated"
+msgstr ""
+
+#, php-format
+msgid "File %s: invoked code contains disallowed function calls or classes. Please consult EPP-DRS online docs for a full list of disallowed names."
+msgstr ""
+
+#, php-format
+msgid "Files in archive exceed max allowed [%s]"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Frequency should be less than 100 and more than 0"
+msgstr ""
+
+msgid "Full name required"
+msgstr ""
+
+#, php-format
+msgid "GetModuleObjectByName failed: %s"
+msgstr ""
+
+#, php-format
+msgid "GnuPG binary %s is unexecutable"
+msgstr ""
+
+#, php-format
+msgid "GnuPG home directory %s is unwriteable"
+msgstr ""
+
+msgid "IP address incorrect"
+msgstr ""
+
+#, php-format
+msgid "IPN thrown exception: %s on line %s in file %s"
+msgstr ""
+
+msgid "Illegal access mode specified.  Specify 'a' for append or 'w' for overwrite."
+msgstr ""
+
+#, php-format
+msgid "ImageMagick convert binary '%s' does not exist"
+msgstr ""
+
+#, php-format
+msgid "ImageMagick version '%s' installed. %s or higher required."
+msgstr ""
+
+msgid "Incomplete orders"
+msgstr ""
+
+msgid "Incomplete registrations"
+msgstr ""
+
+msgid "Incomplete transfers"
+msgstr ""
+
+msgid "Incorrect CVC code"
+msgstr ""
+
+msgid "Incorrect Expiration date"
+msgstr ""
+
+msgid "Incorrect Expiry date"
+msgstr ""
+
+msgid "Incorrect credit card number"
+msgstr ""
+
+#, php-format
+msgid "Incorrect domain name %s"
+msgstr ""
+
+#, php-format
+msgid "Incorrect domain name: %s"
+msgstr ""
+
+#, php-format
+msgid "Incorrect expiration date (%s) for domain %s."
+msgstr ""
+
+#, php-format
+msgid "Incorrect expiration date."
+msgstr ""
+
+msgid "Incorrect password"
+msgstr ""
+
+msgid "Incorrect phone format. Please follow the pattern."
+msgstr ""
+
+msgid "Information about pending operation not found in database"
+msgstr ""
+
+msgid "Insufficient balance for this payment"
+msgstr ""
+
+msgid "Insufficient balance for this payment."
+msgstr ""
+
+msgid "Invalid E-mail address"
+msgstr ""
+
+msgid "Invalid IP address"
+msgstr ""
+
+msgid "Invalid argument $object"
+msgstr ""
+
+msgid "Invalid company logo file format. Only gif allowed"
+msgstr ""
+
+msgid "Invalid confirmation link"
+msgstr ""
+
+#, php-format
+msgid "Invalid contact type '%s'"
+msgstr ""
+
+msgid "Invalid extension"
+msgstr ""
+
+msgid "Invalid login or password"
+msgstr ""
+
+msgid "Invalid password"
+msgstr ""
+
+msgid "Invalid registration period for this extension"
+msgstr ""
+
+#, php-format
+msgid "Invoice #%s already processed and cannot be rejected."
+msgstr ""
+
+msgid "Invoice already marked as failed"
+msgstr ""
+
+msgid "Invoice already marked as paid"
+msgstr ""
+
+msgid "Invoice for renewal of this domain name already exists. Please pay existing invoice instead of creating a new one."
+msgstr ""
+
+msgid "Invoice purpose create successfully"
+msgstr ""
+
+msgid "Invoice purpose successfully updated"
+msgstr ""
+
+msgid "Invoice rejected"
+msgstr ""
+
+msgid "Invoice status can be one of the following: <br>&nbsp;&nbsp;&bull;&nbsp;Pending - Invoice was not paid yet; <br>&nbsp;&nbsp;&bull;&nbsp;Paid - Invoice has been paid; <br>&nbsp;&nbsp;&bull;&nbsp;Rejected - Invoice rejected. Possible reasons: payment failed, invoice manually cancelled by Registrar."
+msgstr ""
+
+msgid "Invoice status can be one of the following: Pending - Invoice was not paid yet; Paid - Invoice has been paid; Rejected - Invoice rejected. Possible reasons: payment failed, invoice manually cancelled by Registrar."
+msgstr ""
+
+msgid "Invoice successfully created"
+msgstr ""
+
+#, php-format
+msgid "Invoice with id = '%s' not found in database"
+msgstr ""
+
+msgid "Invoices &nbsp;&raquo;&nbsp; View"
+msgstr ""
+
+#, php-format
+msgid "Job class %s not exists"
+msgstr ""
+
+msgid "Log viewer is disabled in demo mode"
+msgstr ""
+
+msgid "Log viewer is disabled in demo mode."
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Login already exists in database"
+msgstr ""
+
+msgid "Login required"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+#, php-format
+msgid "Malformed module manifest at %s"
+msgstr ""
+
+msgid "Manage nameserver hosts"
+msgstr ""
+
+#, php-format
+msgid "Managed DNS disabled successfully for %s"
+msgstr ""
+
+#, php-format
+msgid "Managed DNS enabled successfully for %s"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "Manual reject by registrar"
+msgstr ""
+
+#, php-format
+msgid "Mimimum account refillment amount is %s%d"
+msgstr ""
+
+#, php-format
+msgid "Missing some required arguments for %s Transport constructor. Passed: %s, expected: %s."
+msgstr ""
+
+#, php-format
+msgid "Missing some required arguments for %s constructor. Passed: %s, expected: %s."
+msgstr ""
+
+#, php-format
+msgid "Module %s XML manifest did not pass validation. The following errors occured:"
+msgstr ""
+
+#, php-format
+msgid "Module %s does not support domain pre-registration."
+msgstr ""
+
+msgid "Module did not pass one or more tests."
+msgstr ""
+
+msgid "Module has no certification test"
+msgstr ""
+
+#, php-format
+msgid "Module manifest not fount at %s"
+msgstr ""
+
+#, php-format
+msgid "Module not defined for %s domain extension."
+msgstr ""
+
+msgid "Module passed all tests and is operational."
+msgstr ""
+
+#, php-format
+msgid "Module returns invalid response. %s expected"
+msgstr ""
+
+msgid "My domains"
+msgstr ""
+
+msgid "Name required"
+msgstr ""
+
+#, php-format
+msgid "Nameserver #%s"
+msgstr ""
+
+#, php-format
+msgid "Nameserver %s does not exist"
+msgstr ""
+
+msgid "Nameserver created successfully"
+msgstr ""
+
+msgid "Nameserver host already exists."
+msgstr ""
+
+msgid "Nameserver host created successfully."
+msgstr ""
+
+msgid "Nameserver host deleted successfully"
+msgstr ""
+
+msgid "Nameserver host updated successfully"
+msgstr ""
+
+msgid "Nameserver list successfully updated"
+msgstr ""
+
+msgid "Nameserver updated succesfully"
+msgstr ""
+
+msgid "Nameservers change request has been sent to registry. You will be notified by email as soon as this operation will be completed."
+msgstr ""
+
+msgid "Namserver host was not loaded through DBNameserverHost, or was deleted"
+msgstr ""
+
+msgid "New email address cannot be the same as the old one"
+msgstr ""
+
+msgid "New field create successfully. It will appear on registration form immediately."
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Next step"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No article selected"
+msgstr ""
+
+msgid "No changes in nameserver list"
+msgstr ""
+
+msgid "No connection to server"
+msgstr ""
+
+#, php-format
+msgid "No contacts were selected"
+msgstr ""
+
+msgid "No corresponding invoice found for this domain"
+msgstr ""
+
+#, php-format
+msgid "No custom whois server defined for %s. Using default one."
+msgstr ""
+
+#, php-format
+msgid "No domain extension was selected"
+msgstr ""
+
+msgid "No domains available for registration"
+msgstr ""
+
+#, php-format
+msgid "No domains were selected"
+msgstr ""
+
+msgid "No established SSH connection"
+msgstr ""
+
+msgid "No files added to archive"
+msgstr ""
+
+msgid "No groups selected"
+msgstr ""
+
+#, php-format
+msgid "No instance of log named '%s'."
+msgstr ""
+
+msgid "No invoices to pay"
+msgstr ""
+
+#, php-format
+msgid "No modules configured to handle extension '%s'"
+msgstr ""
+
+#, php-format
+msgid "No nameservers were entered"
+msgstr ""
+
+msgid "No one contact was specified"
+msgstr ""
+
+msgid "No payable invoices found"
+msgstr ""
+
+#, php-format
+msgid "No poll method for contact operation %s"
+msgstr ""
+
+#, php-format
+msgid "No poll method for domain operation %s"
+msgstr ""
+
+msgid "No records found"
+msgstr ""
+
+msgid "No such article in selected range"
+msgstr ""
+
+msgid "No such domain in database"
+msgstr ""
+
+#, php-format
+msgid "No such driver '%s' implemented."
+msgstr ""
+
+msgid "No such email in database"
+msgstr ""
+
+msgid "No such group"
+msgstr ""
+
+msgid "No updates available. Your EPP-DRS is up to date."
+msgstr ""
+
+msgid "Nonsense mask"
+msgstr ""
+
+msgid "Not enought money for this payment"
+msgstr ""
+
+msgid "Notification successfully sent"
+msgstr ""
+
+msgid "Object already exists and cannot be created."
+msgstr ""
+
+msgid "Object not instantiable."
+msgstr ""
+
+msgid "Objects history"
+msgstr ""
+
+msgid "Observer already attached to class <Application>"
+msgstr ""
+
+msgid "Observer already attached to class <Invoice>"
+msgstr ""
+
+msgid "Observer already attached to class <Registry>"
+msgstr ""
+
+msgid "Observer already attached to payment module"
+msgstr ""
+
+msgid "Observer already attached to registry module"
+msgstr ""
+
+msgid "Observer not attached to registry module"
+msgstr ""
+
+msgid "Old password incorrect"
+msgstr ""
+
+msgid "On this page you can edit additional form fields for client registration form."
+msgstr ""
+
+msgid "Operation not implemented in registry module."
+msgstr ""
+
+msgid "Optional fields must be supplied as associative array of key/value pairs."
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+#, php-format
+msgid "Order userid != Invoice userid"
+msgstr ""
+
+#, php-format
+msgid "Order with id = '%s' not found in database"
+msgstr ""
+
+msgid "Password must be at least 7 symbols long"
+msgstr ""
+
+msgid "Password successfully changed"
+msgstr ""
+
+#, php-format
+msgid "Payment failed with error code %s"
+msgstr ""
+
+#, php-format
+msgid "Payment for Invoice #%s (%s)"
+msgstr ""
+
+#, php-format
+msgid "Payment module %s not found."
+msgstr ""
+
+msgid "Payment modules configuration is disabled in demo mode. No data being displayed or submitted."
+msgstr ""
+
+msgid "Payment modules configuration is disabled in demo mode. No data is displayed or submitted."
+msgstr ""
+
+msgid "Payment notify validation failed."
+msgstr ""
+
+msgid "Payment notify validation falied."
+msgstr ""
+
+msgid "Payment successfully complete"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Pending delete"
+msgstr ""
+
+msgid "Personal/Org number"
+msgstr ""
+
+msgid "Phone invalid"
+msgstr ""
+
+msgid "Phone required"
+msgstr ""
+
+msgid "Please check at least one domain"
+msgstr ""
+
+msgid "Please confirm password change. E-mail has been send to you."
+msgstr ""
+
+msgid "Please domains, one per line"
+msgstr ""
+
+msgid "Please install GD extension for use CAPTCHA!"
+msgstr ""
+
+msgid "Please pay the generated invoices below to add domains to pre-registration queue"
+msgstr ""
+
+msgid "Please select at least one item"
+msgstr ""
+
+msgid "Please select one or more domains"
+msgstr ""
+
+msgid "Please specify document root folder."
+msgstr ""
+
+msgid "Please specify listen host."
+msgstr ""
+
+msgid "Postal code"
+msgstr ""
+
+msgid "Postal code required"
+msgstr ""
+
+msgid "Postal required"
+msgstr ""
+
+msgid "Preregister domain"
+msgstr ""
+
+#, php-format
+msgid "Prices & Discounts for '%s' successfully updated."
+msgstr ""
+
+#, php-format
+msgid "Prices and discounts for %s"
+msgstr ""
+
+msgid "Product info"
+msgstr ""
+
+msgid "Profile successfully updated"
+msgstr ""
+
+#, php-format
+msgid "ProxyPay3 response: %s"
+msgstr ""
+
+msgid "RPC Fail"
+msgstr ""
+
+msgid "Registrant contact is  undefined"
+msgstr ""
+
+msgid "Registration failed"
+msgstr ""
+
+msgid "Registration pending"
+msgstr ""
+
+msgid "Registry error"
+msgstr ""
+
+#, php-format
+msgid "Registry have no dispatcher for %s"
+msgstr ""
+
+#, php-format
+msgid "Registry module not configured for '%s' domain extension"
+msgstr ""
+
+#, php-format
+msgid "Registry module not defined for %s domain extension"
+msgstr ""
+
+#, php-format
+msgid "Registry module not defined for '%s' domain extension"
+msgstr ""
+
+#, php-format
+msgid "Registry module not defined for '%s' domain extension."
+msgstr ""
+
+msgid "Registry modules configuration is disabled in demo mode. No data being displayed or submitted."
+msgstr ""
+
+#, php-format
+msgid "Registry not defined for %s domain extension"
+msgstr ""
+
+msgid "Registry return mailformed response"
+msgstr ""
+
+msgid "Registry return malformed XML"
+msgstr ""
+
+msgid "Registry returned malformed XML"
+msgstr ""
+
+#, php-format
+msgid "Registry was unable to change domain owner for %s"
+msgstr ""
+
+#, php-format
+msgid "Registry was unable to delete domain %s"
+msgstr ""
+
+msgid "Registry was unable to update contact"
+msgstr ""
+
+msgid "Registry was unable to update domain auth code"
+msgstr ""
+
+msgid "Registry was unable to update domain flags"
+msgstr ""
+
+msgid "Registry was unable to update nameservers"
+msgstr ""
+
+msgid "Rejected"
+msgstr ""
+
+msgid "Renew failed: "
+msgstr ""
+
+msgid "Request contains malformed XML"
+msgstr ""
+
+#, php-format
+msgid "Request to BeanStream failed: %s"
+msgstr ""
+
+#, php-format
+msgid "Request to ProxyPay3 failed: %s"
+msgstr ""
+
+msgid "Required field missed"
+msgstr ""
+
+msgid "Response signature validation failed"
+msgstr ""
+
+msgid "Response verification failed"
+msgstr ""
+
+#, php-format
+msgid "SFTP: Cannot open remote file '%s'"
+msgstr ""
+
+#, php-format
+msgid "SFTP: Cannot write to file '%s'"
+msgstr ""
+
+msgid "SFTP: Connection broken"
+msgstr ""
+
+msgid "SOA record already defined"
+msgstr ""
+
+#, php-format
+msgid "Search results for '%s'"
+msgstr ""
+
+msgid "Select contacts"
+msgstr ""
+
+msgid "Select interface language"
+msgstr ""
+
+msgid "Send report to developers"
+msgstr ""
+
+msgid "Server port must be a number"
+msgstr ""
+
+msgid "Setings&nbsp;&raquo;&nbsp;Discount packages&nbsp;&raquo;&nbsp;Add/Edit"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Settings &nbsp;&raquo;&nbsp; Client profile Additional fields&nbsp;&raquo;&nbsp;Add / Edit"
+msgstr ""
+
+msgid "Settings saved"
+msgstr ""
+
+msgid "Sorry, this domain can not be transferred"
+msgstr ""
+
+msgid "State required"
+msgstr ""
+
+msgid "Status updated"
+msgstr ""
+
+#, php-format
+msgid "StatusDomainTransfer failed: %s"
+msgstr ""
+
+#, php-format
+msgid "Succesfully generated DNS zone for '%s'"
+msgstr ""
+
+msgid "Succesfully logged out"
+msgstr ""
+
+msgid "Success Transaction Function is not defined!"
+msgstr ""
+
+#, php-format
+msgid "Task ID=%s not found in database"
+msgstr ""
+
+#, php-format
+msgid "Tasks for %s"
+msgstr ""
+
+msgid "Tech contact is  undefined"
+msgstr ""
+
+msgid "Templates manager is disabled in demo mode. No data being submitted."
+msgstr ""
+
+msgid "Thank you for your payment!"
+msgstr ""
+
+msgid "The current object state does not permit this operation."
+msgstr ""
+
+msgid "The following errors occured:"
+msgstr ""
+
+msgid "The object you are trying to use does not exist."
+msgstr ""
+
+msgid "There are no domains to transfer"
+msgstr ""
+
+msgid "There are unapplied domain changes pending. You cannot edit flags until previous changes will be approved by registry."
+msgstr ""
+
+msgid "There are unapplied nameservers changes pending. You cannot edit nameservers until previous changes will be approved by registry."
+msgstr ""
+
+#, php-format
+msgid "There is no '%s' domain extension defined in module manifest"
+msgstr ""
+
+msgid "There is no incomplete registration order for this domain"
+msgstr ""
+
+#, php-format
+msgid "There is no section '%s' defined in module manifest"
+msgstr ""
+
+msgid "These domains were registered in auto renew registry and their renewal was unpaid by customers."
+msgstr ""
+
+#, php-format
+msgid "This contact cannot be edited now, because there is a pending operation on %s. You will be notified by email once it has been processed."
+msgstr ""
+
+msgid "This contact cannot be edited now, because there is a pending operation on it. You will be notified by email once it has been processed."
+msgstr ""
+
+#, php-format
+msgid "This form will import existing domains from registry that were not created through %s. It will try to add all domains, one-by-one to %s database, assigning them to selected client."
+msgstr ""
+
+msgid "This method available only on *nix systems."
+msgstr ""
+
+msgid "This module requires additional actions from you outside EPP-DRS. <br/>&bull; Log into your Beanstream merchant account control panel. <br>&bull; Go to administration->account settings->order settings and ensure that 'Require CVD number for credit card transactions' checkbox is ticked."
+msgstr ""
+
+#, php-format
+msgid "This page allows you to change your account email address. %s sends sensitive information on this address, thus you must enter your current account password, and then click a link inside email message that will be sent to you, to confirm email change."
+msgstr ""
+
+msgid "This page allows you to create new name servers based on your domain"
+msgstr ""
+
+#, php-format
+msgid "This page allows you to edit your %s account profile. This profile is not related to your contacts."
+msgstr ""
+
+msgid "This page allows you to manage DNS records that will be appended to all DNS zones upon creation."
+msgstr ""
+
+msgid "This page allows you to set nameservers for your domain. Contact your hosting provider if you are not sure how to fill this form."
+msgstr ""
+
+msgid "This page contains all your contacts for all domain extensions that you have registered. Contacts are unique per domain extension. There are different types of contacts. Most common are Registrant, Billing and Technical. Some domain extension require other contact types to register domain."
+msgstr ""
+
+msgid "This page displays all your domains. <br/> &bull;&nbsp;You can learn about possible values for status field <a target='blank' href='http://webta.net/docs/wiki/domain.status.codes'>here</a>.<br/> &bull;&nbsp;When domain is locked, noone can change it's nameservers and essential contacts until it is unlocked.<br/> &bull;&nbsp;Domain password is commonly used in transfer procedure."
+msgstr ""
+
+msgid "This page lets you create a new contact for particular domain extension. Contacts are unique per domain extension. There are different types of contacts. Most common are Registrant, Billing and Technical. Some domain extension require other contact types to register domain."
+msgstr ""
+
+msgid "This page lists all your nameservers. EPP-DRS will save all new zones and modified zones on all nameservers."
+msgstr ""
+
+#, php-format
+msgid "This registry requires %d nameservers for domain"
+msgstr ""
+
+#, php-format
+msgid "This routine will retrieve domain status from registry and update it in %s database"
+msgstr ""
+
+#, php-format
+msgid "This version requires PHP %s or higher."
+msgstr ""
+
+msgid "Timeout while waiting for registry response."
+msgstr ""
+
+msgid "Town/City required"
+msgstr ""
+
+msgid "Transfer failed"
+msgstr ""
+
+msgid "Transfer requested"
+msgstr ""
+
+msgid "Transfer was rejected by the current domain owner."
+msgstr ""
+
+msgid "Transferred"
+msgstr ""
+
+#, php-format
+msgid "Transports/SSHTransport: Cannot connect to %s:%s."
+msgstr ""
+
+msgid "Two password do not match"
+msgstr ""
+
+msgid "Two passwords do not match"
+msgstr ""
+
+#, php-format
+msgid "Unable to add A record. %s is not an IP address."
+msgstr ""
+
+#, php-format
+msgid "Unable to add A record. %s is not valid IP address."
+msgstr ""
+
+#, php-format
+msgid "Unable to add A record. %s is not valid subdomain."
+msgstr ""
+
+#, php-format
+msgid "Unable to add CNAME record. %s is not valid subdomain name."
+msgstr ""
+
+#, php-format
+msgid "Unable to add CNAME record. %s or %s are not valid domains."
+msgstr ""
+
+#, php-format
+msgid "Unable to add MX record. %s cannot be IP address."
+msgstr ""
+
+#, php-format
+msgid "Unable to add NS record. %s is not a valid subdomain."
+msgstr ""
+
+#, php-format
+msgid "Unable to add PTR record. %s is not an integer."
+msgstr ""
+
+#, php-format
+msgid "Unable to add PTR record. %s is not an valid domain."
+msgstr ""
+
+#, php-format
+msgid "Unable to parse time %s"
+msgstr ""
+
+#, php-format
+msgid "Unable to parse time. %d"
+msgstr ""
+
+msgid "Unable to read a greeting message from server. Try again later."
+msgstr ""
+
+msgid "Unable to set SOA value"
+msgstr ""
+
+#, php-format
+msgid "Unable to set SOA value. %s not recognized"
+msgstr ""
+
+#, php-format
+msgid "Unable to set SOA value. %s not valid"
+msgstr ""
+
+#, php-format
+msgid "Undefined PaymentStatus received from %s payment module."
+msgstr ""
+
+#, php-format
+msgid "Undefined property Client->%s"
+msgstr ""
+
+#, php-format
+msgid "Undefined transfer status: %s"
+msgstr ""
+
+#, php-format
+msgid "Undefined type \"%s\" specified for %s->%s"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
+msgid "Unknown log level mask."
+msgstr ""
+
+msgid "Unknown log level specified."
+msgstr ""
+
+#, php-format
+msgid "Unsupported object in operation"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+#, php-format
+msgid "User home skeleton directory (%s) not readable"
+msgstr ""
+
+msgid "Username must consist of letters and numbers only"
+msgstr ""
+
+msgid "View domains"
+msgstr ""
+
+msgid "We gave up while waiting for transfer authorization from domain owner"
+msgstr ""
+
+msgid "We gave up while waiting for transfer authorization from domain owner."
+msgstr ""
+
+msgid "With selected"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+#, php-format
+msgid "You are now managing %s. You can find a list of tasks for this particular domain in top menu."
+msgstr ""
+
+msgid "You can add your custom fields on client registration form. Only text input and checkbox types supported for now"
+msgstr ""
+
+msgid "You can create it <a href='nhosts_view.php'>here</a>."
+msgstr ""
+
+#, php-format
+msgid "You can not disable module %s while there are domains or contacts associated with it."
+msgstr ""
+
+msgid "You cannot use the same nameserver twice."
+msgstr ""
+
+msgid "You don't have permissions for manage this contact"
+msgstr ""
+
+msgid "You don't have permissions for manage this domain"
+msgstr ""
+
+msgid "You don't have permissions for using this contact"
+msgstr ""
+
+msgid "You don't have permissions to manage this contact"
+msgstr ""
+
+msgid "You don't have permissions to manage this domain"
+msgstr ""
+
+msgid "You must add at least one server name."
+msgstr ""
+
+msgid "You must have at least 2 clients for changing contacts owner"
+msgstr ""
+
+msgid "You will be notified by email as soon as this operation will be completed."
+msgstr ""
+
+#, php-format
+msgid "Your current DNS zone were not yet saved on %s nameservers. It will be saved within one hour or less."
+msgstr ""
+
+msgid "Your license doesn't allow this extension"
+msgstr ""
+
+msgid "Your password has been reset and emailed to you"
+msgstr ""
+
+msgid "Your session has been expired"
+msgstr ""
+
+msgid "Your session has been expired.<br>Due to security reasons, you must start ordering proccess over from the beginning."
+msgstr ""
+
+msgid "Zone successfully updated"
+msgstr ""
+
+msgid "]}"
+msgstr ""
+
+msgid "failed to read nav.xml"
+msgstr ""
+
+msgid "fields deleted."
+msgstr ""
+
+msgid "lock"
+msgstr ""
+
+#, php-format
+msgid "named.conf does not exist or empty on %s"
+msgstr ""
+
+msgid "rndc reload failed"
+msgstr ""
+
+msgid "unlock"
+msgstr ""
+
+#, php-format
+msgid "vBulletin forum version '%s' installed. %s or higher required."
+msgstr ""
+
+msgid "{0} items per page"
+msgstr ""
+
+msgid "Your order:"
+msgstr ""
+
+msgid "Total:"
+msgstr ""
+
+msgid "Total discount:"
+msgstr ""
+
+msgid "VAT (%1%):"
+msgstr ""
+
+msgid "Grand total:"
+msgstr ""
+
+msgid "Payment method:"
+msgstr ""
+
+msgid "Payment from balance"
+msgstr ""
+
+msgid "You must agree with Terms and Conditions to continue."
+msgstr ""
+
+msgid "Next >>"
+msgstr ""
+
+msgid "<< Back"
+msgstr ""
+
+msgid "New client registration"
+msgstr ""
+
+msgid "Please provide your personal account details."
+msgstr ""
+
+msgid "Username:"
+msgstr ""
+
+msgid "Name:"
+msgstr ""
+
+msgid "Organization name:"
+msgstr ""
+
+msgid "E-mail:"
+msgstr ""
+
+msgid "Country:"
+msgstr ""
+
+msgid "State/region:"
+msgstr ""
+
+msgid "Town/City:"
+msgstr ""
+
+msgid "Postal code:"
+msgstr ""
+
+msgid "Address 1:"
+msgstr ""
+
+msgid "Address 2:"
+msgstr ""
+
+msgid "Phone:"
+msgstr ""
+
+msgid "Fax:"
+msgstr ""
+
+msgid "Your payment for the order failed."
+msgstr ""
+
+msgid "The reason of failure is:"
+msgstr ""
+
+msgid "You can pay the corresponding invoice(s) via your"
+msgstr ""
+
+msgid "Registrant Control Panel"
+msgstr ""
+
+msgid "You may now complete domains transfer via your"
+msgstr ""
+
+msgid "Please log into your"
+msgstr ""
+
+msgid "Registrant CP"
+msgstr ""
+
+msgid "and complete transfer of domains."
+msgstr ""
+
+msgid "Allowed"
+msgstr ""
+
+msgid "Disallowed"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Are you sure you want to export domains into CSV?"
+msgstr ""
+
+msgid "Current contact owner:"
+msgstr ""
+
+msgid "New owner:"
+msgstr ""
+
+msgid "No history entries found"
+msgstr ""
+
+msgid "CLID"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Extension"
+msgstr ""
+
+msgid "View contacts"
+msgstr ""
+
+msgid "No contacts found"
+msgstr ""
+
+msgid "View related domains"
+msgstr ""
+
+msgid "View contact details"
+msgstr ""
+
+msgid "Change owner"
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Create date"
+msgstr ""
+
+msgid "Expiration date"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "No domains found"
+msgstr ""
+
+msgid "View await delete confirmation domains"
+msgstr ""
+
+msgid "Approve delete"
+msgstr ""
+
+msgid "Required field"
+msgstr ""
+
+msgid "Optional field"
+msgstr ""
+
+msgid "View invoices"
+msgstr ""
+
+msgid "No invoices found"
+msgstr ""
+
+msgid "Invoice ID"
+msgstr ""
+
+msgid "Order ID"
+msgstr ""
+
+msgid "Issued for"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "Payment method"
+msgstr ""
+
+msgid "Paid"
+msgstr ""
+
+msgid "Make payment"
+msgstr ""
+
+msgid "Make payment for selected invoices"
+msgstr ""
+
+msgid "Quick date range"
+msgstr ""
+
+msgid "Exact date range"
+msgstr ""
+
+msgid "Select filter..."
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last 7 days"
+msgstr ""
+
+msgid "Last week (Mon-Sun)"
+msgstr ""
+
+msgid "Last business week (Mon-Fri)"
+msgstr ""
+
+msgid "This month"
+msgstr ""
+
+msgid "Last month"
+msgstr ""
+
+msgid "Apply filter"
+msgstr ""
+
+msgid "View details"
+msgstr ""
+
+msgid "View printable version"
+msgstr ""
+
+msgid "Mark as paid"
+msgstr ""
+
+msgid "Mark as failed"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Invoices"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "No renew"
+msgstr ""
+
+msgid "Renew disabled"
+msgstr ""
+
+msgid "Renew enabled"
+msgstr ""
+
+msgid "Transfer this domains to another client"
+msgstr ""
+
+msgid "Renew"
+msgstr ""
+
+msgid "Delete from database"
+msgstr ""
+
+msgid "Send notification"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Thank you for your order."
+msgstr ""
+
+msgid "Your account password has been sent on your email."
+msgstr ""
+
+msgid "To complete this order, you must pay the invoice(s) that were generated for it."
+msgstr ""
+
+msgid "and pay these invoice(s) at your earliest convenience."
+msgstr ""
+
+msgid "to check either any actions required from your side."
+msgstr ""
+
+msgid "Sum of your order"
+msgstr ""
+
+msgid "Please revise contents of your cart. You can remove items by unchecking them."
+msgstr ""
+
+msgid "You may now complete registration of these domains in your"
+msgstr ""
+
+msgid ""
+"Note: These domains are still available for registration to anyone, \n"
+"until you complete domain registration in your Registrant Control Panel!\n"
+"Failure to complete domain registration soon may result in your domains being registered by someone else."
+msgstr ""
+
+msgid "and complete domains registration."
+msgstr ""
+
+msgid "Cannot retrieve whois information for this domain now."
+msgstr ""
+
+msgid "Domain name #domain# already exists in check list."
+msgstr ""
+
+msgid "Please enter a valid domain name composed of two or more characters."
+msgstr ""
+
+msgid "Domain name contains non-supported characters."
+msgstr ""
+
+msgid "Retrieving whois information"
+msgstr ""
+
+msgid "This domain is available for registration"
+msgstr ""
+
+msgid "This domain is taken"
+msgstr ""
+
+msgid "Cannot check domain availability. Make sure that you spelled domain name correctly"
+msgstr ""
+
+msgid "This domain is available for transfer"
+msgstr ""
+
+msgid "This domain is not available for transfer"
+msgstr ""
+
+msgid "Cannot check transfer availability. Make sure that you spelled domain name correctly"
+msgstr ""
+
+msgid "Register domains"
+msgstr ""
+
+msgid "Transfer domains to "
+msgstr ""
+
+msgid "Processing"
+msgstr ""
+
+msgid "Application pending"
+msgstr ""
+
+msgid "Pending transfer"
+msgstr ""
+
+msgid "Pending renewal"
+msgstr ""
+
+msgid "Awaiting preregistration"
+msgstr ""
+
+msgid "Application recalled"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Please fix the following errors and try again:"
+msgstr ""
+
+msgid "Powered by"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Please confirm password change. E-mail with confirmation link has been send to you."
+msgstr ""
+
+msgid "New client"
+msgstr ""
+
+msgid "This is the first time I purchase from"
+msgstr ""
+
+msgid "Existing client"
+msgstr ""
+
+msgid "I am existing "
+msgstr ""
+
+msgid "customer"
+msgstr ""
+
+msgid "Login:"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "Forgot?"
+msgstr ""
+
+msgid "Password recovery:"
+msgstr ""
+
+msgid "Email:"
+msgstr ""
+
+msgid "Domain name"
+msgstr ""
+
+msgid "No domains to transfer"
+msgstr ""
+
+msgid "Fail reason"
+msgstr ""
+
+msgid "Display inline help:"
+msgstr ""
+
+msgid "Prefill new contacts during creation with client profile data"
+msgstr ""
+
+msgid "Always deduct funds from my account balance (if there is a sufficient amount)"
+msgstr ""
+
+msgid "Dont automaticaly pay renew invoices from balance"
+msgstr ""
+
+msgid "Send me email when balance is lower than"
+msgstr ""
+
+msgid "Start sending domain expiration notices in %1 days before domain is being to be expired."
+msgstr ""
+
+msgid "Nameserver"
+msgstr ""
+
+msgid "Operations have been queued. They will be processed with the next cronjob run."
+msgstr ""
+
+msgid "Your domain registration is currently awaiting payment."
+msgstr ""
+
+msgid "Invoice has been created for this purchase and available  <a href=\"inv_view.php\">here</a>."
+msgstr ""
+
+msgid "Domain will be registered immediately after we receive a confirmation that invoice has been paid."
+msgstr ""
+
+msgid "Schedule a domain for deletion at a given date."
+msgstr ""
+
+msgid "Select domain extension:"
+msgstr ""
+
+msgid "No active domains for selected extension"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
+
+msgid "Requested at"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Domain name:"
+msgstr ""
+
+msgid "Domain current expiration date:"
+msgstr ""
+
+msgid "Balance history"
+msgstr ""
+
+msgid "No history found"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Deposit"
+msgstr ""
+
+msgid "Withdraw"
+msgstr ""
+
+msgid "Ordered"
+msgstr ""
+
+msgid "Complete registration"
+msgstr ""
+
+msgid "Complete Transfer"
+msgstr ""
+
+msgid "Complete Trade"
+msgstr ""
+
+msgid "Complete transfer"
+msgstr ""
+
+msgid "Period:"
+msgstr ""
+
+msgid "Nameserver 1: *"
+msgstr ""
+
+msgid "Nameserver 2: *"
+msgstr ""
+
+msgid "Enable managed DNS:"
+msgstr ""
+
+msgid "contact:"
+msgstr ""
+
+msgid "Select parent - %1 contact..."
+msgstr ""
+
+msgid "Do not set"
+msgstr ""
+
+msgid "Do not set %1 contact for this domain"
+msgstr ""
+
+msgid "Select contact..."
+msgstr ""
+
+msgid "Create new contact..."
+msgstr ""
+
+msgid "Please wait..."
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "(Incl. VAT %1%)"
+msgstr ""
+
+msgid ""
+"Registrar transfer requested for this domain name.\n"
+" To confirm transfer, please click \"Approve\" button. Your domain will be transferred to requesting registrar.\n"
+" To decline transfer, push \"Decline\" button."
+msgstr ""
+
+msgid "Are you sure you want to approve this domain transfer?"
+msgstr ""
+
+msgid "Are you sure you want to reject this domain transfer?"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "IP Address"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Modify"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "printable invoice"
+msgstr ""
+
+msgid "Invoice for:"
+msgstr ""
+
+msgid "Order No."
+msgstr ""
+
+msgid "Invoice date"
+msgstr ""
+
+msgid "Payment for"
+msgstr ""
+
+msgid "Total payable"
+msgstr ""
+
+msgid "Manage contacts"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "Reject update"
+msgstr ""
+
+msgid "Reject create"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Await update approve"
+msgstr ""
+
+msgid "Await create approve"
+msgstr ""
+
+msgid "Domains (one per line):"
+msgstr ""
+
+msgid "Default Extension"
+msgstr ""
+
+msgid "Line format:"
+msgstr ""
+
+msgid "Domain name with extension. If no any default will be used"
+msgstr ""
+
+msgid "Example:"
+msgstr ""
+
+msgid "No WHOIS information found for selected domain name."
+msgstr ""
+
+msgid "Domains to pre-register<br>(one domain per line):"
+msgstr ""
+
+msgid "Domain name,expiration date (yyyy-mm-dd)"
+msgstr ""
+
+msgid "Allow following details to appear in domain whois response:"
+msgstr ""
+
+msgid "Total invoices"
+msgstr ""
+
+msgid "Total domains"
+msgstr ""
+
+msgid "Total contacts"
+msgstr ""
+
+msgid "Pending invoices"
+msgstr ""
+
+msgid "Failed invoices"
+msgstr ""
+
+msgid "Paid invoices"
+msgstr ""
+
+msgid "Pending domains"
+msgstr ""
+
+msgid "Active domains"
+msgstr ""
+
+msgid "You have Managed DNS enabled for this domain. You can not set your own nameservers for this domain until you disable Managed DNS."
+msgstr ""
+
+msgid "IP Address (only for glue records)"
+msgstr ""
+
+msgid "Add new"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Choose domain name"
+msgstr ""
+
+msgid "Select registration period"
+msgstr ""
+
+msgid "Nameservers and additional information"
+msgstr ""
+
+msgid "Checkout"
+msgstr ""
+
+msgid "Select %1 contact"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Loading. Please wait..."
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Selected:"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Balance"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "You have %1 incomplete domain registrations"
+msgstr ""
+
+msgid "You have %1 incomplete domain transfers"
+msgstr ""
+
+msgid "You have %1 incomplete outgoing transfers"
+msgstr ""
+
+msgid "You have %1 incomplete domain trades"
+msgstr ""
+
+msgid "Bulk transfer not available."
+msgstr ""
+
+msgid "Control Panel"
+msgstr ""
+
+msgid "New %1 contact"
+msgstr ""
+
+msgid "Creating contact. Please wait..."
+msgstr ""
+
+msgid "%1 contact details"
+msgstr ""
+
+msgid "Whois disclose options"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Updating contact. Please wait..."
+msgstr ""
+
+msgid "Your current password:"
+msgstr ""
+
+msgid "New e-mail address:"
+msgstr ""
+
+msgid "<b style=\"color:red;\">ATTENTION!</b> You already create invoice for renewal this domain name. <a href=\"inv_view.php\">Click here</a> to view your invoices."
+msgstr ""
+
+msgid "years"
+msgstr ""
+
+msgid "This domain name cannot be renewed."
+msgstr ""
+
+msgid ""
+"This domain cannot be renewed now because a minimum amount of time before expiration date (<b style=\"font-size:11px;\">%1</b> days) not reached. \n"
+"    \t\tYou will be able to renew this domain in <b style=\"font-size:11px;\">%2</b> days."
+msgstr ""
+
+msgid ".%2 registry does not allow to replace %1 contacts. You can only edit existing contact."
+msgstr ""
+
+msgid "%1 contact:"
+msgstr ""
+
+msgid "Nameserver to assign:<br>(one hostname per line):"
+msgstr ""
+
+msgid "Order complete!"
+msgstr ""
+
+msgid "Forgot password?"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Old password:"
+msgstr ""
+
+msgid "New password:"
+msgstr ""
+
+msgid "Confirm new password:"
+msgstr ""
+
+msgid "Domains to transfer<br>(one domain per line):"
+msgstr ""
+
+msgid "Domain name (without extension)"
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Lock status"
+msgstr ""
+
+msgid "Locked"
+msgstr ""
+
+msgid "UnLocked"
+msgstr ""
+
+msgid "Unlocked"
+msgstr ""
+
+msgid "Namesever"
+msgstr ""
+
+msgid "Set"
+msgstr ""
+
+msgid "Pending operations"
+msgstr ""
+
+msgid "Lock/Unlock"
+msgstr ""
+
+msgid "Options and permissions"
+msgstr ""
+
+msgid "Change authcode"
+msgstr ""
+
+msgid "Manage nameservers"
+msgstr ""
+
+msgid "Edit DNS zone"
+msgstr ""
+
+msgid "Update status"
+msgstr ""
+
+msgid "Resend transfer request"
+msgstr ""
+
+msgid "WHOIS"
+msgstr ""
+
+msgid "Manage domains"
+msgstr ""
+
+msgid "Seleted"
+msgstr ""
+
+msgid "Manage"
+msgstr ""
+
+msgid "Complete trade"
+msgstr ""
+
+msgid "Enable renew"
+msgstr ""
+
+msgid "Disable renew"
+msgstr ""
+
+msgid "Creation date"
+msgstr ""
+
+msgid "Domains to check:"
+msgstr ""
+
+msgid "Available for transfer"
+msgstr ""
+
+msgid "Transfer not available"
+msgstr ""
+
+msgid "Available for registration"
+msgstr ""
+
+msgid "Taken"
+msgstr ""
+
+msgid "Generate"
+msgstr ""
+
+msgid "Type:"
+msgstr ""
+
+msgid "Parent contact:"
+msgstr ""
+
+msgid "New invoice has been created for this purchase and available  <a href=\"inv_view.php\">here</a>."
+msgstr ""
+
+msgid "Please pay the invoice to proceed further."
+msgstr ""
+
+msgid "Organization:"
+msgstr ""
+
+msgid "Business or Occupation:"
+msgstr ""
+
+msgid "Address:"
+msgstr ""
+
+msgid "City / Town:"
+msgstr ""
+
+msgid "State:"
+msgstr ""
+
+msgid "Process"
+msgstr ""
+
+msgid "&lt;&lt; Back"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "View all"
+msgstr ""
+
+msgid "Create new"
+msgstr ""
+
+msgid "View expiring soon"
+msgstr ""
+
+msgid "View awaiting delete confirmation"
+msgstr ""
+
+msgid "View unused"
+msgstr ""
+
+msgid "Change requests"
+msgstr ""
+
+msgid "View pending"
+msgstr ""
+
+msgid "View paid"
+msgstr ""
+
+msgid "View rejected"
+msgstr ""
+
+msgid "Add/deduct funds"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Import existing domains"
+msgstr ""
+
+msgid "Export domains"
+msgstr ""
+
+msgid "System log"
+msgstr ""
+
+msgid "API log"
+msgstr ""
+
+msgid "Core settings"
+msgstr ""
+
+msgid "API settings"
+msgstr ""
+
+msgid "Registry modules"
+msgstr ""
+
+msgid "Configure domain extensions"
+msgstr ""
+
+msgid "Resolve domain extension conflicts"
+msgstr ""
+
+msgid "Payment modules"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Billing"
+msgstr ""
+
+msgid "Discount packages"
+msgstr ""
+
+msgid "Invoice purposes"
+msgstr ""
+
+msgid "Currency settings"
+msgstr ""
+
+msgid "Countries"
+msgstr ""
+
+msgid "EPP-DRS Extensions"
+msgstr ""
+
+msgid "Managed DNS"
+msgstr ""
+
+msgid "Nameservers"
+msgstr ""
+
+msgid "Set default zone records"
+msgstr ""
+
+msgid "View EPP-DRS extensions"
+msgstr ""
+
+msgid "Integration and customization"
+msgstr ""
+
+msgid "Templates"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Client profile additional fields"
+msgstr ""
+
+msgid "Custom event handlers"
+msgstr ""
+
+msgid "Registrant"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Technical"
+msgstr ""
+
+msgid "Synchronize domain with registry"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Change password"
+msgstr ""
+
+msgid "Change e-mail"
+msgstr ""
+
+msgid "Edit profile"
+msgstr ""
+
+msgid "My contacts"
+msgstr ""
+
+msgid "Register new"
+msgstr ""
+
+msgid "Transfer new"
+msgstr ""
+
+msgid "Bulk operations"
+msgstr ""
+
+msgid "Transfer domains"
+msgstr ""
+
+msgid "Update contacts"
+msgstr ""
+
+msgid "Update nameservers"
+msgstr ""
+
+msgid "Add funds"
+msgstr ""
+
+msgid "General"
+msgstr ""

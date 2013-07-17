@@ -1,0 +1,9 @@
+[subject]Domain {$domain_name}.{$extension} will expire in {$expDays} days![/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+Your domain {$domain_name}.{$extension} will expire in {$expDays} days.
+After domain is expired, it will be dropped and become available for registration to anyone!
+
+You can renew this domain via your Registrant Control Panel {$registrant_cp_url}.
+
+Regards, {$servicename} Staff

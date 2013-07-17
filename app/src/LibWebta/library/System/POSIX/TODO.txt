@@ -1,0 +1,1 @@
+-- Create a class that will be initialized by cron.php and manage class.*Proccess.php via reflection API.

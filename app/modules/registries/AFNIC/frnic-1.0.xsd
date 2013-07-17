@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.afnic.fr/xml/epp/frnic-1.0" xmlns:frnic="http://www.afnic.fr/xml/epp/frnic-1.0" xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0" xmlns:epp="urn:ietf:params:xml:ns:epp-1.0" xmlns:domain="urn:ietf:params:xml:ns:domain-1.0" xmlns:contact="urn:ietf:params:xml:ns:contact-1.0" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <annotation>
+    <documentation>
+      Extensible Provisioning Protocol v1.0
+      AFNIC specific extensions.
+      Draft version 1.0
+    </documentation>
+  </annotation>
+
+  <!--
+  Import needed schemas
+  -->
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0" schemaLocation="eppcom-1.0.xsd"/>
+  <import namespace="urn:ietf:params:xml:ns:epp-1.0" schemaLocation="epp-1.0.xsd"/>
+  <import namespace="urn:ietf:params:xml:ns:domain-1.0" schemaLocation="domain-1.0.xsd"/>
+  <import namespace="urn:ietf:params:xml:ns:contact-1.0" schemaLocation="contact-1.0.xsd"/>
+
+  <!--
+  All extension data can be found in an ext element
+  -->
+  <element name="ext" type="frnic:extType"/>
+
+  <!--
+  Extension block type
+  -->
+  <complexType name="extType">
+    <choice>
+      <element name="command" type="frnic:commandType"/>
+      <element name="create" type="frnic:createType"/>
+      <element name="transfer" type="frnic:transferType"/>
+      <element name="update" type="frnic:updateType"/>
+      <element name="resData" type="frnic:resDataType"/>
+    </choice>
+  </complexType>
+
+  <!--
+  AFNIC specific commands (Domain Trade/Recover)
+  -->
+  <complexType name="commandType">
+    <sequence>
+      <choice>
+        <element name="trade" type="frnic:trdType"/>
+        <element name="recover" type="frnic:recType"/>
+      </choice>
+      <element name="clTRID" type="epp:trIDStringType" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC transfer extensions (Domain)
+  -->
+  <complexType name="transferType">
+    <choice>
+      <element name="domain" type="frnic:domainTransferType"/>
+    </choice>
+  </complexType>
+
+  <!--
+  AFNIC create extensions (Contact)
+  -->
+  <complexType name="createType">
+    <choice>
+      <element name="contact" type="frnic:contactCreateInfoType"/>
+    </choice>
+  </complexType>
+
+  <!--
+  AFNIC update extensions (Contact)
+  -->
+  <complexType name="updateType">
+    <choice>
+      <element name="contact" type="frnic:contactUpdateType"/>
+    </choice>
+  </complexType>
+
+  <!--
+  AFNIC response data extensions
+  -->
+  <complexType name="resDataType">
+    <choice>
+      <element name="trdData" type="frnic:resTrdDataType"/>
+      <element name="recData" type="frnic:resRecDataType"/>
+      <element name="chkData" type="frnic:resChkDataType"/>
+      <element name="infData" type="frnic:resInfDataType"/>
+    </choice>
+  </complexType>
+
+  <!--
+  AFNIC specific command details (Domain Trade/Recover)
+  -->
+  <complexType name="trdType">
+    <sequence>
+      <element name="domain" type="frnic:domainTrdType"/>
+    </sequence>
+    <attribute name="op" type="frnic:tradeOpType" use="required"/>
+  </complexType>
+
+  <complexType name="domainTrdType">
+    <sequence>
+    <element name="name" type="eppcom:labelType"/>
+      <sequence minOccurs="0">
+        <element name="registrant" type="eppcom:clIDType"/>
+        <element name="contact" type="domain:contactType" minOccurs="2" maxOccurs="4"/>
+      </sequence>
+    </sequence>
+  </complexType>
+
+  <complexType name="recType">
+    <sequence>
+      <element name="domain" type="frnic:domainRecType"/>
+    </sequence>
+    <attribute name="op" type="frnic:recoverOpType" use="required"/>
+  </complexType>
+
+  <complexType name="domainRecType">
+    <sequence>
+      <element name="name" type="eppcom:labelType"/>
+      <element name="authInfo" type="domain:authInfoType"/>
+      <element name="registrant" type="eppcom:clIDType"/>
+      <element name="contact" type="domain:contactType" minOccurs="2" maxOccurs="4"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC transfer domain command extensions details
+  -->
+  <complexType name="domainTransferType">
+    <sequence>
+      <element name="contact" type="domain:contactType" minOccurs="2" maxOccurs="4"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC create contact command extensions details
+  -->
+  <complexType name="contactCreateInfoType">
+    <choice>
+      <sequence>
+        <element name="list" type="token" minOccurs="0"/>
+        <element name="individualInfos" type="frnic:contactCreateInfoIIDType"/>
+        <element name="firstName" type="contact:postalLineType"/>
+      </sequence>
+      <element name="firstName" type="contact:postalLineType"/>
+      <element name="legalEntityInfos" type="frnic:contactCreateInfoLIDType"/>
+    </choice>
+  </complexType>
+
+  <complexType name="contactCreateInfoIIDType">
+    <sequence>
+      <element name="idStatus" type="frnic:identificationStatusType" minOccurs="0"/>
+      <element name="birthDate" type="date"/>
+      <element name="birthCity" type="contact:postalLineType" minOccurs="0"/>
+      <element name="birthPc" type="contact:pcType" minOccurs="0"/>
+      <element name="birthCc" type="contact:ccType"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="contactCreateInfoLIDType">
+    <sequence>
+      <element name="idStatus" type="frnic:identificationStatusType" minOccurs="0"/>
+      <element name="legalStatus" type="frnic:legalStatusType"/>
+      <element name="siren" type="token" minOccurs="0"/>
+      <element name="VAT" type="token" minOccurs="0"/>
+      <element name="trademark" type="token" minOccurs="0"/>
+      <element name="asso" type="frnic:assoType" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="legalStatusType">
+    <simpleContent>
+      <extension base="normalizedString">
+        <attribute name="s" type="frnic:legalStatusValueType" use="required"/>
+        <attribute name="lang" type="language" default="en"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <simpleType name="legalStatusValueType">
+    <restriction base="token">
+      <enumeration value="association"/>
+      <enumeration value="company"/>
+      <enumeration value="other"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="assoType">
+    <choice>
+      <element name="waldec" type="token"/>
+      <sequence>
+        <element name="decl" type="date"/>
+        <element name="publ" type="frnic:assoPublType"/>
+      </sequence>
+    </choice>
+  </complexType>
+
+  <complexType name="assoPublType">
+    <simpleContent>
+      <extension base="date">
+        <attribute name="announce" type="nonNegativeInteger" use="required"/>
+        <attribute name="page" type="nonNegativeInteger" use="required"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <!--
+  AFNIC update contact command extensions details
+  -->
+  <complexType name="contactUpdateType">
+    <sequence>
+      <element name="add" type="frnic:contactAddRemType" minOccurs="0"/>
+      <element name="rem" type="frnic:contactAddRemType" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="contactAddRemType">
+    <sequence>
+      <element name="list" type="token" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC trade response extensions details
+  -->
+  <complexType name="resTrdDataType">
+    <choice>
+      <element name="domain" type="frnic:resTrdDomDataType"/>
+    </choice>
+  </complexType>
+
+  <complexType name="resTrdDomDataType">
+    <sequence>
+      <element name="name" type="eppcom:labelType"/>
+      <element name="trStatus" type="frnic:tradeStatusType"/>
+      <element name="reID" type="eppcom:clIDType"/>
+      <element name="reDate" type="dateTime"/>
+      <element name="reHldID" type="eppcom:clIDType" minOccurs="0"/>
+      <element name="rhDate" type="dateTime"/>
+      <element name="acID" type="eppcom:clIDType"/>
+      <element name="acHldID" type="eppcom:clIDType" minOccurs="0"/>
+      <element name="ahDate" type="dateTime"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC recover response extensions details
+  -->
+  <complexType name="resRecDataType">
+    <choice>
+      <element name="domain" type="frnic:resRecDomDataType"/>
+    </choice>
+  </complexType>
+                                                                                
+  <complexType name="resRecDomDataType">
+    <sequence>
+      <element name="name" type="eppcom:labelType"/>
+      <element name="reID" type="eppcom:clIDType"/>
+      <element name="reDate" type="dateTime"/>
+      <element name="reHldID" type="eppcom:clIDType" minOccurs="0"/>
+      <element name="acID" type="eppcom:clIDType"/>
+      <element name="acHldID" type="eppcom:clIDType" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <!--
+  AFNIC <check> response extensions details
+  -->
+  <complexType name="resChkDataType">
+    <choice>
+      <element name="domain" type="frnic:resChkDomDataType"/>
+    </choice>
+  </complexType>
+
+  <complexType name="resChkDomDataType">
+    <sequence>
+      <element name="cd" type="frnic:domCheckType" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="domCheckType">
+    <sequence>
+      <element name="name" type="frnic:domCheckNameType"/>
+      <element name="rsvReason" type="eppcom:reasonType" minOccurs="0"/>
+      <element name="fbdReason" type="eppcom:reasonType" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="domCheckNameType">
+    <simpleContent>
+      <extension base="eppcom:labelType">
+        <attribute name="reserved" type="boolean" use="required"/>
+        <attribute name="forbidden" type="boolean" use="required"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <!--
+  AFNIC <info> response extensions details
+  -->
+  <complexType name="resInfDataType">
+    <choice>
+      <element name="domain" type="frnic:resInfDomDataType"/>
+      <element name="contact" type="frnic:contactCreateInfoType"/>
+    </choice>
+  </complexType>
+
+  <complexType name="resInfDomDataType">
+    <sequence>
+      <element name="status" type="frnic:domStatusType" maxOccurs="2"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="domStatusType">
+    <simpleContent>
+      <extension base="normalizedString">
+        <attribute name="s" type="frnic:domStatusValueType" use="required"/>
+        <attribute name="lang" type="language" default="en"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <simpleType name="domStatusValueType">
+    <restriction base="token">
+      <enumeration value="serverTradeProhibited"/>
+      <enumeration value="serverRecoverProhibited"/>
+    </restriction>
+  </simpleType>
+
+  <!--
+  AFNIC Trade command "op" attribute values
+  -->
+  <simpleType name="tradeOpType">
+    <restriction base="token">
+      <enumeration value="query"/>
+      <enumeration value="cancel"/>
+      <enumeration value="request"/>
+   </restriction>
+  </simpleType>
+
+  <!--
+  AFNIC Recover command "op" attribute values
+  -->
+  <simpleType name="recoverOpType">
+    <restriction base="token">
+      <enumeration value="query"/>
+      <enumeration value="request"/>
+   </restriction>
+  </simpleType>
+
+  <!--
+  AFNIC Trade process status identifiers.
+  -->
+  <simpleType name="tradeStatusType">
+    <restriction base="token">
+      <enumeration value="pending"/>
+      <enumeration value="newHolderApproved"/>
+      <enumeration value="oldHolderApproved"/>
+      <enumeration value="holdersApproved"/>
+      <enumeration value="newHolderRejected"/>
+      <enumeration value="oldHolderRejected"/>
+    </restriction>
+  </simpleType>
+
+  <!--
+  AFNIC Identification process status identifiers.
+  -->
+  <simpleType name="identificationStatusType">
+    <restriction base="token">
+      <enumeration value="no"/>
+      <enumeration value="pending"/>
+      <enumeration value="ok"/>
+      <enumeration value="problem"/>
+      <enumeration value="ko"/>
+      <enumeration value="deprecated"/>
+      <enumeration value="control"/>
+      <enumeration value="delayed"/>
+    </restriction>
+  </simpleType>
+
+</schema>

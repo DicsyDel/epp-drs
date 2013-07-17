@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<create>
+<contact:create xmlns:contact="urn:ietf:params:xml:ns:contact-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:contact-1.0 contact-1.0.xsd">
+<contact:id>auto</contact:id>
+	<contact:postalInfo type="loc">
+		<contact:name>{name}</contact:name>
+		<contact:addr>
+			<contact:street>{street1}</contact:street>
+			<contact:street>{street2}</contact:street>
+			<contact:city>{city}</contact:city>
+			<contact:pc>{pc}</contact:pc>
+			<contact:cc>{cc}</contact:cc>
+		</contact:addr>
+	</contact:postalInfo>
+	<contact:voice>{voice}</contact:voice>
+	<contact:fax>{fax}</contact:fax>
+	<contact:email>{email}</contact:email>
+	<contact:authInfo>
+		<contact:pw />
+	</contact:authInfo>
+</contact:create>
+</create>
+<extension>
+	<no-ext-contact:create xmlns:no-ext-contact="http://www.norid.no/xsd/no-ext-contact-1.0" xsi:schemaLocation="http://www.norid.no/xsd/no-ext-contact-1.0 no-ext-contact-1.0.xsd">
+		<no-ext-contact:type>{no-ext-type}</no-ext-contact:type>
+		{no-ext-identity}
+		<no-ext-contact:mobilePhone>{voice}</no-ext-contact:mobilePhone>
+		<no-ext-contact:email>{email}</no-ext-contact:email>
+		{no-ext-organization}
+		{no-ext-role-contact}
+		<!-- no-ext-contact:disclose flag="0">
+			<no-ext-contact:mobilePhone />
+		</no-ext-contact:disclose -->
+	</no-ext-contact:create>
+</extension>
+<clTRID>{clTRID}</clTRID>
+</command>
+</epp>

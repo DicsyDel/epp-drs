@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu>
+	<item href="index.php">Dashboard</item>
+	
+	<node title="Profile">
+		<item href="password_cp.php">Change password</item>
+		<item href="email.php">Change e-mail</item>
+		<item href="profile_edit.php">Edit profile</item>		
+	</node>
+        <node title="My contacts">
+		<item href="contacts_view.php">View all</item>
+		<item href="contacts_view.php?unused=1">View unused</item>
+		<item href="contact_create.php">Create new</item>
+	</node>
+	<node title="My domains" type="domains">
+		<item href="domains_view.php" search="SELECT COUNT(*) FROM domains WHERE name LIKE '%s'">View all</item>
+		<item href="domains_view.php?act=expsoon">View expiring soon</item>
+		<item href="domains_view.php?act=pending">View pending</item>
+		<separator/>		
+		<item href="domain_reg.php">Register new</item>
+		<item href="bulk_transfer.php">Transfer new</item>		
+		<separator/>	
+		<node title="Bulk operations" type="bulk_operations">
+			<item href="bulk_reg.php">Register domains</item>
+			<item href="bulk_transfer.php">Transfer domains</item>		
+			<item href="bulk_update_contacts.php">Update contacts</item>
+			<item href="bulk_update_ns.php">Update nameservers</item>
+		</node>	
+	</node>
+
+	<node title="Billing" type="billing">
+		<item href="inv_view.php">View invoices</item>
+		<separator/>
+		<item href="balance_history.php">Balance history</item>
+		<item href="balance_deposit.php">Add funds</item>	
+	</node>
+	<node title="Tools">		
+		<item href="domains_export.php">Export domains</item>
+	</node>	
+
+	<node title="Settings" type="settings">
+		<item href="settings_core.php">General</item>
+		<item href="settings_api.php">API settings</item>	
+	</node>
+</menu>

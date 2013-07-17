@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<module 
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd" 
+	name="dotse" 
+	description=".SE registry (IIS.SE)" 
+	version="v3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>0</update_all_ns>
+			<max_ns>0</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>1</contact_removal>		
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>1</change_domain_authcode>
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>0</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+
+		<allowed_domain_flags>
+           <flag iseditable="1" sysname="clientHold" name="Client Hold">Allows to remove a domain name from the DNS. This status has no effect on the your ability to update, transfer, delete or renew the domain - the only effect is on the domain's presence in the DNS.</flag>
+        </allowed_domain_flags>
+        
+        <policy id="ownerContactPolicy">
+			<![CDATA[
+<h3>Rules &amp; Policies for EPP</h3>
+According to the .SE registrar agreement section 9.1, the registrar shall request the
+following information from the domain owner:
+<ul>
+	<li>full company name and contact person or if a private individual, their first and
+       last name, the corporate identity</li>
+    <li>number/personal identification number, VAT registration number (only for
+       foreign legal entities within the EU)</li>
+    <li>address</li>
+    <li>city</li>
+    <li>postal code</li>
+    <li>telephone number</li>
+    <li>e-mail address</li>
+</ul>
+The Registrar shall not undertake any registration services until the domain owner
+has provided this information.
+Besides the information in this document the information in the EPP-manual applies.
+			]]>
+        </policy>
+	</registry_options>
+
+	<section name="all" tlds="se,org.se,pp.se,tm.se,parti.se,press.se,a.se,b.se,ac.se,bd.se,c.se,d.se,e.se,f.se,g.se,h.se,i.se,k.se,l.se,m.se,n.se,o.se,p.se,r.se,s.se,t.se,u.se,w.se,x.se,y.se,z.se">
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>3285</min_days>
+				</renewal>
+			
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts />
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+
+			<contact_groups>
+				<group name="registrant" title="Registrant" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Organization" type="text" name="org" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="0" minlength="2" maxlength="255"></field>												
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+						<field iseditable="1" description="European VAT number" type="text" name="vatno" required="0" minlength="3" maxlength="255" pattern="/^[A-Za-z]{2}\s?[a-zA-Z0-9]+$/s" 
+							note="Required for all organizations inside the European Union but outside Sweden. Starts with a two letter country code (uppercase), followed by an optional space, followed by a country specific string containing digits 0-9, and letters a-z and A-Z"></field>
+						<field iseditable="0" description="Personal/Org number" type="text" name="orgno" required="1" minlength="3" maxlength="255"  
+							note="Starts with ISO 3166 Alpha-2 country code in square brackets. If the country code for Sweden is given [SE] a valid Swedish personal or organisational number must be given (6 digits, dash, 4 digits), otherwise 1 to 123 characters can follow"></field>
+					</fields>
+					
+					<disclose>
+                            <option name="name" description="Name" />
+                            <option name="org" description="Organization" />
+                            <option name="addr" description="Address" />
+                            <option name="voice" description="Phone" />
+                            <option name="fax" description="Fax" />
+                            <option name="email" description="Email" />
+                    </disclose>
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+					
+					<policy>
+						<approveChangesPolicy id="ownerContactPolicy" />
+					</policy>					
+				</group>
+			
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Organization" type="text" name="org" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="2" maxlength="16" pattern="/^[A-Za-z0-9\s-]+$/" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="0" minlength="2" maxlength="255"></field>												
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="2" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" />
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0" />
+						<field iseditable="1" description="European VAT number" type="text" name="vatno" required="0" minlength="3" maxlength="255" pattern="/^[A-Za-z]{2}\s?[a-zA-Z0-9]+$/s" 
+							note="Required for all organizations inside the European Union but outside Sweden. Starts with a two letter country code (uppercase), followed by an optional space, followed by a country specific string containing digits 0-9, and letters a-z and A-Z"></field>
+						<field iseditable="1" description="Personal/Org number" type="text" name="orgno" required="1" minlength="3" maxlength="255"  
+							note="Starts with ISO 3166 Alpha-2 country code in square brackets. If the country code for Sweden is given [SE] a valid Swedish personal or organisational number must be given (6 digits, dash, 4 digits), otherwise 1 to 123 characters can follow"></field>
+					</fields>
+					
+					<disclose>
+                            <option name="name" description="Name" />
+                            <option name="org" description="Organization" />
+                            <option name="addr" description="Address" />
+                            <option name="voice" description="Phone" />
+                            <option name="fax" description="Fax" />
+                            <option name="email" description="Email" />
+                    </disclose>
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="registrant" required="1" type="registrant" name="Registrant" new_id="%w2%d4-%d5" validation_callback="DotSERegistryModule::ContactValidator" />
+				<contact group="generic" required="0" type="tech" name="Technical" new_id="%w2%d4-%d5" validation_callback="DotSERegistryModule::ContactValidator" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%w2%d4-%d5" validation_callback="DotSERegistryModule::ContactValidator" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%w2%d4-%d5" validation_callback="DotSERegistryModule::ContactValidator" />
+			</contacts>
+		</config>
+	</section>
+</module>

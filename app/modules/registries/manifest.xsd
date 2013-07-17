@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">  
+  
+    <!-- 
+    Каждый манифест должен начинаться с тега <module>
+    -->
+    
+    <xs:element name="module">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="registry_options"/>
+                <xs:element name="registry_errors_override" minOccurs="0" maxOccurs="1" type="registry_errors_override"/>
+                <xs:element maxOccurs="unbounded" ref="section"/>
+            </xs:sequence>
+            
+            <!-- Описание модуля, например: "My First module for EPP"-->
+            <xs:attribute name="description" use="required"/>
+            
+            <!-- Имя модуля. Например: MYEPP-->
+            <xs:attribute name="name" use="required" type="simpleName"/>
+            
+            <!-- Мажорная версия EPP-DRS для которой писался модулью К примеру: v2 -->
+            <xs:attribute name="version" use="required" type="xs:NMTOKEN"/>
+            
+            <!-- Имя директории с кодом модуля -->
+            <xs:attribute name="codebase" use="optional" type="simpleName"></xs:attribute>
+            
+            <!-- XSD Schema URL -->
+            <xs:attribute name="schemaLocation" use="required" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+       
+      <xs:complexType name="registry_errors_override">
+          <xs:sequence>
+              <xs:element name="error" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType mixed="true">
+                      
+                      <!-- Тип совпадения строки ошибки. like или equal -->
+                      <xs:attribute name="match" type="match_type" use="required"></xs:attribute>
+                      
+                      <!-- Строка соответствует ошибке которая передается 4 аргументом 
+                               в TransportResponse возвращаемым методом Transport::Request -->
+                       <xs:attribute name="str" type="xs:string" use="required"></xs:attribute>
+                   </xs:complexType>
+               </xs:element>
+           </xs:sequence>
+       </xs:complexType>
+       
+    <!-- Этот раздел манивфеста описывает различные свойства регистри-->
+    <xs:element name="registry_options">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <!-- Раздел посвящен обьектам HOST-->
+                <xs:element ref="host_objects"/>
+                
+                <!-- Возможности регистри к некоторым операциям -->
+                <xs:element minOccurs="1" maxOccurs="1" ref="ability" />
+                
+                <!-- For future use (EU module) -->
+                <xs:element ref="registrar_contacts"/>
+                
+                <!-- Список поддерживаемых флагов у доменов -->
+                <xs:element ref="allowed_domain_flags"/>
+                
+                <xs:element name="policy" minOccurs="0"></xs:element>
+       
+                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Раздел посвящен обьектам HOST-->
+    <xs:element name="host_objects">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Нужно ли регистрировать Nameservers и Nameservershost на регистри (Мананджит ли регистри наимсервера и наимсерверхосты)-->
+                <xs:element ref="is_managed"/>
+                
+                <!-- Нужно ли при обновлении наимсерверов у домена, посылать на регистри список всех текущих наимсерверов, или же только изменения.-->
+                <xs:element ref="update_all_ns"/>
+               
+                <!-- Максимальное кол-во наимсерверов которые разрешено прописывтать у домена-->
+                <xs:element minOccurs="0" maxOccurs="1" ref="max_ns"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="is_managed" type="boolean"/>
+    <xs:element name="update_all_ns" type="boolean"/>
+    <xs:element name="max_ns" type="xs:integer" />
+    
+    <!-- Возможности регистри к некоторым операциям -->
+    <xs:element name="ability">
+        <xs:complexType>
+            <xs:sequence>
+            	<!-- Можно ли создавать контакты сами по себе -->
+            	<xs:element minOccurs="0" maxOccurs="1"
+            		name="create_contact" type="boolean" />
+
+            	<!-- Можно ли удалять контакты -->
+            	<xs:element name="contact_removal" type="boolean" />
+
+            	<!-- Поддерживает ли регистри смену контакта у домена -->
+            	<xs:element name="change_domain_contact" type="boolean" />
+
+            	<!-- Поддерживает ли регистри смену пароля у домена -->
+            	<xs:element name="change_domain_authcode"
+            		type="boolean" />
+
+            	<!-- можно ли менять пароль для регистранта -->
+            	<xs:element name="change_registrar_password"
+            		type="boolean" />
+
+            	<!-- Поддрежживается ли операции lock/unlock для доменов -->
+            	<xs:element name="domain_lock" type="boolean" />
+
+            	<!-- Поддерживает ли регистри Poll messages -->
+            	<xs:element name="poll_messages" type="boolean" />
+
+            	<!-- Можно ли отзывать регистрацию домена в тот момент пока он находится в состоянии pendingCreate. -->
+            	<xs:element name="recall_application" type="boolean" />
+
+            	<!-- Осуществляет ли регистри ренью самостоятельно-->
+            	<xs:element name="auto_renewal" type="boolean" />
+
+            	<!-- Поддерживает ли регистри отложенное удаление доменов-->
+            	<xs:element name="scheduled_delete" type="boolean" />
+
+            	<!-- Является ли у регистри смена регистранта отдельной операцией (Trade) -->
+            	<xs:element name="trade" type="boolean" />
+
+            	<xs:element minOccurs="0" maxOccurs="1" name="hostattr"
+            		type="boolean" />
+
+            	<xs:element minOccurs="0" maxOccurs="1"
+            		name="update_contact" type="boolean" />
+
+            	<!--  Доступна ли пререгистрация доменов (пока только у Verisign) -->
+            	<xs:element minOccurs="0" maxOccurs="1"
+            		name="preregistration" type="boolean" />
+
+            	<!-- Контакты доступны между разными секциями манифеста -->
+            	<xs:element minOccurs="0" maxOccurs="1"
+            		name="section_shared_contacts" type="boolean">
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- For future use (EU module) -->
+    <xs:element name="registrar_contacts">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Каждая секция отвечает за 1 или более Domain extensions -->
+    <xs:element name="section">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Для секции можно переопределить возможности объявленные для регистри -->
+                <xs:element name="ability" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Можно ли удалять контакты -->
+                            <xs:element minOccurs="0" name="contact_removal" type="boolean"/>
+                            
+                            <!-- Поддерживает ли регистри смену контакта у домена -->
+                            <xs:element minOccurs="0" name="change_domain_contact" type="boolean" />
+                            
+                            <!-- можно ли менять пароль для регистранта -->
+                            <xs:element minOccurs="0" name="change_registrar_password" type="boolean"/>
+                            
+                            <!-- Поддрежживается ли операции lock/unlock для доменов -->
+                            <xs:element minOccurs="0" name="domain_lock" type="boolean"/>
+                            
+                            <!-- Поддерживает ли регистри Poll messages -->
+                            <xs:element minOccurs="0" name="poll_messages" type="boolean"/>
+                            
+                            <!-- Можно ли отзывать регистрацию домена в тот момент пока он находится в состоянии pendingCreate. -->
+                            <xs:element minOccurs="0" name="recall_application" type="boolean"/>
+                            
+                            <!-- Осуществляет ли регистри ренью самостоятельно-->
+                            <xs:element minOccurs="0" name="auto_renewal" type="boolean"/>
+                            
+                            <!-- Поддерживает ли регистри отложенное удаление доменов-->
+                            <xs:element minOccurs="0" name="scheduled_delete" type="boolean"/>
+                            
+                            <!-- Является ли у регистри смена регистранта отдельной операцией (Trade) -->
+                            <xs:element minOccurs="0" name="trade" type="boolean" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="config"/>
+            </xs:sequence>
+            
+            <!-- Список Domain extensions которые описывает данная секция через запятую, например: "com,net,co.uk" -->
+            <xs:attribute name="tlds" use="required"/>
+            
+            <xs:attribute name="name" type="xs:string"></xs:attribute>
+            
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <!-- Секция описывает синтаксис IDN доменов-->
+                <xs:element minOccurs="0" ref="idn"/>
+                
+                <!-- Секция служит для описания различных операций над доменом-->
+                <xs:element ref="domain"/> 
+                
+                <!-- Секция описывает группы контактов и их конфиг -->
+                <xs:element name="contact_groups" minOccurs="1" maxOccurs="1" >
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Описание одной группы -->
+                            <xs:element name="group" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <!-- Список полей необходимых для регистрации контакта принадлежашего этой группы-->
+                                        <xs:element name="fields" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element ref="field" minOccurs="1" maxOccurs="unbounded"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        
+                                        <!-- Список полей которые можно скрывать из запроса WHOIS -->
+                                        <xs:element ref="disclose"></xs:element>
+                                        
+                                        <!-- Список полей которые отвечают за имя контакта и за мыло -->
+                                        <xs:element ref="display_fields"></xs:element>
+                                        
+                                 
+                                        <!-- Дополнительные поля для регистрации контактов -->
+                                        <xs:element minOccurs="0" ref="extra_fields"/>
+                                        
+                                        <!-- Политики контакта -->
+						                <xs:element name="policy" minOccurs="0">
+						                	<xs:complexType>
+						                		<xs:sequence>
+						                			<xs:element name="approveChangesPolicy">
+						                			</xs:element>
+						                		</xs:sequence>
+						                	</xs:complexType>
+						                </xs:element>
+                                                                                
+                                    </xs:all>
+                                    <xs:attribute name="name" use="required" type="xs:NCName"></xs:attribute>
+                                    
+                                    <xs:attribute name="title" use="required" type="xs:string"></xs:attribute>
+                                    
+                                    <!-- Привязывается ли контакты из этой группы к домену (нужно для OnlineNIC)-->
+                                    <xs:attribute name="assoc_with_domain" type="xs:boolean"></xs:attribute>
+                                    
+                                    <!-- Контакт группы можно использовать для всех TLD секции -->
+                                    <xs:attribute name="apply-to-section" type="xs:boolean"></xs:attribute>
+                                    
+                                    <!-- Контакт группы используется для TLD объявленных в target-group -->
+                                    <xs:attribute name="target-group" type="xs:string"></xs:attribute>
+
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>                        
+                    </xs:complexType>
+                </xs:element>
+                    
+
+                    
+                <xs:element name="contact_target_groups" minOccurs="0" maxOccurs="1">
+                	<xs:complexType>
+                		<xs:sequence>
+                			<xs:element name="target_group">
+                				<xs:complexType>
+                					<xs:sequence>
+                						<xs:element name="target">
+                							<xs:complexType>
+                								<xs:attribute name="tlds" use="required"></xs:attribute>
+                							</xs:complexType>
+                						</xs:element>
+                					</xs:sequence>
+                					<xs:attribute name="name" use="required"></xs:attribute>
+                				</xs:complexType>
+                			</xs:element>
+                		</xs:sequence>
+                	</xs:complexType>
+                </xs:element> 
+                    
+                <!-- Секция описывает контакты которые поддерживает регистри -->
+                <xs:element ref="contacts"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="idn">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Патерн который проверяет разрешенные символы для IDN доменов, например: <![CDATA[\x{00E0}-\x{00FF}\x{0153}]]>-->
+                <xs:element minOccurs="0" ref="allowed-utf8-chars"/>
+                
+                <!-- Патерн который описываает запрещенные символы для IDN доменов, например: <![CDATA[\x{00F7}]]> -->
+                <xs:element minOccurs="0" ref="disallowed-utf8-chars"/>
+            </xs:sequence>
+            
+            <xs:attribute name="punycode_encode" type="boolean" default="1"></xs:attribute>
+            
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="allowed-utf8-chars" type="xs:string"/>
+    <xs:element name="disallowed-utf8-chars" type="xs:string"/>
+    <xs:element name="domain">
+        <xs:complexType>
+            <xs:sequence>
+            	 <!-- Дополнительные поля которые требуются для трансфера домена, к примеру пароль от домена. -->
+				 <xs:element name="extra_fields" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                                <xs:complexType>
+                                    <!-- Если тип поля select то мы должны либо явно задать его values либо указать что поля берутся из базы-->
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="1" ref="values" />
+                                        <xs:choice>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="database"/>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="csv"/>
+                                        </xs:choice>
+                                    </xs:sequence>
+                                    
+                                    <!-- Описание поля-->
+                                    <xs:attribute use="required" name="description"/>
+                                    
+                                    <!-- минимальная длинна-->
+                                    <xs:attribute name="maxlength" type="xs:integer"/>
+                                    
+                                    <!-- максимальная длинна-->
+                                    <xs:attribute name="minlength" type="xs:integer"/> 
+                                    
+                                    <!-- имя поля-->
+                                    <xs:attribute name="name" use="required" type="simpleName"/>
+                                    
+                                    <!-- Пояснения к полю -->
+                                    <xs:attribute name="note"/> 
+                                    
+                                    <!-- Патерн для проверки валидности поля -->
+                                    <xs:attribute name="pattern"/>
+                                    
+                                  
+                                    <!-- Тип поля -->
+                                    <xs:attribute use="required" name="type" type="fType"/>
+                                    
+                                    <!-- Значение поля -->
+                                    <xs:attribute name="value" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>            	 
+            
+                <!-- Описывает параметры регистрации -->
+                <xs:element ref="registration"/>
+                
+                <!-- Описывает параметры ренью -->
+                <xs:element ref="renewal"/> 
+                
+                <!-- Описывает параметры трансфера -->
+                <xs:element ref="transfer"/>
+                <xs:sequence minOccurs="0">
+                    <!-- Описывает поддерживаемые флаги для доменов -->
+                    <xs:element ref="allowed_domain_flags"/> 
+                </xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="registration">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <!-- минимальный период для регистрации домена -->
+                <xs:element ref="min_period"/>
+                
+                <!-- максимальный период для регистрации домена -->
+                <xs:element ref="max_period"/> 
+                
+                <xs:element name="min_ns" type="xs:integer" minOccurs="0" maxOccurs="1"></xs:element>
+                
+                <xs:element name="max_ns" type="xs:integer" minOccurs="0" maxOccurs="1"></xs:element>
+                
+                <!-- дополнительные поля (помимо контактов и nameservers) необходимые для регистрации доменного имени -->
+                <xs:element name="extra_fields">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                                <xs:complexType>
+                                    <!-- Если тип поля select то мы должны либо явно задать его values либо указать что поля берутся из базы-->
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="1" ref="values" />
+                                        <xs:choice>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="database"/>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="csv"/>
+                                        </xs:choice>
+                                    </xs:sequence>
+                                    
+                                    <!-- Описание поля-->
+                                    <xs:attribute use="required" name="description"/>
+                                    
+                                    <!-- минимальная длинна-->
+                                    <xs:attribute name="maxlength" type="xs:integer"/>
+                                    
+                                    <!-- максимальная длинна-->
+                                    <xs:attribute name="minlength" type="xs:integer"/> 
+                                    
+                                    <!-- имя поля-->
+                                    <xs:attribute name="name" use="required" type="simpleName"/>
+                                    
+                                    <!-- Пояснения к полю -->
+                                    <xs:attribute name="note"/> 
+                                    
+                                    <!-- Патерн для проверки валидности поля -->
+                                    <xs:attribute name="pattern"/>
+                                    
+                                    <!-- Является ли поле обязательным -->
+                                    <xs:attribute use="required" name="required" type="boolean"/>
+                                    
+                                    <!-- Тип поля -->
+                                    <xs:attribute use="required" name="type" type="fType"/>
+                                    
+                                    <!-- Значение поля -->
+                                    <xs:attribute name="value" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="values">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="allow_create_rollback" type="xs:integer"/>
+    <xs:element name="renewal">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <!-- Разрешен ли renewal для доменов -->
+                <xs:element minOccurs="0" ref="allow"/>
+                
+                <!-- минимальный период на который можно зареньюить домен -->
+                <xs:element ref="min_period"/> 
+                
+                <!-- максимальный период на который можно зареньюить домен-->
+                <xs:element ref="max_period"/> 
+                
+                <!-- Список периодов в которые нужно слать нотификацию регистрантам о том, что их домен должен заэспайрится -->
+                <xs:element ref="notifications"/>
+                
+                <!-- Минимальное кол-во дней необходимых для ренью домена -->
+                <xs:element ref="min_days"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="notifications">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- вол-во дней до экспирации за которое будет послана нотификация пользователю -->
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="period"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="period" type="xs:integer"/>
+    <xs:element name="min_days" type="xs:integer"/>
+    <xs:element name="transfer">
+        <xs:complexType>
+            <xs:sequence>
+                
+                <!-- Статус по которому можно определить был ли запрос на трансфер от другого регистрара -->
+                <xs:element ref="pending_status"/>
+                
+                <!-- разрешен ли трансфер -->
+                <xs:element ref="allow"/>
+                
+                <!-- разрешен ли массовый трансфер -->
+                <xs:element ref="allow_bulk_transfer"/>
+                
+                <!-- таймаут на ожидание подтверждения трансефра -->
+                <xs:element ref="timeout"/>
+                
+                <!-- Дополнительные поля которые требуются для трансфера домена, к примеру пароль от домена. -->
+                <xs:element name="fields">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                                <xs:complexType>
+                                    <!-- Если тип поля select то мы должны либо явно задать его values либо указать что поля берутся из базы-->
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="1" ref="values" />
+                                        <xs:choice>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="database"/>
+                                            <xs:element minOccurs="0" maxOccurs="1" ref="csv"/>
+                                        </xs:choice>
+                                    </xs:sequence>
+                                    
+                                    <!-- Описание поля-->
+                                    <xs:attribute use="required" name="description"/>
+                                    
+                                    <!-- минимальная длинна-->
+                                    <xs:attribute name="maxlength" type="xs:integer"/>
+                                    
+                                    <!-- максимальная длинна -->
+                                    <xs:attribute name="minlength" type="xs:integer"/>
+                                    
+                                    <!-- имя поля-->
+                                    <xs:attribute name="name" use="required" type="simpleName"/>
+                                    
+                                    <!-- Пояснения к полю -->
+                                    <xs:attribute name="note"/>
+                                    
+                                    <!-- Патерн для проверки валидности поля -->
+                                    <xs:attribute name="pattern"/>
+                                    
+                                    <!-- Является ли поле обязательным -->
+                                    <xs:attribute use="required" name="required" type="boolean"/>
+                                    
+                                    <!-- Тип поля -->
+                                    <xs:attribute use="required" name="type" type="fType"/> 
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Контакты которые необходимы для трансфера -->
+                <xs:element name="contacts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="contact">
+                                <xs:complexType>
+                                    <xs:attribute name="type" use="required" type="contactType"/>
+                                    <xs:attribute name="required" use="optional" type="boolean"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <!-- требуется ли обновлять список контактов после успешной операции трансфера-->
+                <xs:element ref="update_contacts"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pending_status" type="xs:string"/>
+    <xs:element name="allow_bulk_transfer" type="boolean"/>
+    <xs:element name="timeout" type="xs:integer"/>
+    <xs:element name="fields">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="field"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="update_contacts" type="boolean"/>
+    <xs:element name="allowed_domain_flags">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="flag"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="flag">
+        <xs:complexType mixed="true">
+            
+            <!-- Имя флага -->
+            <xs:attribute name="name" use="required"/> 
+            
+            <!-- Имя флага у регистри к примеру clientUpdateProhibite-->
+            <xs:attribute name="sysname" use="required" type="xs:NCName"/>
+            
+            <!-- Может ли пользователь устанавливать/снимать этот флаг -->
+            <xs:attribute name="iseditable" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="min_period" type="xs:integer"/>
+    <xs:element name="max_period" type="xs:integer"/>
+    <xs:element name="extra_fields">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="field"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="if"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="if">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="field"/>
+            </xs:sequence>
+            <xs:attribute name="field" use="required"></xs:attribute>
+            <xs:attribute name="value" use="required"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="allow" type="boolean"/>
+    <xs:element name="field">
+        <xs:complexType>
+            <!-- Если тип поля select то мы должны либо явно задать его values либо указать что поля берутся из базы-->
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" ref="values" />
+                <xs:choice>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="database"/>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="csv"/>
+                </xs:choice>
+            </xs:sequence>
+            
+            <!-- формат поля, который посылается на регистри (пока поддерживается только для полей типа phone)-->
+            <xs:attribute name="registry_format" />
+            
+            <!-- Описание поля-->
+            <xs:attribute use="required" name="description"/>
+            
+            <!-- Можно ли это поле обновлять у контакта на регистри-->
+            <xs:attribute use="required" name="iseditable" type="boolean"/>
+            
+            <!-- минимальная длинна-->
+            <xs:attribute name="maxlength" type="xs:integer"/>
+            
+            <!-- максимальная длинна -->
+            <xs:attribute name="minlength" type="xs:integer"/>
+            
+            <!-- имя поля-->
+            <xs:attribute name="name" use="required" type="simpleName"/>
+            
+            <!-- Пояснения к полю -->
+            <xs:attribute name="note"/>
+            
+            <!-- Патерн для проверки валидности поля -->
+            <xs:attribute name="pattern"/>
+            
+            <!-- Является ли поле обязательным -->
+            <xs:attribute use="required" name="required" type="boolean"/>
+            
+            <!-- Тип поля -->
+            <xs:attribute use="required" name="type" type="fType"/>
+            
+            <!--  Значение поля (для checkbox) -->
+            <xs:attribute name="value"/>
+            
+            <xs:attribute use="optional" name="hint" type="xs:string" />
+            
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="csv">
+        <xs:complexType>
+            <!-- путь к csv файлу относительно папки с модулем к примеру texts/languages.csv -->
+            <xs:attribute name="file" use="required" type="simpleName"/>
+            
+            <!-- символ используемый в качестве сапаратора -->
+            <xs:attribute name="separator" use="required" type="xs:string"/>
+            
+            <!-- индекс поля имени -->
+            <xs:attribute name="name_index" use="required" type="xs:integer"/>
+            
+            <!-- индекс поля значения -->
+            <xs:attribute name="value_index" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="database">
+        <xs:complexType>
+            <!-- SQL запрос -->        
+        	<xs:sequence minOccurs="0" maxOccurs="1">
+        		<xs:element name="sql" type="xs:anySimpleType"/>
+        	</xs:sequence>
+            
+            <!-- поле в таблице которое будет использоваться в качестве значения-->
+            <xs:attribute name="value_field" use="required" type="simpleName"/>
+            
+            <!-- поле в таблице которое будет использоваться в качестве имени-->
+            <xs:attribute name="name_field" use="required" type="simpleName"/>
+            
+            <!-- таблица в базе данных -->
+            <xs:attribute name="table" use="required" type="allowedTables"/>
+
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="value">
+        <xs:complexType>
+            <xs:attribute name="value" use="required" type="xs:string"/>
+            <xs:attribute name="name" use="required" type="xs:string" />
+            <xs:attribute name="selected" use="optional" type="xs:boolean"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="contacts">
+        <xs:complexType mixed="true">
+            <xs:choice maxOccurs="unbounded">
+                <xs:element minOccurs="1" maxOccurs="4" ref="contact"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="contact">
+        <xs:complexType>
+                        
+            <!-- Контакт является чаилдом к другому контакту. 
+                 Указать тип контакта который приходится парентом данному. -->
+            <xs:attribute name="childof" type="contactType"/>
+            
+            <!-- Имя контакта-->
+            <xs:attribute use="required" name="name" type="xs:NCName"/>
+            
+            <!-- contact id syntax pattern: %w1%d8, %d10 (w = char, d = decimal)-->
+            <xs:attribute use="required" name="new_id"/>
+            
+            <!-- Тип контакта: registrant, admin, billing или tech -->
+            <xs:attribute name="type" use="required" type="contactType"/>
+            
+            <!-- Является ли контакт обязательным для домена-->
+            <xs:attribute name="required" use="required" type="boolean" />
+            
+            <!-- Имя группы если contact[@allow_grooping = 1] -->
+            <xs:attribute name="group" type="xs:NCName"/>
+            
+            <!-- PHP callback для валидации полей контакта -->
+            <xs:attribute name="validation_callback" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="disclose">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="option"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="option">
+        <xs:complexType>
+            
+            <!-- Описания поля которое нужно показать в Хуизе-->
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            
+            <!-- Имя поля -->
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="display_fields">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                                <xs:complexType>
+                                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="email">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                                <xs:complexType>
+                                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="fType">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="select"/>
+            <xs:enumeration value="checkbox"/>
+            <xs:enumeration value="memo" />
+            <xs:enumeration value="phone" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="contactType">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="registrant"/>
+            <xs:enumeration value="admin"/>
+            <xs:enumeration value="tech"/>
+            <xs:enumeration value="billing"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="allowedTables">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="countries"/>
+            <xs:enumeration value="states"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="match_type">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="like"/>
+            <xs:enumeration value="equal"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="boolean">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="simpleName">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="2" />
+            <xs:maxLength value="60"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

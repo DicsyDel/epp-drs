@@ -1,0 +1,11 @@
+[subject]Contact change {if $approved}approved{else}declined{/if}[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+{$Contact->CLID} ({$Contact->GetFullName()}) has been {if $approved}approved{else}declined{/if},
+
+{if !$request_ok}
+However, contact wasn't updated on registry
+Update failed with the error {$error}.
+{/if}
+
+Regards, {$servicename} Staff

@@ -1,0 +1,9 @@
+[subject]Invoice paid[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+You have just paid the invoice for {$domain_name}.{$extension} transfer to {$servicename}.
+
+Transfer is still incomplete!
+You may now complete domain transfer in your Registrant Control Panel.
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

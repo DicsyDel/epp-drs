@@ -1,0 +1,179 @@
+@CHARSET "UTF-8";
+
+.x-panel-header-text {
+	font-family:"Lucida Grande",verdana,arial,helvetica,sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	padding-right:3px;
+}
+.ux-gridviewer .x-grid3-header-offset {
+	width:auto !important;
+}
+.ux-gridviewer .x-grid3-hd-inner {
+	font-family:"Lucida Grande",verdana,arial,helvetica,sans-serif;
+	font-size:14px;
+	line-height:normal;
+}
+.ux-gridviewer .x-grid3-cell-inner {
+	font-family:"Lucida Grande",verdana,arial,helvetica,sans-serif;
+	font-size:14px;
+	line-height:normal;
+	padding:1px 5px;
+}
+.ux-gridviewer .x-grid3-row {
+	border-style:dashed;
+	border-collapse: collapse;
+}
+.ux-gridviewer .x-grid3-row-alt {
+	background-color: #F9FAFF; 
+}
+.ux-cell-center {
+	text-align:center;
+}
+
+.ux-gridviewer .x-grid3-row td, 
+.ux-gridviewer .x-grid3-summary-row td {
+	-moz-user-select:all !important;
+}
+
+/* row options */
+.ux-row-options-btn {
+    font: normal 13px/1.2em Arial,"Lucida Grande",Verdana,sans-serif;
+	text-align: center;
+	display: block;
+	position: relative;
+	text-decoration: none;
+	background: url(/images/bg-control.gif) no-repeat left;
+	width: 86px;
+	height: 19px;
+	overflow: hidden;
+	font-size: 11px;
+	font-weight: bold;
+    font-variant: normal;	
+	line-height: 1.65em;
+    font-size-adjust: none;
+    font-stretch: normal;
+	padding: 0 20px 0 8px;
+	color: #666 !important;
+	z-index: 19;
+	white-space: nowrap;	
+}
+.ux-row-options-btn:hover {
+	text-decoration: none;
+}
+.ux-row-options-btn .ux-row-options-trigger {
+	width: 20px;
+	height: 19px;
+	background: url(/images/control-pimp.gif) no-repeat #fafafa;
+	overflow: hidden;
+	font-size: 1px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 19;	
+}
+.ux-row-options-btn:hover .ux-row-options-trigger, 
+.ux-gridviewer .x-grid3-row-over .ux-row-options-trigger {
+	background-image: url(/images/control-pimp-hover.gif);
+}
+.ux-gridviewer .x-grid-empty {
+	text-align:center;
+}
+.ux-row-red {
+	background-color:pink !important;
+}
+
+
+.ux-tbar-right {
+	position: absolute;
+	right: 2px;
+	top: 2px;
+}
+
+/* object status */
+.status-ok {
+	color:green;
+}
+.status-ok-pending {
+	color:#666633;
+}
+.status-pending {
+	color:#FF9900;
+}
+.status-fail {
+	color:red;
+}
+
+#gridviewer-ct, .gridviewer-ct {
+	padding:5px;
+}
+
+
+.ux-field-nameserver-ip {
+	display:inline-block;
+	padding-left:10px;
+}
+.ux-field-nameserver-ip label {
+	padding-right:4px;
+}
+.ux-field-nameserver-ip input {
+	border-color: #9AB #CDE #CDE #9AB; 
+	border-width: 1px; 
+	border-style: solid; 
+	padding: 1px; 
+	font-size: 16px; 
+	vertical-align: middle;
+}
+
+
+
+
+/**
+ * Bulk renew page styles 
+ */
+#bulk-renew {
+	border-collapse: collapse;
+}
+#bulk-renew td {
+	height:26px;
+	padding:3px;
+	vertical-align: top;
+}
+#bulk-renew tr {
+	background:transparent url(/images/dotted-line.gif) repeat-x left bottom;
+}
+#bulk-renew td:first-child {
+	width:1%;
+}
+#bulk-renew td + td {
+	width:30%;
+}
+#bulk-renew td + td + td {
+	width:70%;
+}
+#bulk-renew td + td + td + td {
+	width:1%;
+	text-align: right;
+	white-space: nowrap;	
+}
+#bulk-renew a.remove {
+	display:inline-block;
+	padding-left:16px;
+	background: transparent url(/images/trash.gif) no-repeat scroll 0 3px;
+}
+#bulk-renew .ico {
+	width:17px;
+	height: 13px;	
+}
+#bulk-renew .ico-error {
+	background: url(/images/unavail.gif);
+}
+#bulk-renew .ico-info {
+	height: 15px;
+	background: url(/images/fail.gif);
+}
+#bulk-renew .ico-ok {
+	background: url(/images/avail.gif);
+}
+
+

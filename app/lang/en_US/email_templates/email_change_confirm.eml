@@ -1,0 +1,11 @@
+[subject]Email change confirmation[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+
+You have change your contact E-mail.
+
+Please click on the link above to confirm this action.
+{$link}
+
+If you did not change your email, please disregard this message.
+
+Regards, {$servicename} Staff

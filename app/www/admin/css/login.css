@@ -1,0 +1,18 @@
+
+#login, #pass 		{ width: 130px; }
+#webta_logo_footer	{ padding-top: 5px; }
+
+.middle { width: 350px; margin: auto; padding-top: 10%; }
+
+
+#loginform {
+	width:339px; 
+	height:175px; 
+	background-repeat:no-repeat; 
+	padding-top:60px; 
+	background-color: #C3D9FF;
+}
+
+#loginform_inner {
+	margin: 0px 10px 0px 80px;
+}

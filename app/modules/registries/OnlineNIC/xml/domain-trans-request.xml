@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<transfer>
+<domain:transfer>
+<domain:name>{name}</domain:name>
+<domain:type>{type}</domain:type>
+<domain:pw>{pw}</domain:pw>
+</domain:transfer>
+</transfer>
+<unspec/>
+<clTRID>{clTRID}</clTRID>
+<chksum>{chksum}</chksum>
+</command>
+</epp>

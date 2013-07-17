@@ -1,0 +1,24 @@
+Order Allow,Deny
+Allow from all
+
+RewriteEngine On
+
+RewriteRule ^images/logo.gif logo.php
+
+RewriteCond %{http_cookie} Locale=([^;]+)
+RewriteCond %{DOCUMENT_ROOT}/images/%1/$1 -f
+RewriteRule ^images/(.*)$ images/%1/$1
+
+RewriteCond %{http_cookie} Locale=([^;]+)
+RewriteCond %{DOCUMENT_ROOT}/css/%1/$1 -f
+RewriteRule ^css/(.*)$ css/%1/$1
+
+RewriteCond %{http_cookie} Locale=([^;]+)
+RewriteCond %{DOCUMENT_ROOT}/client/images/%1/$1 -f
+RewriteRule ^client/images/(.*)$ client/images/%1/$1
+
+RewriteCond %{http_cookie} Locale=([^;]+)
+RewriteCond %{DOCUMENT_ROOT}/client/css/%1/$1 -f
+RewriteRule ^client/css/(.*)$ client/css/%1/$1
+
+RewriteRule ^api/([0-9-]+)/?(.*)$ api.php?version=$1&%{QUERY_STRING}

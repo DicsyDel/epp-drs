@@ -1,0 +1,15 @@
+$ORIGIN local.webta.net.
+
+$TTL 14400
+@      IN      SOA   ns hostmaster (
+               2003080800 ; serial number
+               1d12h      ; refresh =  1 day 12 hours
+               15M        ; update retry = 15 minutes
+               3W12h      ; expiry = 3 weeks + 12 hours
+               2h20M      ; minimum = 2 hours + 20 minutes
+               )
+       IN      NS  ns
+       IN      NS  ns.example.net.
+
+; A record for the NS RR above
+ns     IN      A   192.168.2.1

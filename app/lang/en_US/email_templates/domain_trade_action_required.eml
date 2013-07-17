@@ -1,0 +1,12 @@
+[subject]Invoice #{$Invoice->ID} paid. Immediate action required.[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+You have just paid the invoice for {$domain_name}.{$extension} trade.
+
+Domain trade failed.
+The reason of failure: {$domain_trade_failure_reason}
+You can retry to trade this domain in your Registrant Control Panel {$registrant_cp_url}
+
+Please log into your control panel and complete domain trade:
+{$registrant_cp_url}
+
+Regards, {$servicename} Staff

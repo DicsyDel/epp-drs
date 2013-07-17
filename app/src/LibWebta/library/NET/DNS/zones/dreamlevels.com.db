@@ -1,0 +1,25 @@
+; cPanel 
+; Zone file for dreamlevels.com
+$TTL 14400
+@      IN      SOA     ns.hostdad.com. ak.webta.net. ( 2005102000	; serial, todays date+todays
+		14400		; refresh, seconds
+		7200		; retry, seconds
+		3600000		; expire, seconds
+		86400 )		; minimum, seconds
+
+dreamlevels.com. IN NS ns.hostdad.com.
+dreamlevels.com. IN NS ns2.hostdad.com.
+
+dreamlevels.com. IN A 70.84.240.138
+
+localhost.dreamlevels.com. IN A 127.0.0.1
+
+dreamlevels.com. IN MX 0 dreamlevels.com.
+
+mail IN CNAME dreamlevels.com.
+www IN CNAME dreamlevels.com.
+ftp IN A 70.84.240.138
+getwebsoft 14400 IN A  70.84.240.138
+www.getwebsoft 14400 IN A  70.84.240.138
+indiedale 14400 IN A  70.84.240.138
+www.indiedale 14400 IN A  70.84.240.138

@@ -1,0 +1,5 @@
+[subject]Domain transferred away[/subject]
+Dear {if $client.name}{$client.name}{else}client{/if},
+your domain {$domain_name}.{$extension} was transferred away.
+
+Regards, {$servicename} Staff

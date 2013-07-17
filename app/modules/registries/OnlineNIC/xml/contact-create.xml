@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
+<epp xmlns="urn:iana:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+<command>
+<create>
+<contact:create xmlns:contact="urn:iana:xml:ns:contact-1.0" xsi:schemaLocation="urn:iana:xml:ns:con tact-1.0 contact-1.0.xsd">
+<contact:domaintype>{type}</contact:domaintype> 
+<contact:ascii>
+<contact:name>{name}</contact:name> 
+<contact:org>{org}</contact:org> 
+<contact:addr>
+<contact:street1>{street1}</contact:street1>
+<contact:street2>{street2}</contact:street2>
+<contact:city>{city}</contact:city> 
+<contact:sp>{sp}</contact:sp> 
+<contact:pc>{pc}</contact:pc> 
+<contact:cc>{cc}</contact:cc> 
+</contact:addr>
+</contact:ascii>
+<contact:voice>{voice}</contact:voice> 
+<contact:fax>{fax}</contact:fax> 
+<contact:email>{email}</contact:email> 
+<contact:pw>{pw}</contact:pw> 
+</contact:create>
+</create>
+{ext}
+<clTRID>{clTRID}</clTRID> 
+<chksum>{chksum}</chksum>
+</command>
+</epp>

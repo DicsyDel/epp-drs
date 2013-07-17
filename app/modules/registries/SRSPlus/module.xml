@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<module 
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="srsplus" 
+	description="SRSPlus" 
+	version="v3">
+	
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>1</update_all_ns>
+			<max_ns>13</max_ns>
+		</host_objects>
+
+		<ability>		
+			<contact_removal>0</contact_removal>
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>0</change_domain_authcode>					
+			<change_registrar_password>0</change_registrar_password>		
+			<domain_lock>1</domain_lock>
+			<poll_messages>0</poll_messages>
+			<recall_application>0</recall_application>
+			<auto_renewal>0</auto_renewal>
+			<scheduled_delete>0</scheduled_delete>
+			<trade>0</trade>
+			<update_contact>1</update_contact>
+		</ability>
+
+		<registrar_contacts />
+		<allowed_domain_flags />
+		
+	</registry_options>	
+	
+	<registry_errors_override>
+		<error match="like" str="EPPMODNSFAILED (Object does not exist)">
+			Unable to set nameservers. This nameservers are not registered with SRSPlus. You can create nameserver hosts for this domain and use them as nameservers.
+		</error>
+	</registry_errors_override>
+
+	<section name="COM/NET" tlds="com,net">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields></extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+						<field description="Domain password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>	
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />						
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+					
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+	<section tlds="biz,info,org">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>0</timeout>
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+						<field description="Domain password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>	
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+					
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />
+			</contacts>
+		</config>
+	</section>
+	<section tlds="co.uk,me.uk,org.uk">
+		<config>
+			<domain>
+				<registration>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>2</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status />
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>					
+					<timeout>0</timeout>
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>						
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+					
+					
+				
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />			
+			</contacts>
+		</config>
+	</section>
+	<section tlds="cc,tv">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status />
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>					
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+						<field description="Domain password" name="pw" minlength="2" maxlength="255" required="1" type="text"></field>	
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />			
+			</contacts>
+			
+		</config>
+	</section>
+	<section tlds="ws,bz,tc,gs,ms,vg">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<extra_fields />
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status />
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>					
+					<timeout>0</timeout>
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />			
+			</contacts>			
+		</config>
+	</section>
+	
+	<section tlds="us">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<extra_fields>
+						<field description="Anticipated Usage" name="AnticipatedUsage" required="1" type="select">
+							<values>
+								<value name="Business use for profit" value="ForProfit" />
+								<value name="Non-profit business, club, association, religious organization, etc." value="NotForProfit" />
+								<value name="Personal Use" value="Personal" />
+								<value name="Education purposes" value="Educational" />
+								<value name="Government purposes" value="Governmental" />
+							</values>
+						</field>
+						
+						<field description="Customer Type" name="CustomerType" required="1" type="select">
+							<values>
+								<value name="US citizen" value="PersonUSCitizen" />
+								<value name="Permanent US resident" value="PersonPermanentUSResident" />
+								<value name="Organization Incorporated In US" value="OrganizationIncorporatedInUS" />
+								<value name="Organization With Active US Presence" value="OrganizationWithActiveUSPresence" />
+							</values>
+						</field>
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status />
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>					
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />			
+			</contacts>			
+		</config>
+	</section>
+	
+	<section tlds="de">
+		<config>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<extra_fields>
+						<field description="Use Default Registrant Address" type="checkbox" name="UseDefaultRegistrantAddress" required="1" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status />
+					<allow>0</allow>
+					<allow_bulk_transfer>0</allow_bulk_transfer>
+					<timeout>0</timeout>					
+					<fields>
+						<field description="Domain owner E-mail" name="temail" minlength="2" maxlength="255" required="1" type="text"></field>
+					</fields>
+					<contacts>
+						<contact type="registrant"></contact>
+						<contact type="tech"></contact>	
+						<contact type="admin"></contact>	
+						<contact type="billing"></contact>	
+					</contacts>
+					<update_contacts>0</update_contacts>
+				</transfer>
+			</domain>
+			
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)">
+					<fields>
+						<field description="First name" iseditable="1" type="text" name="firstname" required="1" minlength="3" maxlength="60" />
+						<field description="Last name" iseditable="1" type="text" name="lastname" required="1" minlength="3" maxlength="60" />
+						<field description="Organization" iseditable="1" type="text" name="org" required="1" minlength="3" maxlength="60" />
+						<field description="Country" iseditable="1" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<csv file="countrylist.csv" name_index="1" value_index="0" separator=","  />
+						</field>
+						<field iseditable="1" description="State/Province" type="select" name="sp" required="1" minlength="2" maxlength="60">
+							<values>
+								<value name="Outsite US or Canada" value="Outsite US or Canada"></value>
+							</values>
+							<database table="states" value_field="code" name_field="name" />
+						</field>
+						<field description="City" iseditable="1" type="text" name="city" required="1" minlength="2" maxlength="60" />
+						<field description="Postal code/Zip code" iseditable="1" type="text" name="pc" required="1" minlength="2" maxlength="60" />
+						<field description="Address 1" iseditable="1" type="text" name="street1" required="1" minlength="3" maxlength="60" />
+						<field description="Address 2" iseditable="1" type="text" name="street2" required="0" minlength="3" maxlength="60" />
+						<field description="Phone" iseditable="1" type="phone" name="voice" required="1" />
+						<field description="Email" iseditable="1" type="text" name="email" required="1" minlength="2" maxlength="81" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="firstname" />
+							<field name="lastname" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>					
+				</group>
+			</contact_groups>
+
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="%d8" />
+				<contact group="generic" required="1" type="tech" name="Technical" new_id="%d8" />
+				<contact group="generic" required="0" type="admin" name="Administrative" new_id="%d8" />
+				<contact group="generic" required="0" type="billing" name="Billing" new_id="%d8" />			
+			</contacts>			
+		</config>
+	</section>
+</module>

@@ -1,0 +1,88 @@
+.select-control-main, div.select-control-menu {
+    color: #333;
+    font: normal 13px/1.2em Arial,"Lucida Grande",Verdana,sans-serif;
+    font-variant: normal;
+    font-weight: normal;
+    font-size-adjust: none;
+    font-stretch: normal;
+}
+
+a.select-control-main:active,
+a.select-control-main:hover,
+a.select-control-main:visited,
+a.select-control-main {
+	display: block;
+	position: relative;
+	text-decoration: none;
+	background: url(../images/bg-control.gif) no-repeat left;
+	width: 86px;
+	height: 19px;
+	overflow: hidden;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 1.65em;
+	padding: 0 20px 0 8px;
+	color: #666;
+	z-index: 19;
+	white-space: nowrap;
+}
+
+div.select-control-menu {
+	display: block;
+	position: absolute;
+	z-index: 20;
+	top: 0;
+	left: 0;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	white-space:nowrap;
+	min-width:130px;
+}
+
+div.select-control-menu a,
+div.select-control-menu a:hover,
+div.select-control-menu a:visited,
+div.select-control-menu a:active {
+	display: block;
+	color: #00aff0;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	/* margin-right: 2em; */
+	line-height: 1.5em;
+	padding: 1px 5px;
+	padding-right:20px;
+	display:block;
+}
+
+div.select-control-menu a:hover {
+	text-decoration: underline;
+	background-color: #E8EEF7; 
+	border-color:#a2bbdd #fff #fff #a2bbdd;
+}
+
+div.select-control-menu a.select-control-separator {
+	display: block;
+	border-bottom: 1px solid #ccc;
+	<!--
+	margin: .4em 0;
+	padding: 1px 0 0 0;
+	-->
+}
+
+.select-control-main div.select-control-pimp,
+.select-control-main div.select-control-pimp-hover {
+	width: 20px;
+	height: 19px;
+	background: url(../images/control-pimp.gif) no-repeat #fafafa;
+	overflow: hidden;
+	font-size: 1px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 19;
+}
+
+.select-control-main div.select-control-pimp-hover {
+	background: url(../images/control-pimp-hover.gif) no-repeat #fafafa;
+}
