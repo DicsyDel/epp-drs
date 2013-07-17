@@ -12,7 +12,7 @@
 	}
 	else 
 	{
-		$retval = @exec(CONFIG::$ZENDID_PATH, &$output, &$return_var);
+		$retval = @exec(CONFIG::$ZENDID_PATH, $output, $return_var);
 		if ($return_var != 0)
 		{
 			$os = strtolower(php_uname("s"));
@@ -37,7 +37,7 @@
 			
 			if (file_exists(CONFIG::$PATH."/bin/zendid/{$zendid_filename}"))
 			{
-				$retval = @exec(CONFIG::$PATH."/bin/zendid/{$zendid_filename}", &$output, &$return_var);
+				$retval = @exec(CONFIG::$PATH."/bin/zendid/{$zendid_filename}", $output, $return_var);
 				if ($return_var == 0 && $retval)
 					$display["hostid"] = $retval;
 			}
