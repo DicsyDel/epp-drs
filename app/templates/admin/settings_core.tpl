@@ -159,10 +159,6 @@
 		
 		{include file="admin/inc/intable_header.tpl" header="Binary tools" color="Gray"}
 		<tr>
-			<td width="18%">Path to tar binary:</td>
-			<td width="82%"><input name="tar_path" type="text" class="text" id="tar_path" value="{$tar_path}" size="30"> <span class="Webta_Ihelp">Used to extract updates</span></td>
-		</tr>
-		<tr>
 			<td width="18%">Path to zendid binary:</td>
 			<td width="82%"><input name="zendid_path" type="text" class="text" id="zendid_path" value="{$zendid_path}" size="30"> <span class="Webta_Ihelp">Used to generate Zend Host ID</span></td>
 		</tr>

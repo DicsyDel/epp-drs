@@ -67,15 +67,6 @@
 		// template subfolder
 		$tplpath = $display['tplpath'] = 'admin';
 		
-		if (CONFIG::$UPDATE_STATUS == UPDATE_STATUS::AVAILABLE || CONFIG::$UPDATE_STATUS == UPDATE_STATUS::AVAILABLE_AND_EMAIL_SENT)
-		{
-			$display["warn"] = "New updates available. <a href='updates.php'>Click here to see details and approve update.</a>";
-		}
-		elseif(CONFIG::$UPDATE_STATUS == UPDATE_STATUS::SCHEDULED)
-		{
-			$display["warn"] = "Autoupdate scheduled. It will be performed with next auto-update cronjob run";
-		}
-		
 		if (CONTEXTS::$SECURITY_CONTEXT == SECURITY_CONTEXT::ZENDED && $_SESSION["license_check_result"])
 		{
 			$chk_result = unserialize($_SESSION["license_check_result"]);

@@ -91,10 +91,4 @@
 		}
 	}
 	
-	// Show autoup stub if we are in the proccess of updating
-	if (CONFIG::$UPDATE_STATUS == UPDATE_STATUS::RUNNING)
-	{
-		$smarty->display("updating.tpl");
-		exit();
-	}
 ?>

@@ -7,7 +7,6 @@
 	define("DEFAULT_LOCALE", "en_US");	
 
 	 
-	$AUTOUP_SERVICES = array("http://autoup-1.webta.net/data"/*, "http://k2:95/data"*/);
 	define("LICENSE_SERVICE_URL", "https://licserver.epp-drs.com/licserver.php");
 	
 	// Start session
@@ -133,7 +132,6 @@
 	require_once("{$srcpath}/types/enum.DOMAIN_STATUS.php");
 	require_once("{$srcpath}/types/enum.REGISTRY_RESPONSE_STATUS.php");
 	require_once("{$srcpath}/types/enum.CONTACT_TYPE.php");
-	require_once("{$srcpath}/types/enum.UPDATE_STATUS.php");
 	require_once("{$srcpath}/types/enum.FORM_FIELD_TYPE.php");
 	require_once("{$srcpath}/types/enum.APPCONTEXT.php");
 	require_once("{$srcpath}/types/enum.SECURITY_CONTEXT.php");
@@ -169,7 +167,6 @@
 	Core::Load("UI/Smarty/Smarty.class.php", "{$srcpath}/Lib");
 	Core::Load("UI/Smarty/SmartyExt.class.php", "{$srcpath}/Lib");
 	Core::Load("Data/Validation/class.Validator.php");
-	Core::Load("Distribution");
 			
 	//
 	// Load EPP-DRS classes
