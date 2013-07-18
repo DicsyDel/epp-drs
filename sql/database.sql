@@ -263,7 +263,6 @@ INSERT INTO `config` (`id`,`key`,`value`) VALUES
 (2,'menustyle','0'),
 (3,'user_prefix','u'),
 (4,'paging_items','20'),
-(6,'update_status','0'),
 (7,'login','admin'),
 (8,'email_dsn',''),
 (9,'email_copy','1'),

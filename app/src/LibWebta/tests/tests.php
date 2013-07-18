@@ -160,9 +160,6 @@
 	#require_once("{$libpath}/NET/REST/tests.php");
 	#$test_libwebta->addTestCase(new NET_REST_Test());
 	
-	// Distribution tests
-	require_once("{$libpath}/Distribution/tests.php");
-	$test_libwebta->addTestCase(new Distribution_Test());
 	
 	$sapi_type = php_sapi_name();
 	if (substr($sapi_type, 0, 3) != 'cli')

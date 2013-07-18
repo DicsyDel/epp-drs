@@ -68,37 +68,6 @@
 		$license_check_result = unserialize($_SESSION["license_check_result"]);
 		$display["expire_date"] = date("Y-m-d", $license_check_result->expire_date);
 	}
-		
-	
-	$AutoUpdateClient = new AutoUpdateClient();
-
-	//
-	// Prepare
-	//
-	try
-	{
-		foreach ((array)$AUTOUP_SERVICES as $svc)
-			$AutoUpdateClient->AddService($svc);
-			
-		$AutoUpdateClient->SetProductID(CONFIG::$PRODUCT_ID);
-		$AutoUpdateClient->SetLocalRevision(CONFIG::$APP_REVISION);
-		
-		// Bind event listener
-		$AutoUpdateClient->SetEventHandler(new AutoupEventHandler());
-		
-		$display["rows"] = $db->GetAll("SELECT * FROM updatelog ORDER BY id DESC");
-		foreach ($display["rows"] as &$row)
-		{
-			$hops = array();
-			$hops[] = $row["from_revision"];
-			$hops = array_merge($hops, $AutoUpdateClient->ListHops($row["from_revision"], $row["to_revision"]));
-			$row["releases"] = implode(" &rarr; ", $hops);
-		}
-	}
-	catch(Exception $e)
-	{
-		$display["is_autoup_server_down"] = true;
-	}
 	
 	require_once ("src/append.inc.php");
 ?>
