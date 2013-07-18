@@ -211,14 +211,7 @@
 		 * @see APPCONTEXT
 		 */
 		public static $INLINE_HELP;
-		
-		/**
-		 * Path to tar command-line tool
-		 *
-		 * @staticvar string
-		 */
-		public static $TAR_PATH;
-		
+
 		/**
 		 * Path to php command-line tool
 		 *

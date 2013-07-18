@@ -281,7 +281,6 @@ INSERT INTO `config` (`id`,`key`,`value`) VALUES
 (422,'allow_NS_record','1'),
 (423,'allow_CNAME_record','1'),
 (424,'rotate_log_every','7'),
-(425,'tar_path','/bin/tar'),
 (426,'zendid_path',''),
 (427,'inline_help','1'),
 (429,'phone_format','+[cc]-[2-4]-[4-10]'),
