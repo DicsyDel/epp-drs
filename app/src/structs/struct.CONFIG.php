@@ -211,14 +211,7 @@
 		 * @see APPCONTEXT
 		 */
 		public static $INLINE_HELP;
-		
-		/**
-		 * Path to tar command-line tool
-		 *
-		 * @staticvar string
-		 */
-		public static $TAR_PATH;
-		
+
 		/**
 		 * Path to php command-line tool
 		 *
@@ -233,20 +226,7 @@
 		 */
 		public static $ZENDID_PATH;
 		
-		/**
-		 * EPP-DRS update status. Member of UPDATE_STATUS
-		 *
-		 * @staticvar string
-		 * @see UPDATE_STATUS
-		 */
-		public static $UPDATE_STATUS;
 		
-		/**
-		 * Equal to true is EPP-DRS being automatically updated in this moment.
-		 *
-		 * @staticvar string
-		 */
-		public static $ISUPDATERUNNING;
 		
 		/**
 		 * Unified postback URL for all payment modules that extend IPostBackPaymentModule.

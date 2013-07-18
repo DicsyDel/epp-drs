@@ -10,7 +10,6 @@
 						"MailInvoiceObserver" => SRC_PATH."/observers/class.MailInvoiceObserver.php",
 						"RegistryInvoiceObserver" => SRC_PATH."/observers/class.RegistryInvoiceObserver.php",
 						"BalanceInvoiceObserver" => SRC_PATH."/observers/class.BalanceInvoiceObserver.php",
-						"AutoupEventHandler" => SRC_PATH."/class.AutoupEventHandler.php",
 						"DataForm"	=> SRC_PATH."/class.DataForm.php",
 						"DataFormField"	=> SRC_PATH."/class.DataFormField.php",
 						"Punycode" => SRC_PATH."/class.Punycode.php",
