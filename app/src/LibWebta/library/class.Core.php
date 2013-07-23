@@ -369,7 +369,7 @@
 		 * @return object
 		 * @static 
 		 */
-		public static function GetDBInstance($connection_info = NULL, $use_nconnect = false, $driver = 'mysqli', $conn_type = DB_SERVER_MASTER)
+		public static function GetDBInstance($connection_info = NULL, $use_nconnect = false, $driver = 'mysqli', $conn_type = 'DB_SERVER_MASTER')
 		{		    
 		    if (function_exists("NewADOConnection"))
 		    {
