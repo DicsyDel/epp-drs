@@ -1,4 +1,4 @@
-<?
+<?php
 	class Smarty_CompilerExt extends Smarty_Compiler 
 	{
 		function __construct()

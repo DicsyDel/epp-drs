@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class PayPalPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule
 	{

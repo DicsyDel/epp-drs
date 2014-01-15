@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require("src/prepend.inc.php");
 	
 	$display["title"] = "Object update details";

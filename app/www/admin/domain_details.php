@@ -1,4 +1,4 @@
-<?
+<?php
 	require_once('src/prepend.inc.php');
 	
 	$domaininfo = $db->GetRow("SELECT * FROM domains WHERE id=?", array($req_domainid));

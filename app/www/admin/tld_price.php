@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require_once('src/prepend.inc.php');
 		
     $tldinfo = $db->GetRow("SELECT * FROM tlds WHERE TLD=?", array($req_TLD));

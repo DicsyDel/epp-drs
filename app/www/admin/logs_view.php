@@ -1,4 +1,4 @@
-<? 
+<?php
 	require("src/prepend.inc.php");
 
 	if (CONFIG::$DEV_DEMOMODE == 1)

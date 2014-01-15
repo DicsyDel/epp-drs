@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require_once('src/prepend.inc.php');
 	
     $display["title"] = _("Settings &nbsp;&raquo;&nbsp; Client profile Additional fields&nbsp;&raquo;&nbsp;Add / Edit");

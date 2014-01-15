@@ -1,4 +1,4 @@
-<?
+<?php
 
 	class SetComPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule
 	{

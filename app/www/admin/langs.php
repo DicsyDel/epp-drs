@@ -1,4 +1,4 @@
-<?
+<?php
 	require_once('src/prepend.inc.php');	
 	$display["title"] = "Settings &nbsp;&raquo;&nbsp; Languages &nbsp;&raquo;&nbsp; List";
 	

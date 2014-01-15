@@ -1,4 +1,4 @@
-<?
+<?php
     class PreregistrationUpdateProcess implements IProcess
     {
         public $ThreadArgs;

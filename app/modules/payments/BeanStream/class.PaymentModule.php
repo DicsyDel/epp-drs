@@ -1,4 +1,4 @@
-<?
+<?php
 	class BeanStreamPaymentModule extends AbstractPaymentModule implements IDirectPaymentModule
 	{
 		/**

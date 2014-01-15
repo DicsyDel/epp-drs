@@ -1,4 +1,4 @@
-<?
+<?php
 	class OfflineBankPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule
 	{
 		/**

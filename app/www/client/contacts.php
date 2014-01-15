@@ -1,4 +1,4 @@
-<? 
+<?php
 	require_once('src/prepend.inc.php');
 	
 	if ((int)$req_id > 0)

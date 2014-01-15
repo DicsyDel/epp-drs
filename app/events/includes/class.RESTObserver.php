@@ -1,4 +1,4 @@
-<?
+<?php
 	/**
 	 * Base methods for building REST-based observer.
 	 * @sdk-doconly

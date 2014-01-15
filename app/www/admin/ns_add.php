@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require("src/prepend.inc.php"); 
 	
 	$display["title"] = "Settings&nbsp;&raquo;&nbsp;Managed DNS&nbsp;&raquo;&nbsp;Nameservers&nbsp;&raquo;&nbsp;Add";

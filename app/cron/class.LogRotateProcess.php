@@ -1,4 +1,4 @@
-<?
+<?php
     class LogRotateProcess implements IProcess
     {
         public $ThreadArgs;

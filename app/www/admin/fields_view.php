@@ -1,4 +1,4 @@
-<? 
+<?php 
     require_once('src/prepend.inc.php');
 
     $display["help"] = _("On this page you can edit additional form fields for client registration form.");

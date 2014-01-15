@@ -1,4 +1,4 @@
-<?
+<?php
 	class ProxyPay3PaymentModule extends AbstractPaymentModule implements IDirectPaymentModule
 	{
 		/**

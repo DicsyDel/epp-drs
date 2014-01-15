@@ -1,4 +1,4 @@
-<?
+<?php
 
 	/**
      * This file is a part of EPP-DRS <http://epp-drs.com> distribution.

@@ -1,4 +1,4 @@
-<?
+<?php
 	class PollQueueEventProcess implements IProcess
     {
         public $ThreadArgs;

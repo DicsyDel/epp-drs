@@ -31,6 +31,3 @@ Ext.apply(Ext.ux.webta.GridViewer.columnRenderers.messages.status, {
 	transferRequested: "<?=_("Transfer requested")?>",
 	expired: "<?=_("Expired")?>"
 });
-
-
-

@@ -1,4 +1,4 @@
-<?
+<?php
 	$enable_json = true;
 	include("../src/prepend.inc.php");
 	

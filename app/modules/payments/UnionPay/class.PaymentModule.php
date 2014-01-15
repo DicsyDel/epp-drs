@@ -1,4 +1,4 @@
-<?
+<?php
 	class UnionPayPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule
 	{
 		/**

@@ -1,4 +1,4 @@
-<?
+<?php
 	$enable_json = true;
 	require_once('../src/prepend.inc.php');
 	

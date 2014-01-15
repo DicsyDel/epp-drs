@@ -1,4 +1,4 @@
-<? 
+<?php
 	include("src/prepend.inc.php");
 	
 	$display["total_invoices"] = $db->GetOne("SELECT COUNT(*) FROM invoices WHERE userid = ?", array($_SESSION['userid']));
