@@ -748,7 +748,7 @@
 						}
 						
 						$domain->SetContact($Contact, $contact_type);
-						
+
 						// If contact was loaded (db/registry) store it in contact cache
 						if ($Contact)
 						{
@@ -786,10 +786,6 @@
 				// For EPP based LOCK means this flag presence
 				$domain->IsLocked = true;
 			}
-
-//var_dump($domain);
-//echo "ENDE";
-//var_dump($Resp);
 			return $domain;
 		}
 		

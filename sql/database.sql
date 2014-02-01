@@ -1,5 +1,3 @@
-
-
 DROP TABLE IF EXISTS `callcodes`;
 CREATE TABLE `callcodes` (
   `id` int(10) unsigned NOT NULL auto_increment,

@@ -4,7 +4,7 @@
     <!-- 
     Каждый манифест должен начинаться с тега <module>
     -->
-    
+ 
     <xs:element name="module">
         <xs:complexType>
             <xs:sequence>
@@ -21,15 +21,15 @@
             
             <!-- Мажорная версия EPP-DRS для которой писался модулью К примеру: v2 -->
             <xs:attribute name="version" use="required" type="xs:NMTOKEN"/>
-            
+
             <!-- Имя директории с кодом модуля -->
             <xs:attribute name="codebase" use="optional" type="simpleName"></xs:attribute>
-            
+ 
             <!-- XSD Schema URL -->
             <xs:attribute name="schemaLocation" use="required" type="xs:string" />
         </xs:complexType>
     </xs:element>
-       
+ 
       <xs:complexType name="registry_errors_override">
           <xs:sequence>
               <xs:element name="error" minOccurs="0" maxOccurs="unbounded">
@@ -37,7 +37,7 @@
                       
                       <!-- Тип совпадения строки ошибки. like или equal -->
                       <xs:attribute name="match" type="match_type" use="required"></xs:attribute>
-                      
+ 
                       <!-- Строка соответствует ошибке которая передается 4 аргументом 
                                в TransportResponse возвращаемым методом Transport::Request -->
                        <xs:attribute name="str" type="xs:string" use="required"></xs:attribute>
@@ -45,12 +45,12 @@
                </xs:element>
            </xs:sequence>
        </xs:complexType>
-       
+ 
     <!-- Этот раздел манивфеста описывает различные свойства регистри-->
     <xs:element name="registry_options">
         <xs:complexType>
             <xs:sequence>
-                
+ 
                 <!-- Раздел посвящен обьектам HOST-->
                 <xs:element ref="host_objects"/>
                 
@@ -64,22 +64,22 @@
                 <xs:element ref="allowed_domain_flags"/>
                 
                 <xs:element name="policy" minOccurs="0"></xs:element>
-       
-                
+
+
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+ 
     <!-- Раздел посвящен обьектам HOST-->
     <xs:element name="host_objects">
         <xs:complexType>
             <xs:sequence>
                 <!-- Нужно ли регистрировать Nameservers и Nameservershost на регистри (Мананджит ли регистри наимсервера и наимсерверхосты)-->
                 <xs:element ref="is_managed"/>
-                
+
                 <!-- Нужно ли при обновлении наимсерверов у домена, посылать на регистри список всех текущих наимсерверов, или же только изменения.-->
                 <xs:element ref="update_all_ns"/>
-               
+ 
                 <!-- Максимальное кол-во наимсерверов которые разрешено прописывтать у домена-->
                 <xs:element minOccurs="0" maxOccurs="1" ref="max_ns"/>
             </xs:sequence>
@@ -88,7 +88,7 @@
     <xs:element name="is_managed" type="boolean"/>
     <xs:element name="update_all_ns" type="boolean"/>
     <xs:element name="max_ns" type="xs:integer" />
-    
+ 
     <!-- Возможности регистри к некоторым операциям -->
     <xs:element name="ability">
         <xs:complexType>
@@ -142,7 +142,7 @@
             	<!-- Контакты доступны между разными секциями манифеста -->
             	<xs:element minOccurs="0" maxOccurs="1"
             		name="section_shared_contacts" type="boolean">
-            	</xs:element>
+            	</xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -207,7 +207,7 @@
                 <xs:element minOccurs="0" ref="idn"/>
                 
                 <!-- Секция служит для описания различных операций над доменом-->
-                <xs:element ref="domain"/> 
+                <xs:element ref="domain"/>
                 
                 <!-- Секция описывает группы контактов и их конфиг -->
                 <xs:element name="contact_groups" minOccurs="1" maxOccurs="1" >
@@ -231,8 +231,8 @@
                                         
                                         <!-- Список полей которые отвечают за имя контакта и за мыло -->
                                         <xs:element ref="display_fields"></xs:element>
-                                        
-                                 
+
+
                                         <!-- Дополнительные поля для регистрации контактов -->
                                         <xs:element minOccurs="0" ref="extra_fields"/>
                                         
@@ -245,7 +245,7 @@
 						                		</xs:sequence>
 						                	</xs:complexType>
 						                </xs:element>
-                                                                                
+ 
                                     </xs:all>
                                     <xs:attribute name="name" use="required" type="xs:NCName"></xs:attribute>
                                     
@@ -253,10 +253,10 @@
                                     
                                     <!-- Привязывается ли контакты из этой группы к домену (нужно для OnlineNIC)-->
                                     <xs:attribute name="assoc_with_domain" type="xs:boolean"></xs:attribute>
-                                    
+ 
                                     <!-- Контакт группы можно использовать для всех TLD секции -->
                                     <xs:attribute name="apply-to-section" type="xs:boolean"></xs:attribute>
-                                    
+ 
                                     <!-- Контакт группы используется для TLD объявленных в target-group -->
                                     <xs:attribute name="target-group" type="xs:string"></xs:attribute>
 
@@ -265,9 +265,9 @@
                         </xs:sequence>                        
                     </xs:complexType>
                 </xs:element>
-                    
 
-                    
+
+
                 <xs:element name="contact_target_groups" minOccurs="0" maxOccurs="1">
                 	<xs:complexType>
                 		<xs:sequence>
@@ -285,7 +285,7 @@
                 			</xs:element>
                 		</xs:sequence>
                 	</xs:complexType>
-                </xs:element> 
+                </xs:element>
                     
                 <!-- Секция описывает контакты которые поддерживает регистри -->
                 <xs:element ref="contacts"/>
@@ -333,13 +333,13 @@
                                     <xs:attribute name="maxlength" type="xs:integer"/>
                                     
                                     <!-- максимальная длинна-->
-                                    <xs:attribute name="minlength" type="xs:integer"/> 
+                                    <xs:attribute name="minlength" type="xs:integer"/>
                                     
                                     <!-- имя поля-->
                                     <xs:attribute name="name" use="required" type="simpleName"/>
                                     
                                     <!-- Пояснения к полю -->
-                                    <xs:attribute name="note"/> 
+                                    <xs:attribute name="note"/>
                                     
                                     <!-- Патерн для проверки валидности поля -->
                                     <xs:attribute name="pattern"/>
@@ -354,19 +354,19 @@
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
-                </xs:element>            	 
+                </xs:element> 
             
                 <!-- Описывает параметры регистрации -->
                 <xs:element ref="registration"/>
                 
                 <!-- Описывает параметры ренью -->
-                <xs:element ref="renewal"/> 
+                <xs:element ref="renewal"/>
                 
                 <!-- Описывает параметры трансфера -->
                 <xs:element ref="transfer"/>
                 <xs:sequence minOccurs="0">
                     <!-- Описывает поддерживаемые флаги для доменов -->
-                    <xs:element ref="allowed_domain_flags"/> 
+                    <xs:element ref="allowed_domain_flags"/>
                 </xs:sequence>
             </xs:sequence>
         </xs:complexType>
@@ -379,7 +379,7 @@
                 <xs:element ref="min_period"/>
                 
                 <!-- максимальный период для регистрации домена -->
-                <xs:element ref="max_period"/> 
+                <xs:element ref="max_period"/>
                 
                 <xs:element name="min_ns" type="xs:integer" minOccurs="0" maxOccurs="1"></xs:element>
                 
@@ -413,7 +413,7 @@
                                     <xs:attribute name="name" use="required" type="simpleName"/>
                                     
                                     <!-- Пояснения к полю -->
-                                    <xs:attribute name="note"/> 
+                                    <xs:attribute name="note"/>
                                     
                                     <!-- Патерн для проверки валидности поля -->
                                     <xs:attribute name="pattern"/>
@@ -452,10 +452,10 @@
                 <xs:element minOccurs="0" ref="allow"/>
                 
                 <!-- минимальный период на который можно зареньюить домен -->
-                <xs:element ref="min_period"/> 
+                <xs:element ref="min_period"/>
                 
                 <!-- максимальный период на который можно зареньюить домен-->
-                <xs:element ref="max_period"/> 
+                <xs:element ref="max_period"/>
                 
                 <!-- Список периодов в которые нужно слать нотификацию регистрантам о том, что их домен должен заэспайрится -->
                 <xs:element ref="notifications"/>
@@ -575,7 +575,7 @@
         <xs:complexType mixed="true">
             
             <!-- Имя флага -->
-            <xs:attribute name="name" use="required"/> 
+            <xs:attribute name="name" use="required"/>
             
             <!-- Имя флага у регистри к примеру clientUpdateProhibite-->
             <xs:attribute name="sysname" use="required" type="xs:NCName"/>
@@ -670,7 +670,7 @@
     
     <xs:element name="database">
         <xs:complexType>
-            <!-- SQL запрос -->        
+            <!-- SQL запрос --> 
         	<xs:sequence minOccurs="0" maxOccurs="1">
         		<xs:element name="sql" type="xs:anySimpleType"/>
         	</xs:sequence>
@@ -680,7 +680,7 @@
             
             <!-- поле в таблице которое будет использоваться в качестве имени-->
             <xs:attribute name="name_field" use="required" type="simpleName"/>
-            
+ 
             <!-- таблица в базе данных -->
             <xs:attribute name="table" use="required" type="allowedTables"/>
 
