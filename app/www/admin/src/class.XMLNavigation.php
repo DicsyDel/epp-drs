@@ -111,7 +111,7 @@
 		 * @param DOMNode $DOMPart
 		 * @param DOMNode $menu_part
 		 */
-		public function AddNode($DOMPart, &$menu_part)
+		public function AddNode($DOMPart, $menu_part)
 		{
             foreach ($DOMPart->childNodes as $node)
             {
@@ -278,7 +278,7 @@
 		* @access protected
 		* @return void
 		*/
-		protected function GetNodes(&$root)
+		protected function GetNodes($root)
 		{
 			foreach ($root->childNodes as $node)
 			{		
