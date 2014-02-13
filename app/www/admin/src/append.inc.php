@@ -1,4 +1,4 @@
-<?			
+<?php			
 	if ($_SESSION["okmsg"] || $okmsg)
 	{
 		$display["okmsg"] = $_SESSION["okmsg"] ? $_SESSION["okmsg"] : $okmsg;

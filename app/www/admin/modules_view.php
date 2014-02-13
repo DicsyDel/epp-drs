@@ -1,4 +1,4 @@
-<?
+<?php
 	$display["help"] = "This page lists all installed registry modules.
 	<br>After you enable any module, you must configure and test it. If two or more modules expose same extension, you can <a href='manage_tld_conflicts.php'>resolve such conflicts</a>.
 	<br>All modules passed registry tests and were certified by registries.";

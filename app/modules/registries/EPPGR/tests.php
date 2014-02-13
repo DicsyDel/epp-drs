@@ -1,4 +1,4 @@
-<?	
+<?php	
 	class EPPGRTests extends UnitTestCase 
 	{
 		/**
@@ -282,7 +282,7 @@
 				
 				
 			////
-			// 10. UPDATE one of the name server’s IP Address
+			// 10. UPDATE one of the name serverï¿½s IP Address
 			//
 			
 			try

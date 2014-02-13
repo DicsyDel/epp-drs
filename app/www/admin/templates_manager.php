@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require_once('src/prepend.inc.php');
 	$display["help"] = "This page allows you to edit all templates. EPP-DRS uses <a target='_blank' href='http://www.smarty.net/'>Smarty Template Engine</a>, thus templates must conform <a href='http://www.smarty.net/manual/en/smarty.for.designers.php' target='_blank'>Smarty syntax</a>
 	<br><span style='color: red;'>Always save backups of original templates before you edit anything! Be extremely carefull, do not brake or remove javascript code!</span>

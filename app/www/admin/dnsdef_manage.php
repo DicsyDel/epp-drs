@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require("src/prepend.inc.php");
 	$display["help"] = _("This page allows you to manage DNS records that will be appended to all DNS zones upon creation.");
 	

@@ -1,4 +1,4 @@
-<?
+<?php
     Core::Load("NET/API/BIND/class.BIND.php");
 	Core::Load("NET/API/BIND/class.RemoteBIND.php");
 	Core::Load("NET/DNS/class.DNSZoneParser.php");

@@ -1,4 +1,4 @@
-<? 
+<?php
 	require("src/prepend.inc.php"); 
 	
 	Core::Load("NET/DNS/class.DNSZoneParser.php");

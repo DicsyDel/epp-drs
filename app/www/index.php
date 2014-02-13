@@ -1,4 +1,4 @@
-<?
+<?php
 	$__start = microtime(true);
 
 	session_start();

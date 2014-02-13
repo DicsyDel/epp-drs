@@ -1,4 +1,4 @@
-<?
+<?php
 	class DBPaymentObserver implements IPaymentObserver
 	{
 		public function __toString()

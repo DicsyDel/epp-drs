@@ -1,4 +1,4 @@
-<? 
+<?php
 	define("NO_TEMPLATES", true);
 	require("src/prepend.inc.php"); 
 	

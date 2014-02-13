@@ -1,4 +1,4 @@
-<?
+<?php
     class CleanZombyUsersProcess implements IProcess
     {
         public $ThreadArgs;

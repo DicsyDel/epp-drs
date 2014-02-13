@@ -1,4 +1,4 @@
-<?
+<?php
 	class SermepaPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule
 	{
 		/**

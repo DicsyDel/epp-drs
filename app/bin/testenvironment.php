@@ -1,4 +1,4 @@
-<?
+<?php
 	// Check POSIX
 	if (!function_exists('posix_getpid')) 
 		$err[] = "<span style='color:red;'>Cannot find posix_getpid function. Make sure that POSIX Functions enabled.</span>";

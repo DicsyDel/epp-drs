@@ -683,7 +683,7 @@
 				CONTACT_TYPE::TECH 			=> 'TechContact'
 			);
 			$contact_list = $domain->GetContactList();
-			
+	
 			$loaded_contacts = array();
 			foreach ($contact_types_map as $contact_type => $resp_property)
 			{
@@ -748,7 +748,7 @@
 						}
 						
 						$domain->SetContact($Contact, $contact_type);
-						
+
 						// If contact was loaded (db/registry) store it in contact cache
 						if ($Contact)
 						{
@@ -786,7 +786,6 @@
 				// For EPP based LOCK means this flag presence
 				$domain->IsLocked = true;
 			}
-			
 			return $domain;
 		}
 		

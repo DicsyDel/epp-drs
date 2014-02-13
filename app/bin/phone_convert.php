@@ -1,4 +1,4 @@
-<?
+<?php
 	$users = $db->Execute("SELECT * FROM users");
 	while ($user = $users->FetchRow())
 	{

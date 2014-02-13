@@ -1,4 +1,4 @@
-<?
+<?php
     class RenewProcess implements IProcess
     {
         public $ThreadArgs;

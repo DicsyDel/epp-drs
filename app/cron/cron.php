@@ -1,4 +1,4 @@
-<?
+<?php
 	declare(ticks = 1);
 	define("NO_TEMPLATES", true);
 	ob_start(); // To avoid "headers already sent"
@@ -11,7 +11,7 @@
 	Core::Load("IO/PCNTL/interface.IProcess.php");
 	Core::Load("IO/PCNTL");
     Core::Load("System/Independent/Shell/ShellFactory");
-    Core::Load("NET/SNMP");
+    //Core::Load("NET/SNMP");
         
     // Get JobLauncher Instance
     $JobLauncher = new JobLauncher(dirname(__FILE__));

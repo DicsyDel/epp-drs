@@ -1,4 +1,4 @@
-<? 
+<?php 
 	require("src/prepend.inc.php");
 		
 	if (!$template_name)

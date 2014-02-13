@@ -1,4 +1,4 @@
-<? 
+<?php 
 	include("src/prepend.inc.php");
 	$display["total_invoices"] = $db->GetOne("SELECT COUNT(*) FROM invoices WHERE hidden=0");
 	$display["pending_invoices"] = $db->GetOne("SELECT COUNT(*) FROM invoices WHERE status=?", array(INVOICE_STATUS::PENDING));

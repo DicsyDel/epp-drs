@@ -1,4 +1,4 @@
-<?
+<?php
     class AssignDiscountProcess implements IProcess
     {
         public $ThreadArgs;

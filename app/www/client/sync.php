@@ -1,4 +1,4 @@
-<? 
+<?php
     include ("src/prepend.inc.php");
 
 	if (isset($req_domainid))

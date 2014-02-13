@@ -1,4 +1,4 @@
-<?  
+<?php  
     /**
      * This file is a part of LibWebta, PHP class library.
      *

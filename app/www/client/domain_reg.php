@@ -1,4 +1,4 @@
-<?
+<?php
 	require_once('src/prepend.inc.php');
 	
 	$display["TLDs"] = $TLDs;
@@ -16,7 +16,7 @@
 		catch(Exception $e)
 		{
 			Log::Log("Cannot get domain object (id={$req_id}), error: {$e->getMessage()}", E_USER_WARNING);
-			$errmsg = $e->getMessage();	
+			$errmsg = $e->getMessage();
 		}
 		
 		Log::Log("DomainName = {$Domain->GetHostName()}", E_USER_NOTICE);
@@ -120,7 +120,7 @@
 				$_POST["ns1"] = CONFIG::$NS1;
 				$_POST["ns2"] = CONFIG::$NS2;
 			}
-			else 
+			else
 			{
 				foreach (array("ns1", "ns2") as $k)
 				{
@@ -133,7 +133,7 @@
 							$exception->AddMessage(sprintf(_("%s cannot be used as nameserver because %s is not registered yet."), $_POST[$k], $full_dmn_name));
 					}
 				}				
-					
+				
 				if ($_POST["ns1"] == $_POST["ns2"])
 					$exception->AddMessage(_("You cannot use the same nameserver twice."));
 			}
@@ -173,7 +173,7 @@
 			    	{
 				    	if ($fieldvalue)
 				    	{
-			    			$Domain->{$fieldname} = $fieldvalue;				    		
+			    			$Domain->{$fieldname} = $fieldvalue;
 				    	}
 			    	}
 			    }
@@ -224,7 +224,7 @@
 	    		}
 	    		
 	    		try
-	    		{			    			    
+	    		{
                 	$Invoice = new Invoice(INVOICE_PURPOSE::DOMAIN_CREATE,$Domain->ID,$_SESSION['userid']);
                 	$Invoice->Description = sprintf(_("%s domain name registration for %s year(s)"), 
                 		$Domain->GetHostName(), $Domain->Period
@@ -234,7 +234,7 @@
 	    		catch(Exception $e)
 	    		{
 	    			$exception->AddMessage(sprintf(_("Cannot create invoice: %s"), $e->getMessage()));
-    				throw $exception;	
+    				throw $exception;
 	    		}
 				
 				$_SESSION["domaininfo"]["extension"] = false;

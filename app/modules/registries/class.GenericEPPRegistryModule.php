@@ -1,4 +1,4 @@
-<?
+<?php
 
 	/**
 	 * Generic EPP Registry Module. 

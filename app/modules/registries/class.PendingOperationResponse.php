@@ -6,7 +6,7 @@
  * @package    Modules
  * @subpackage RegistryModules
  * @sdk
- * @author Marat Komarov <http://webta.net/company.html> 
+ * @author Marat Komarov <http://webta.net/company.html>
  */
 
 
@@ -40,7 +40,7 @@ class PendingOperationResponse extends RegistryResponse
 final class PollTransferResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
-		"TransferStatus" 	=> "int", 
+		"TransferStatus" 	=> "int",
 		"HostName" 			=> "string"
 	);
 	
@@ -51,7 +51,7 @@ final class PollTransferResponse extends PendingOperationResponse
 	{
 		if ($name == 'TransferStatus')
 		{
-			if ($value == TRANSFER_STATUS::APPROVED || 
+			if ($value == TRANSFER_STATUS::APPROVED ||
 				$value == TRANSFER_STATUS::DECLINED ||
 				$value == TRANSFER_STATUS::PENDING ||
 				$value == TRANSFER_STATUS::FAILED)
@@ -80,19 +80,19 @@ final class PollTransferResponse extends PendingOperationResponse
 final class PollOutgoingTransferResponse extends PendingOperationResponse
 {	
 	protected $Properties = array(
-		"TransferStatus" 	=> "string", 
+		"TransferStatus" 	=> "string",
 		"HostName" 			=> "string"
 	);
 
 	/**
-	 * @ignore 
-	 */	
+	 * @ignore
+	 */
 	public function __set($name, $value)
 	{
 		if ($name == 'TransferStatus')
 		{
-			if ($value == OUTGOING_TRANSFER_STATUS::REQUESTED || 
-				$value == OUTGOING_TRANSFER_STATUS::AWAY || 
+			if ($value == OUTGOING_TRANSFER_STATUS::REQUESTED ||
+				$value == OUTGOING_TRANSFER_STATUS::AWAY ||
 				$value == OUTGOING_TRANSFER_STATUS::REJECTED ||
 				$value == OUTGOING_TRANSFER_STATUS::APPROVED)
 			{
@@ -120,8 +120,8 @@ final class PollOutgoingTransferResponse extends PendingOperationResponse
 final class PollCreateDomainResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
-		'ExpireDate' => 'timestamp', 
-		'HostName' => 'string', 
+		'ExpireDate' => 'timestamp',
+		'HostName' => 'string',
 		'Result' => 'bool'
 	);
 }
@@ -132,10 +132,10 @@ final class PollCreateDomainResponse extends PendingOperationResponse
  * @property string $HostName Domain name
  * @property bool $Result True if domain was deleted
  */
-final class PollDeleteDomainResponse extends PendingOperationResponse 
+final class PollDeleteDomainResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
-		'Result' => 'bool', 
+		'Result' => 'bool',
 		'HostName' => 'string'
 	);
 }
@@ -147,11 +147,11 @@ final class PollDeleteDomainResponse extends PendingOperationResponse
  * @property string $Period delegation period
  * @property bool $Result True if owner was changed
  */
-final class PollChangeDomainOwnerResponse extends PendingOperationResponse 
+final class PollChangeDomainOwnerResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
-		'Result' 	=> 'bool', 
-		'HostName'	=> 'string', 
+		'Result' 	=> 'bool',
+		'HostName'	=> 'string',
 		'Period' 	=> 'int'
 	);
 }
@@ -162,10 +162,10 @@ final class PollChangeDomainOwnerResponse extends PendingOperationResponse
  * @property string $HostName Domain name
  * @property bool $Result True if domain was updated
  */
-final class PollUpdateDomainResponse extends PendingOperationResponse 
+final class PollUpdateDomainResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
-		'Result' => 'bool', 
+		'Result' => 'bool',
 		'HostName' => 'string'
 	);
 }
@@ -175,7 +175,7 @@ final class PollUpdateDomainResponse extends PendingOperationResponse
  *
  * @property string $CLID clid of updated contact
  */
-final class PollUpdateContactResponse extends PendingOperationResponse 
+final class PollUpdateContactResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
 		'CLID' => 'string',
@@ -188,7 +188,7 @@ final class PollUpdateContactResponse extends PendingOperationResponse
  *
  * @property string $CLID clid of deleted contact
  */
-final class PollDeleteContactResponse extends PendingOperationResponse 
+final class PollDeleteContactResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
 		'CLID' => 'string',
@@ -201,7 +201,7 @@ final class PollDeleteContactResponse extends PendingOperationResponse
  *
  * @property string $HostName Host name
  */
-final class PollDeleteNamserverHostResponse extends PendingOperationResponse 
+final class PollDeleteNamserverHostResponse extends PendingOperationResponse
 {
 	protected $Properties = array(
 		'HostName' => 'string',

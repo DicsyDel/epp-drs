@@ -61,7 +61,7 @@
 		/**
 		 * FIXME:
 		 *
-		 * @return float or false if нет ограничений
+		 * @return float or false if пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		 */
 		public function GetMinimumAmount();
 	}

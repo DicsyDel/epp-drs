@@ -1,4 +1,4 @@
-<?
+<?php
 	class TwoCheckoutPaymentModule extends AbstractPaymentModule implements IPostBackPaymentModule 
 	{
 		/**
