@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0
+epp-1.0.xsd">
+<command>
+<update>
+<domain:update xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"
+xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0
+domain-1.0.xsd">
+
+	<domain:name>{name}</domain:name>
+
+	<domain:add>
+		<domain:ns>
+		<domain:hostObj>{host1}</domain:hostObj>
+		<domain:hostObj>{host2}</domain:hostObj>
+		</domain:ns>
+	</domain:add>
+
+</domain:update>
+
+</update>
+</command>
+</epp>

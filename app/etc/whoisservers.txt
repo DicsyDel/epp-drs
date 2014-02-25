@@ -56,6 +56,7 @@ conf.au|whois.aunic.net
 co.at|whois.nic.at
 co.jp|whois.nic.ad.jp
 co.uk|whois.nic.uk
+co.za|whois.registry.net.za
 cq.cn|whois.cnnic.net.cn
 csiro.au|whois.aunic.net
 cx|whois.nic.cx

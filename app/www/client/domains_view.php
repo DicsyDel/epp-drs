@@ -114,6 +114,18 @@
 							$RegistryOptions = $Registry->GetManifest()->GetRegistryOptions();
 							if ($RegistryOptions->ability->auto_renewal)
 							{
+								if($Registry->GetModuleName() == 'EPPZA') {
+									$chlist = new Changelist($Domain->GetFlagList());
+									if ($Domain->HasFlag('autoRenew') && $req_action == 'setRenewDisabled')
+										$chlist->Remove('autoRenew');
+									else if (!$Domain->HasFlag('autoRenew') && $req_action == 'setRenewEnabled')
+										$chlist->Add('autoRenew');
+									
+									if (count($chlist->GetAdded()) > 0 || count($chlist->GetRemoved()) > 0) {
+										$Registry->UpdateDomainFlags($Domain, $chlist);
+										//$Domain = $Registry->GetRemoteDomain($Domain);
+									}
+								}
 								$Domain->RenewDisabled = $req_action == "setRenewDisabled";
 								$DbDomain->Save($Domain);
 							}

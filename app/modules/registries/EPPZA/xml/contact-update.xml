@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp:epp xmlns:epp="urn:ietf:params:xml:ns:epp-1.0" xmlns:contact="urn:ietf:params:xml:ns:contact-1.0">
+  <epp:command>
+    <epp:update>
+      <contact:update>
+        <contact:id>{id}</contact:id>
+        <contact:chg>
+          <contact:postalInfo type="loc">
+            <contact:name>{name}</contact:name>
+            <contact:addr>
+              <contact:street>{street1}</contact:street>
+              <contact:street>{street2}</contact:street>
+              <contact:city>{city}</contact:city>
+              <contact:sp>{sp}</contact:sp>
+              <contact:pc>{pc}</contact:pc>
+              <contact:cc>{cc}</contact:cc>
+            </contact:addr>
+          </contact:postalInfo>
+          <contact:voice>{voice}</contact:voice>
+          <contact:fax>{fax}</contact:fax>
+          <contact:email>{email}</contact:email>
+          <contact:authInfo>
+            <contact:pw>{pw}</contact:pw>
+          </contact:authInfo>
+        </contact:chg>
+      </contact:update>
+    </epp:update>
+  </epp:command>
+</epp:epp>
