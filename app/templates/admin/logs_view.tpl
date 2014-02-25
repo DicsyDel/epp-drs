@@ -38,9 +38,7 @@ Ext.onReady(function () {
 			listeners: {
 				render: {
 					fn: function (cmp) {
-						if (Ext.isIE) {
-							cmp.el.select('.x-form-element').setStyle('width', '166px');
-						}
+						cmp.el.select('.x-form-element').setStyle('width', '166px');
 					},
 					delay: 20
 				}
