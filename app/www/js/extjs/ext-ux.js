@@ -146,7 +146,7 @@ Ext.ux.webta.GridViewer = Ext.extend(Ext.grid.GridPanel, {
 
 		if (this.enablePaging) {
 			// Create page size select
-			var pageSizes = this.pageSizes || [10, 20, 50, 100];
+			var pageSizes = this.pageSizes || [20, 50, 100, 400];
 			delete this.pageSizes;
 			var menu = [];
 			var h = this.changePageSize.createDelegate(this);		
