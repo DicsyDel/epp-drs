@@ -79,10 +79,10 @@
 		        	if ($contact_count < 25)
 		        	{
 			        	$smarty_contact["exists"] = $db->GetAll("
-			        		SELECT clid FROM contacts 
-			        		WHERE userid=? AND 
+			        		SELECT clid FROM contacts LEFT JOIN contacts_data ON contacts.clid = contacts_data.contactid
+			        		WHERE userid=? AND contacts_data.field = 'name' AND
 			        		(TLD = ? OR (module_name=? AND section_name=? AND target_index=?)) AND
-			        		groupname=? ORDER BY id ASC
+			        		groupname=? ORDER BY contacts_data.value ASC, contacts.clid ASC
 			        	",	array (	
 							$_SESSION['userid'], 
 							// 
