@@ -14,10 +14,10 @@
 	if ($req_unused)
 	{
 		$sql .= " AND (" . join(" AND ", array(
-			"clid NOT IN (SELECT DISTINCT c_registrant FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_admin FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_tech FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_billing FROM domains)",	
+			"clid NOT IN (SELECT DISTINCT c_registrant FROM domains WHERE c_registrant IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_admin FROM domains WHERE c_admin IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_tech FROM domains WHERE c_tech IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_billing FROM domains WHERE c_billing IS NOT NULL)",	
 		)) . ")"; 
 		
 	}	
