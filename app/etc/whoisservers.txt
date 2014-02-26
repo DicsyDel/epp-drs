@@ -318,3 +318,4 @@ sch.ng|whois.nic.net.ng
 gov.ng|whois.nic.net.ng
 mil.ng|whois.nic.net.ng
 mobi.ng|whois.nic.net.ng
+xxx|whois.nic.xxx
