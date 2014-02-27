@@ -3,7 +3,7 @@
 	include("../src/prepend.inc.php");
 	
 	
-	$sql = "SELECT clid FROM contacts LEFT JOIN contacts_data ON contacts.clid = contacts_data.contactid WHERE userid='{$_SESSION['userid']}' AND contacts_data.field = 'name'";
+	$sql = "SELECT clid FROM contacts WHERE userid='{$_SESSION['userid']}'";
 	
 	if ($req_id)
 	{
@@ -31,7 +31,7 @@
 	
 //	$sort = $req_sort ? mysql_escape_string($req_sort) : "module_name";
 //	$dir = $req_dir ? mysql_escape_string($req_dir) : "ASC";
-	$sql .= " ORDER BY tld ASC, contacts_data.value, module_name ASC";
+	$sql .= " ORDER BY tld ASC, module_name ASC, (SELECT value FROM contacts_data WHERE contacts_data.contactid = contacts.clid AND contacts_data.field = 'name') ASC, (SELECT value FROM contacts_data WHERE contacts_data.contactid = contacts.clid AND contacts_data.field = 'organization') ASC";
 	
 	
 	
