@@ -123,7 +123,7 @@ Ext.ux.webta.GridViewer = Ext.extend(Ext.grid.GridPanel, {
 	enableFilter: true,
 	enablePaging: true,	
 	
-	defaultPageSize: 20,
+	defaultPageSize: 100,
 	
 	linkTplsCache: {},
 	

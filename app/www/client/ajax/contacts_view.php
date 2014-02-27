@@ -38,7 +38,7 @@
 	$response["total"] = $db->GetOne(preg_replace('/clid/', 'COUNT(*)', $sql, 1));
 
 	$start = $req_start ? (int) $req_start : 0;
-	$limit = $req_limit ? (int) $req_limit : 20;
+	$limit = $req_limit ? (int) $req_limit : 100;
 	$sql .= " LIMIT $start, $limit";
 	
 	$response["data"] = array();
