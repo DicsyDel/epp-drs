@@ -430,7 +430,9 @@
 					<allow>1</allow>
 					<allow_bulk_transfer>0</allow_bulk_transfer>
 					<timeout>0</timeout>
-					<fields/>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
 					<contacts></contacts>
 					<update_contacts>0</update_contacts>
 				</transfer>
