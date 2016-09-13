@@ -1477,7 +1477,7 @@ class EPPZARegistryModule extends GenericEPPRegistryModule implements IRegistryM
 
 		
 
-		/* Special case. data is panData but indicates transfer request fialure.*/
+		/* Special case. data is panData but indicates transfer request failure.*/
 		
 		if((string)$domData->getName() == self::ZACR_MSG_TYPE_PAN) {
 			
