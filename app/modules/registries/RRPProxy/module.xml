@@ -430,7 +430,9 @@
 					<allow>1</allow>
 					<allow_bulk_transfer>0</allow_bulk_transfer>
 					<timeout>0</timeout>
-					<fields/>
+					<fields>
+						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
 					<contacts></contacts>
 					<update_contacts>0</update_contacts>
 				</transfer>
@@ -3500,6 +3502,59 @@
 					<timeout>14</timeout>
 					<fields>
 						<field description="Password" name="pw" minlength="2" maxlength="255" required="0" type="text"></field>
+					</fields>
+					<contacts></contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" extends="generic_group" />
+			</contact_groups>
+			<contacts extends="basic_contacts" />
+		</config>
+	</section>
+
+	<section name=".XXX" tlds="xxx">
+		<ability>
+			<auto_renewal>1</auto_renewal>
+		</ability>
+		<config>
+			<idn punycode_encode="1" />
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>13</max_ns>
+					<extra_fields>
+						<field description="IDN language tag" type="select" name="X-IDN-LANGUAGE" required="0" extends="idn_lang_tag_values" />
+					</extra_fields>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>10</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>180</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status></pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					<fields>
+						<field description="Password" name="pw" minlength="6" maxlength="16" required="0" type="text"></field>
 					</fields>
 					<contacts></contacts>
 					<update_contacts>1</update_contacts>

@@ -3,7 +3,7 @@
 	include("../src/prepend.inc.php");
 	
 	
-	$sql = "SELECT clid from contacts WHERE userid='{$_SESSION['userid']}'";
+	$sql = "SELECT clid FROM contacts WHERE userid='{$_SESSION['userid']}'";
 	
 	if ($req_id)
 	{
@@ -14,10 +14,10 @@
 	if ($req_unused)
 	{
 		$sql .= " AND (" . join(" AND ", array(
-			"clid NOT IN (SELECT DISTINCT c_registrant FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_admin FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_tech FROM domains)",
-			"clid NOT IN (SELECT DISTINCT c_billing FROM domains)",	
+			"clid NOT IN (SELECT DISTINCT c_registrant FROM domains WHERE c_registrant IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_admin FROM domains WHERE c_admin IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_tech FROM domains WHERE c_tech IS NOT NULL)",
+			"clid NOT IN (SELECT DISTINCT c_billing FROM domains WHERE c_billing IS NOT NULL)",	
 		)) . ")"; 
 		
 	}	
@@ -31,14 +31,14 @@
 	
 //	$sort = $req_sort ? mysql_escape_string($req_sort) : "module_name";
 //	$dir = $req_dir ? mysql_escape_string($req_dir) : "ASC";
-	$sql .= " ORDER BY tld ASC, module_name ASC";
+	$sql .= " ORDER BY tld ASC, module_name ASC, (SELECT value FROM contacts_data WHERE contacts_data.contactid = contacts.clid AND contacts_data.field = 'name') ASC, (SELECT value FROM contacts_data WHERE contacts_data.contactid = contacts.clid AND contacts_data.field = 'organization') ASC";
 	
 	
 	
 	$response["total"] = $db->GetOne(preg_replace('/clid/', 'COUNT(*)', $sql, 1));
 
 	$start = $req_start ? (int) $req_start : 0;
-	$limit = $req_limit ? (int) $req_limit : 20;
+	$limit = $req_limit ? (int) $req_limit : 100;
 	$sql .= " LIMIT $start, $limit";
 	
 	$response["data"] = array();

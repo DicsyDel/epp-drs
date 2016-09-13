@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<module
+	schemaLocation="http://schemas.epp-drs.com/2008-03-10/registry-module-manifest.xsd"
+	name="eppza"
+	description="ZACR EPP"
+	version="3">
+	<registry_options>
+		<host_objects>
+			<is_managed>1</is_managed>
+			<update_all_ns>1</update_all_ns>
+			<max_ns>5</max_ns>
+		</host_objects>
+		
+		<ability>
+			<contact_removal>1</contact_removal>
+			<change_domain_contact>1</change_domain_contact>
+			<change_domain_authcode>0</change_domain_authcode>
+			<change_registrar_password>1</change_registrar_password>
+			<domain_lock>0</domain_lock>
+			<poll_messages>1</poll_messages>
+			<recall_application>1</recall_application>
+			<auto_renewal>1</auto_renewal>
+			<scheduled_delete>1</scheduled_delete>
+			<trade>1</trade>
+			<update_contact>1</update_contact>
+		</ability>
+		
+		<registrar_contacts />
+		
+		<allowed_domain_flags>
+			<flag iseditable="1" sysname="autoRenew" name="Automatically Renew">ZACR will automatically renew the domain as required.</flag>
+			<flag iseditable="1" sysname="clientHold" name="Client Hold">Suspend the domain. This removes the domain from the registry but has no effect on your ability to update, transfer, delete or renew the domain.</flag>
+			<flag iseditable="0" sysname="serverHold" name="Server Hold">ZACR has suspended the domain. This is usually during the period that a new domain is checked against the provided name servers.</flag>
+			<flag iseditable="0" sysname="inactive" name="Expired">ZACR has either expired the domain or it is pending for deletion. Either renew the domain or cancel the pending delete.</flag>
+			<flag iseditable="0" sysname="pendingDelete" name="Delete in progress">ZACR is waiting 5 days prior to deleting the domain from the registry database.</flag>
+		</allowed_domain_flags>
+	
+	</registry_options>
+	
+	<section name="all" tlds="co.za">
+		<config>
+			<idn>
+				<allowed-utf8-chars><![CDATA[\x{0386}-\x{1FFC}]]></allowed-utf8-chars>
+				<disallowed-utf8-chars><![CDATA[\x{0387}\x{038B}\x{038D}\x{03A2}\x{03CF}\x{1F16}\x{1F17}\x{1F1E}\x{1F1F}\x{1F46}\x{1F47}\x{1F4E}\x{1F4F}\x{1F58}\x{1F5A}\x{1F5C}\x{1F5E}\x{1F7E}\x{1F7F}\x{1FBD}-\x{1FC1}\x{1FC5}\x{1FCD}-\x{1FCF}\x{1FD4}\x{1FD5}\x{1FDC}-\x{1FDF}\x{1FED}-\x{1FF1}\x{1FF5}]]></disallowed-utf8-chars>
+			</idn>
+			<domain>
+				<registration>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<min_ns>2</min_ns>
+					<max_ns>0</max_ns>
+					<extra_fields/>
+				</registration>
+				
+				<renewal>
+					<allow>1</allow>
+					<min_period>1</min_period>
+					<max_period>1</max_period>
+					<notifications>
+						<period>60</period>
+						<period>30</period>
+						<period>20</period>
+						<period>10</period>
+						<period>5</period>
+					</notifications>
+					<min_days>60</min_days>
+				</renewal>
+				
+				<transfer>
+					<pending_status>pendingTransfer</pending_status>
+					<allow>1</allow>
+					<allow_bulk_transfer>1</allow_bulk_transfer>
+					<timeout>14</timeout>
+					
+					<fields/>
+					<contacts>
+						<contact required="1" type="registrant"></contact>
+					</contacts>
+					<update_contacts>1</update_contacts>
+				</transfer>
+				
+				<allowed_domain_flags />
+			</domain>
+			
+			<contact_groups>
+				<group name="generic" title="Generic (Any)" apply-to-section="1">
+					<fields>
+						<field iseditable="1" description="Full name" type="text" name="name" required="1" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Address 1" type="text" name="street1" required="1" minlength="8" maxlength="255" />
+						<field iseditable="1" description="Address 2" type="text" name="street2" required="0" minlength="3" maxlength="255" />
+						<field iseditable="1" description="Postal code" type="text" name="pc" required="1" minlength="1" maxlength="16" />
+						<field iseditable="1" description="City" type="text" name="city" required="1" minlength="2" maxlength="255" />
+						<field iseditable="1" description="State" type="text" name="sp" required="1" minlength="2" maxlength="255"></field>
+						<field iseditable="1" description="Country" type="select" name="cc" required="1" minlength="2" maxlength="2" pattern="/^[A-Za-z]{2}$/">
+							<database table="countries" value_field="code" name_field="name" />
+						</field>
+						<field iseditable="1" description="Email" type="text" name="email" required="1" minlength="3" maxlength="255" pattern="/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/" />
+						<field iseditable="1" description="Phone" type="phone" name="voice" required="1" minlength="4" maxlength="17"/>
+						<field iseditable="1" description="Fax" type="phone" name="fax" required="0"  minlength="4" maxlength="17"/>
+					</fields>
+					
+					<disclose />
+					
+					<display_fields>
+						<name>
+							<field name="name" />
+						</name>
+						<email>
+							<field name="email" />
+						</email>
+					</display_fields>
+				</group>
+			</contact_groups>
+			
+			<contacts>
+				<contact group="generic" required="1" type="registrant" name="Registrant" new_id="syr%d8" />
+			</contacts>
+		</config>
+	</section>
+</module>

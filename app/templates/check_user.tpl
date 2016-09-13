@@ -95,7 +95,7 @@
 	          </tr>
 	          <tr>
 	            <td width="9%" valign=top>&nbsp;</td>
-	            <td width="91%" valign=top>{t}This is the first time I purchase from{/t} {$servicename}</td>
+	            <td width="91%" valign=top>{t}This is the first time I am purchasing from{/t} {$servicename}</td>
 	          </tr>
 	          <tr>
 	

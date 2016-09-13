@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp:epp xmlns:epp="urn:ietf:params:xml:ns:epp-1.0" xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+<!-- host-delete.xml -->
+  <epp:command>
+    <epp:update>
+      <domain:update>
+        <domain:name>{name}</domain:name>
+        <domain:rem>
+          <domain:ns>
+            <domain:hostAttr>
+              <domain:hostName>{host}</domain:hostName>
+            </domain:hostAttr>
+          </domain:ns>
+        </domain:rem>
+      </domain:update>
+    </epp:update>
+  </epp:command>
+</epp:epp>

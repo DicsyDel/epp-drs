@@ -21316,7 +21316,7 @@ Ext.PagingToolbar = Ext.extend(Ext.Toolbar, {
     
     
     
-    pageSize: 20,
+    pageSize: 100,
     
     displayMsg : 'Displaying {0} - {1} of {2}',
     

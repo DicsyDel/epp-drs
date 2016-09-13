@@ -559,7 +559,7 @@ INSERT INTO `countries` (`id`,`name`,`code`,`enabled`,`vat`) VALUES
  (190,'Slovenia','SI',1,0),
  (191,'Solomon Islands','SB',1,0),
  (192,'Somalia','SO',1,0),
- (193,'south Africa','ZA',1,0),
+ (193,'South Africa','ZA',1,0),
  (194,'South Georgia and the South Sandwich Islands','GS',1,0),
  (195,'Spain','ES',1,0),
  (196,'Sri Lanka','LK',1,0),
@@ -1096,7 +1096,16 @@ INSERT INTO `states` (`id`,`name`,`code`,`cc`) VALUES
  (72,'Quebec','QC','CA'),
  (73,'Saskatchewan','SK','CA'),
  (74,'Northwest Territories','NT','CA'),
- (75,'Yukon Territory','YT','CA');
+ (75,'Yukon Territory','YT','CA'),
+ (76,'Eastern Cape','EC','ZA'),
+ (77,'Free State','FS','ZA'),
+ (78,'Gauteng','GT','ZA'),
+ (79,'KwaZulu-Natal','NL','ZA'),
+ (80,'Limpopo','LP','ZA'),
+ (81,'Mpumalanga','MP','ZA'),
+ (82,'Northern Cape','NC','ZA'),
+ (83,'North West','NW','ZA'),
+ (84,'Western Cape','WC','ZA');
 
 
 --

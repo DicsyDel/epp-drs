@@ -53,9 +53,11 @@ com.tr|whois.nic.tr
 com.ru|whois.ripn.ru
 com.tw|whois.twnic.net
 conf.au|whois.aunic.net
+co|whois.nic.co
 co.at|whois.nic.at
 co.jp|whois.nic.ad.jp
 co.uk|whois.nic.uk
+co.za|coza-whois.registry.net.za
 cq.cn|whois.cnnic.net.cn
 csiro.au|whois.aunic.net
 cx|whois.nic.cx
@@ -317,3 +319,5 @@ sch.ng|whois.nic.net.ng
 gov.ng|whois.nic.net.ng
 mil.ng|whois.nic.net.ng
 mobi.ng|whois.nic.net.ng
+xxx|whois.nic.xxx
+za.com|whois.centralnic.com
